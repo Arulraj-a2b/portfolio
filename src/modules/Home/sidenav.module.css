@@ -1,7 +1,6 @@
 .overAll {
   background-color: var(--color-white, #ffffff);
   width: 300px;
-  height: 100%;
   padding: 40px 20px;
   overflow: scroll;
 }
@@ -25,6 +24,7 @@
   background-color: var(--color-primary, #ffb400);
   height: 30px;
   padding: 0 10px;
+  border-radius: 4px;
 }
 .addressList {
   margin-bottom: 16px;

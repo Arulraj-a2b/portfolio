@@ -1,6 +1,6 @@
-import classNames from 'classnames/bind';
-import { ReactNode } from 'react';
-import styles from './flex.module.css';
+import classNames from "classnames/bind";
+import { ReactNode } from "react";
+import styles from "./flex.module.css";
 
 const cx = classNames.bind(styles);
 const defaultProps = {
@@ -27,6 +27,7 @@ type Props = {
   wrap?: boolean;
   className?: string;
   height?: number | string;
+  width?: number | string;
 } & typeof defaultProps;
 
 const Flex = ({
@@ -49,30 +50,31 @@ const Flex = ({
   wrap,
   wrapReverse,
   height,
+  width
 }: Props) => {
   const flexClassName = cx(
     {
-      ['between']: between,
-      ['column']: column && !row,
-      ['around']: around,
-      ['evenly']: evenly,
-      ['center']: center,
-      ['start']: start,
-      ['end']: end,
-      ['middle']: middle,
-      ['top']: top,
-      ['bottom']: bottom,
-      ['rowReverse']: rowReverse,
-      ['columnReverse']: columnReverse,
-      ['wrap']: wrap,
-      ['wrapReverse']: wrapReverse,
-      ['row']: row,
+      ["between"]: between,
+      ["column"]: column && !row,
+      ["around"]: around,
+      ["evenly"]: evenly,
+      ["center"]: center,
+      ["start"]: start,
+      ["end"]: end,
+      ["middle"]: middle,
+      ["top"]: top,
+      ["bottom"]: bottom,
+      ["rowReverse"]: rowReverse,
+      ["columnReverse"]: columnReverse,
+      ["wrap"]: wrap,
+      ["wrapReverse"]: wrapReverse,
+      ["row"]: row,
     },
-    className,
+    className
   );
 
   return (
-    <div style={{ flex, height }} className={flexClassName}>
+    <div style={{ flex, height, width }} className={flexClassName}>
       {children}
     </div>
   );

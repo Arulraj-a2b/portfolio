@@ -1,0 +1,17 @@
+.overAll {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+.cardOverAll {
+  background-color: var(--color-white, #ffffff);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.titleText {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+.myService {
+  margin-bottom: 40px;
+}

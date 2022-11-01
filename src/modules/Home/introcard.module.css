@@ -1,0 +1,26 @@
+.profile {
+  width: 334px;
+  height: 100%;
+}
+.profileCard {
+  background-color: var(--color-white, #ffffff);
+  padding: 40px 50px 0px 50px;
+  border-radius: 8px;
+  background: url(../../images/profileBackground.png);
+  background-size: cover;
+}
+.hireBtn {
+  width: fit-content;
+  margin-top: 30px;
+}
+.des {
+  margin-top: 40px;
+  max-width: 483px;
+  text-align: justify;
+  white-space: break-spaces;
+}
+.nameFlex {
+  margin-top: 40px;
+  padding-bottom: 50px;
+  padding-right: 30px;
+}

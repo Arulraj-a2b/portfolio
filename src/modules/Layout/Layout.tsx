@@ -33,7 +33,9 @@ const Layout = ({ children }: Props) => {
 
   return (
     <Flex between row height={window.innerHeight}>
-      <Flex flex={1} className={styles.scrollStyle}>{children}</Flex>
+      <Flex flex={1} className={styles.scrollStyle}>
+        {children}
+      </Flex>
       <Flex center className={styles.overAll}>
         <SvgContrast className={styles.svgContrast} />
         {data.map((data, index) => {
