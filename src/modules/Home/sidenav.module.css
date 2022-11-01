@@ -1,0 +1,54 @@
+.overAll {
+  background-color: var(--color-white, #ffffff);
+  width: 300px;
+  height: 100%;
+  padding: 40px 20px;
+  overflow: scroll;
+}
+.profile {
+  border-radius: 100%;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+.name {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+.svgContainer {
+  margin: 20px 0;
+}
+.borderBottom {
+  border-bottom: 3px solid var(--color-gray-70, #f0f0f6);
+}
+.ageText {
+  background-color: var(--color-primary, #ffb400);
+  height: 30px;
+  padding: 0 10px;
+}
+.addressList {
+  margin-bottom: 16px;
+  padding-right: 8px;
+}
+.languageText {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.progressBorder {
+  border: 1px solid var(--color-primary, #ffb400);
+  width: 100%;
+  padding: 2px;
+  border-radius: 4px;
+}
+.progressColor {
+  background-color: var(--color-primary, #ffb400);
+  border-radius: 4px;
+  height: 2px;
+}
+.titleFlex {
+  margin-bottom: 8px;
+}
+.btnStyle{
+  margin: 16px 0;
+}
