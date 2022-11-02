@@ -1,11 +1,10 @@
 .overAll {
-  margin-bottom: 40px;
+  padding-top: 40px;
 }
 .cardOverAll {
   background-color: var(--color-white, #ffffff);
   border-radius: 8px;
   padding: 40px 20px;
-  margin-bottom: 20px;
   margin-top: 40px;
 }
 .dateStyle {

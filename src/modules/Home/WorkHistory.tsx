@@ -17,7 +17,7 @@ const WorkList = ({ data }: Props) => {
     <Flex className={styles.cardOverAll}>
       {data.map((list, index) => {
         return (
-          <Flex>
+          <Flex key={index.toString()}>
             <Flex row center>
               <Flex flex={5}>
                 <Text size={18}>{list.course}</Text>
@@ -34,9 +34,9 @@ const WorkList = ({ data }: Props) => {
                 <Text className={styles.dateStyle}>{list.date}</Text>
               </Flex>
               <Flex flex={7}>
-                {list.des.map((desList, index) => {
+                {list.des.map((desList, index1) => {
                   return (
-                    <Text color="gray" size={16} key={index.toString()}>
+                    <Text color="gray" size={16} key={index1.toString()}>
                       {desList}
                     </Text>
                   );
@@ -55,7 +55,7 @@ const WorkList = ({ data }: Props) => {
 
 const WorkHistory = () => {
   return (
-    <Flex>
+    <Flex id='workHistory__home' className={styles.overAll}>
       <Text size={32} bold align="center">
         Work History
       </Text>

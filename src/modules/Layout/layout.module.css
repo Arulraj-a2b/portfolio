@@ -1,7 +1,6 @@
 .overAll {
   background-color: var(--color-white, #ffffff);
   width: 100px;
-  /* height: 100vh; */
   padding: 40px 0;
 }
 .listDiv {
@@ -9,7 +8,4 @@
 }
 .svgContrast {
   margin-bottom: 40px;
-}
-.scrollStyle {
-  overflow: scroll;
 }

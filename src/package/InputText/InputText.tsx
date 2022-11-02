@@ -55,7 +55,7 @@ const InputText = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           placeholder={placeholder}
-          className={inputClassName}
+          className={styles.common}
           style={style}
         />
     </LabelWrapper>

@@ -1,4 +1,7 @@
 .home {
-  padding: 40px;
+  padding: 0px 60px;
+  overflow: scroll;
+}
+.sidDiv {
   overflow: scroll;
 }

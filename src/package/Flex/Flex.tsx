@@ -28,6 +28,7 @@ type Props = {
   className?: string;
   height?: number | string;
   width?: number | string;
+  id?:string;
 } & typeof defaultProps;
 
 const Flex = ({
@@ -50,7 +51,8 @@ const Flex = ({
   wrap,
   wrapReverse,
   height,
-  width
+  width,
+  id
 }: Props) => {
   const flexClassName = cx(
     {
@@ -74,7 +76,7 @@ const Flex = ({
   );
 
   return (
-    <div style={{ flex, height, width }} className={flexClassName}>
+    <div id={id} style={{ flex, height, width }} className={flexClassName}>
       {children}
     </div>
   );

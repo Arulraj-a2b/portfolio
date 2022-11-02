@@ -1,11 +1,14 @@
+import SvgCounty from "../../icons/SvgCounty";
+import SvgEmail from "../../icons/SvgEmail";
 import SvgMobileApp from "../../icons/SvgMobileApp";
+import SvgPhone from "../../icons/SvgPhone";
 import SvgUiDesign from "../../icons/SvgUiDesign";
 import SvgWebDevelopment from "../../icons/SvgWebDevelopment";
 
 export const addressList = [
   {
     title: "Age",
-    value: "24",
+    value: "25",
   },
   {
     title: "Residence",
@@ -143,5 +146,29 @@ export const workList = [
     des: [
       "Worked on Companies Customized UI Component NPM Library. And a UI for managing all the products.",
     ],
+  },
+];
+
+export const contactList = [
+  {
+    icon: <SvgCounty />,
+    list: [
+      { title: "Country", value: "India" },
+      { title: "State", value: "Tamil Nadu" },
+      { title: "City", value: "Salem" },
+      { title: "Street", value: "6/6 H, Thirumalaigiri, Salem - 636307" },
+    ],
+  },
+  {
+    icon: <SvgEmail />,
+    list: [
+      { title: "Email", value: "abofficial1997@gmail.com" },
+      { title: "Skype", value: "https://join.skype.com/invite/wdUBsZhp9MSb" },
+      { title: "Instagram", value: "https://www.instagram.com/arul__ab__" },
+    ],
+  },
+  {
+    icon: <SvgPhone />,
+    list: [{ title: "Phone", value: "+918189838485" }],
   },
 ];

@@ -3,7 +3,6 @@
   background-color: var(--color-white, #ffffff);
   border-radius: 8px;
   padding: 40px 20px;
-  margin-bottom: 20px;
   margin-top: 40px;
 }
 .dateStyle {
@@ -23,4 +22,7 @@
   border-bottom: 3px solid var(--color-gray-70, #f0f0f6);
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.overAll{
+  padding-top: 60px;
 }

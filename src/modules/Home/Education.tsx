@@ -17,7 +17,7 @@ export const EducationList = ({ data }: Props) => {
     <Flex className={styles.cardOverAll}>
       {data.map((list, index) => {
         return (
-          <Flex>
+          <Flex key={index.toString()}>
             <Flex row center>
               <Flex flex={5}>
                 <Text size={18}>{list.course}</Text>
@@ -34,8 +34,8 @@ export const EducationList = ({ data }: Props) => {
                 <Text className={styles.dateStyle}>{list.date}</Text>
               </Flex>
               <Flex flex={7}>
-                {list.des.map((desList, index) => (
-                  <Text color="gray" size={16} key={index.toString()}>
+                {list.des.map((desList, index1) => (
+                  <Text color="gray" size={16} key={index1.toString()}>
                     {desList}
                   </Text>
                 ))}
@@ -52,7 +52,7 @@ export const EducationList = ({ data }: Props) => {
 };
 const Education = () => {
   return (
-    <Flex className={styles.overAll}>
+    <Flex className={styles.overAll} id={'education__home'}>
       <Text size={32} bold align="center">
         Education
       </Text>

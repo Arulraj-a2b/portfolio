@@ -4,6 +4,9 @@ export type textColorsType =
   | "white"
   | "link"
   | "gray"
+  | "error"
+  | "success";
+
 export type textAlignType =
   | "start"
   | "end"

@@ -1,5 +1,6 @@
 .common {
   font-size: 14px;
+  font-family: 'lato';
 }
 .color-primary {
   color: var(--color-gray-20, #2b2b2b);
@@ -13,8 +14,16 @@
 .color-gray {
   color: var(--color-gray-50, #767676);
 }
+.color-error {
+  color: var(--color-error, #fe2222);
+}
+.color-success {
+  color: var(--color-success, #34cc65);
+}
 .bold {
   font-weight: bold;
+  font-family: 'lato-bold';
+
 }
 
 .text-start {
