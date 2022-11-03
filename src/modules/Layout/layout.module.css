@@ -1,11 +1,18 @@
 .overAll {
-  background-color: var(--color-white, #ffffff);
-  width: 100px;
-  padding: 40px 0;
+  overflow: scroll;
+  position: relative;
 }
 .listDiv {
   margin-bottom: 20px;
 }
 .svgContrast {
   margin-bottom: 40px;
+}
+.sideNav {
+  background-color: var(--color-white, #ffffff);
+  width: 100px;
+  padding: 40px 0;
+  position:fixed;
+  right: 0;
+  height: 100%;
 }

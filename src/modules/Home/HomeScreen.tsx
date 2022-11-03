@@ -7,26 +7,99 @@ import MyServices from "./MyServices";
 import Education from "./Education";
 import WorkHistory from "./WorkHistory";
 import LeaveYourInfo from "./LeaveYourInfo";
-import { screenHeight } from "../../utils/constants";
+import { useRef, useState } from "react";
+import SvgHome from "../../icons/SvgHome";
+import SvgContact from "../../icons/SvgContact";
+import SvgCv from "../../icons/SvgCv";
+import SvgPortfolio from "../../icons/SvgPortfolio";
+import SvgService from "../../icons/SvgService";
+import { GRAY_20, GRAY_50, PRIMARY, GRAY_70 } from "../../utils/colors";
 
 const HomeScreen = () => {
+  const section1Ref = useRef<any>();
+  const section2Ref = useRef<any>();
+  const section3Ref = useRef<any>();
+  const section4Ref = useRef<any>();
+  const section5Ref = useRef<any>();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const navHeader = [
+    {
+      headerRef: section1Ref,
+      icon: (
+        <SvgHome
+          fill={activeIndex === 0 ? GRAY_20 : GRAY_50}
+          circleFill={activeIndex === 0 ? PRIMARY : GRAY_70}
+        />
+      ),
+      headerID: "#introCard__home",
+    },
+    {
+      headerRef: section2Ref,
+      icon: (
+        <SvgService
+          fill={activeIndex === 1 ? GRAY_20 : GRAY_50}
+          circleFill={activeIndex === 1 ? PRIMARY : GRAY_70}
+        />
+      ),
+      headerID: "#myServices__home",
+    },
+    {
+      headerRef: section3Ref,
+      icon: (
+        <SvgCv
+          fill={activeIndex === 2 ? GRAY_20 : GRAY_50}
+          circleFill={activeIndex === 2 ? PRIMARY : GRAY_70}
+        />
+      ),
+      headerID: "#education__home",
+    },
+    {
+      headerRef: section4Ref,
+      icon: (
+        <SvgPortfolio
+          fill={activeIndex === 3 ? GRAY_20 : GRAY_50}
+          circleFill={activeIndex === 3 ? PRIMARY : GRAY_70}
+        />
+      ),
+      headerID: "#workHistory__home",
+    },
+    {
+      headerRef: section5Ref,
+      icon: (
+        <SvgContact
+          fill={activeIndex === 4 ? GRAY_20 : GRAY_50}
+          circleFill={activeIndex === 4 ? PRIMARY : GRAY_70}
+        />
+      ),
+      headerID: "#leaveYourInfo__home",
+    },
+  ];
+
   return (
-    <Flex>
-      <Layout>
-        <Flex row>
-          <div className={styles.sidDiv} style={{ height: screenHeight }}>
-            <SideNav />
-          </div>
-          <Flex className={styles.home} height={screenHeight}>
+    <Layout navHeader={navHeader} setActiveIndex={setActiveIndex}>
+      <Flex row>
+        <SideNav />
+        <div style={{ width: 340 }} />
+        <Flex className={styles.home}>
+          <div ref={section1Ref} id="introCard__home">
             <IntroCard />
+          </div>
+          <div ref={section2Ref} id="myServices__home">
             <MyServices />
+          </div>
+          <div ref={section3Ref} id="education__home">
             <Education />
+          </div>
+          <div ref={section4Ref} id="workHistory__home">
             <WorkHistory />
+          </div>
+          <div ref={section5Ref} id="leaveYourInfo__home">
             <LeaveYourInfo />
-          </Flex>
+          </div>
         </Flex>
-      </Layout>
-    </Flex>
+      </Flex>
+    </Layout>
   );
 };
 

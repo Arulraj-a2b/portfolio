@@ -55,7 +55,7 @@ const WorkList = ({ data }: Props) => {
 
 const WorkHistory = () => {
   return (
-    <Flex id='workHistory__home' className={styles.overAll}>
+    <Flex className={styles.overAll}>
       <Text size={32} bold align="center">
         Work History
       </Text>

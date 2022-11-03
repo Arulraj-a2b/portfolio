@@ -3,6 +3,9 @@
   width: 300px;
   padding: 40px 20px;
   overflow: scroll;
+  position: fixed;
+  left: 0;
+  height: 100%;
 }
 .profile {
   border-radius: 100%;
@@ -49,6 +52,6 @@
 .titleFlex {
   margin-bottom: 8px;
 }
-.btnStyle{
+.btnStyle {
   margin: 16px 0;
 }

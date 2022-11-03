@@ -6,7 +6,7 @@ import styles from "./introcard.module.css";
 
 const IntroCard = () => {
   return (
-    <div id={"introCard__home"} className={styles.overAll}>
+    <div className={styles.overAll}>
       <Flex
         row
         between

@@ -24,7 +24,7 @@ const ServiceCard = ({ title, icon, des }: serviceProps) => {
 
 const MyServices = () => {
   return (
-    <Flex className={styles.overAll} id={"myServices__home"}>
+    <Flex className={styles.overAll}>
       <Text size={32} bold align="center" className={styles.myService}>
         My Services
       </Text>

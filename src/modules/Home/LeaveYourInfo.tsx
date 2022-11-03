@@ -97,7 +97,7 @@ const LeaveYourInfo = () => {
   return (
     <>
       {isLoader && <Loader />}
-      <Flex row className={styles.overAll} id='leaveYourInfo__home'>
+      <Flex row className={styles.overAll}>
         <Flex flex={7}>
           <Text size={32} bold>
             Leave us your info

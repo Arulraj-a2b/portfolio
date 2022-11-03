@@ -52,7 +52,7 @@ export const EducationList = ({ data }: Props) => {
 };
 const Education = () => {
   return (
-    <Flex className={styles.overAll} id={'education__home'}>
+    <Flex className={styles.overAll}>
       <Text size={32} bold align="center">
         Education
       </Text>

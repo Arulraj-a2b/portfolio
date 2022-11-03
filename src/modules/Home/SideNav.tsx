@@ -4,12 +4,13 @@ import SvgLinkedIn from "../../icons/SvgLinkedIn";
 import Button from "../../package/Button/Button";
 import Flex from "../../package/Flex/Flex";
 import Text from "../../package/Text/Text";
+import { screenHeight } from "../../utils/constants";
 import { addressList, extraSkill, languagesList, skillList } from "./mock";
 import styles from "./sidenav.module.css";
 
 const SideNav = () => {
   return (
-    <Flex className={styles.overAll}>
+    <Flex className={styles.overAll} height={screenHeight-70}>
       <Flex center>
         <img
           className={styles.profile}
