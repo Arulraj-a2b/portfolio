@@ -27,7 +27,7 @@
   display: flex;
   width: fit-content;
 }
-.dateMargin {
+.dateMarginLeft {
   margin-left: 16px;
 }
 .dateMarginTop {

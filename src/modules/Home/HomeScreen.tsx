@@ -91,10 +91,10 @@ const HomeScreen = () => {
             <MyServices />
           </div>
           <div ref={section3Ref} id="education__home">
-            <Education isMobile data={educationList} title={EDUCATION} />
+            <Education data={educationList} title={EDUCATION} />
           </div>
           <div ref={section4Ref} id="workHistory__home">
-            <Education isMobile data={workList} title={WORK_HISTORY} />{" "}
+            <Education data={workList} title={WORK_HISTORY} />{" "}
           </div>
           <div ref={section5Ref} id="leaveYourInfo__home">
             <LeaveYourInfo />

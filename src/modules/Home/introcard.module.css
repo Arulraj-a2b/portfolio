@@ -16,7 +16,7 @@
   margin-top: 40px;
   max-width: 483px;
   text-align: justify;
-  white-space: break-spaces;
+  /* white-space: break-spaces; */
 }
 .nameFlex {
   margin-top: 40px;
