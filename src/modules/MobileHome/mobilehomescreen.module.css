@@ -1,0 +1,8 @@
+.des {
+  margin-top: 16px;
+}
+.svgMenuFlex {
+  background-color: var(--color-primary, #ffb400);
+  height: 50px;
+  padding: 0 16px;
+}

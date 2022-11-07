@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import Text from "../Text/Text";
+import { textSize } from "../Text/textTypes";
 import styles from "./button.module.css";
 import { buttonHelper } from "./buttonHelper";
 
@@ -15,7 +16,7 @@ type Props = {
   onClick?: (arg: any) => void;
   style?: any;
   onKeyDown?: (arg: any) => void;
-  textSize?: number;
+  textSize?: textSize;
   id?: string;
   type?: "button" | "submit" | "reset";
 };

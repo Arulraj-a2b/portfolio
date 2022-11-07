@@ -1,5 +1,6 @@
 body {
   margin: 0 !important;
+  background-color: #e5e5e5;
 }
 div input textarea {
   outline: none !important;

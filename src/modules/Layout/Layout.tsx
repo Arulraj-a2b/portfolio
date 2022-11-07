@@ -3,7 +3,7 @@ import SvgContrast from "../../icons/SvgContrast";
 import Flex from "../../package/Flex/Flex";
 import styles from "./layout.module.css";
 
-const nearestIndex: any = (
+export const nearestIndex: any = (
   currentPosition: number,
   sectionPositionArray: any[],
   startIndex: number,
@@ -80,6 +80,7 @@ const Layout = ({ children, navHeader, setActiveIndex }: Props) => {
   return (
     <Flex between row className={styles.overAll}>
       <Flex flex={1}>{children}</Flex>
+      <div className={styles.sideDiv}/>
       <Flex center className={styles.sideNav}>
         <SvgContrast className={styles.svgContrast} />
         {navHeader.map((data, index) => {

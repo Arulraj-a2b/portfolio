@@ -1,5 +1,4 @@
 .overAll {
-  overflow: scroll;
   position: relative;
 }
 .listDiv {
@@ -15,4 +14,16 @@
   position:fixed;
   right: 0;
   height: 100%;
+}
+.sideDiv{
+  width: 100px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .sideNav {
+    display: none;
+  }
+  .sideDiv{
+    display: none;
+  }
 }

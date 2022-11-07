@@ -1,11 +1,15 @@
 .overAll {
   padding-top: 60px;
 }
+.overAllMobile {
+  padding-top: 20px;
+}
 .cardOverAll {
   background-color: var(--color-white, #ffffff);
   border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 20px;
+  padding: 16px 0px;
+  /* margin-bottom: 20px; */
+  width: 100%;
 }
 .titleText {
   margin-top: 16px;
@@ -13,4 +17,7 @@
 }
 .myService {
   margin-bottom: 40px;
+}
+.myServiceIsMobile{
+  margin-left: 20px;
 }

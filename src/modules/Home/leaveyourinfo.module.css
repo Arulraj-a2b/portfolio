@@ -2,11 +2,16 @@
   padding-top: 60px;
   padding-bottom: 40px;
 }
+.overAllMobile {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  margin: 0 16px;
+}
 .infoCard {
   background-color: var(--color-white, #ffffff);
   border-radius: 8px;
   padding: 30px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .emailInput {
   margin: 16px 0;
@@ -38,20 +43,32 @@
   border-radius: 8px;
   padding: 30px;
 }
-.countryCard1{
-  background-color: var(--color-white, #ffffff);
-  border-radius: 8px;
-  padding: 30px;
+.countryCardMarginBottom {
   margin-bottom: 20px;
+}
+.countryCard1 {
+  min-width: 400px;
+}
+.countryCardMobile {
+  padding: 20px 12px;
+  /* max-width: 450px; */
 }
 .svgCountry {
   margin-bottom: 20px;
 }
-.dataList{
+.dataList {
   margin-bottom: 11.7px;
 }
-.atag{
+.atag {
   color: var(--color-link, #05c2cf);
-  font-size: 16px;
   text-decoration: none;
+}
+.contactMarginTop {
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 1140px) and (max-width: 1260px) {
+  .titleText {
+    font-size: 28px;
+  }
 }

@@ -5,7 +5,6 @@ import styles from "./homescreen.module.css";
 import IntroCard from "./IntroCard";
 import MyServices from "./MyServices";
 import Education from "./Education";
-import WorkHistory from "./WorkHistory";
 import LeaveYourInfo from "./LeaveYourInfo";
 import { useRef, useState } from "react";
 import SvgHome from "../../icons/SvgHome";
@@ -14,6 +13,8 @@ import SvgCv from "../../icons/SvgCv";
 import SvgPortfolio from "../../icons/SvgPortfolio";
 import SvgService from "../../icons/SvgService";
 import { GRAY_20, GRAY_50, PRIMARY, GRAY_70 } from "../../utils/colors";
+import { getLang } from "../../utils/constants";
+import { educationList, workList } from "./mock";
 
 const HomeScreen = () => {
   const section1Ref = useRef<any>();
@@ -22,6 +23,7 @@ const HomeScreen = () => {
   const section4Ref = useRef<any>();
   const section5Ref = useRef<any>();
   const [activeIndex, setActiveIndex] = useState(0);
+  const { EDUCATION, WORK_HISTORY } = getLang;
 
   const navHeader = [
     {
@@ -80,8 +82,8 @@ const HomeScreen = () => {
     <Layout navHeader={navHeader} setActiveIndex={setActiveIndex}>
       <Flex row>
         <SideNav />
-        <div style={{ width: 340 }} />
-        <Flex className={styles.home}>
+        <div className={styles.sideDiv} />
+        <Flex flex={1} className={styles.home}>
           <div ref={section1Ref} id="introCard__home">
             <IntroCard />
           </div>
@@ -89,10 +91,10 @@ const HomeScreen = () => {
             <MyServices />
           </div>
           <div ref={section3Ref} id="education__home">
-            <Education />
+            <Education isMobile data={educationList} title={EDUCATION} />
           </div>
           <div ref={section4Ref} id="workHistory__home">
-            <WorkHistory />
+            <Education isMobile data={workList} title={WORK_HISTORY} />{" "}
           </div>
           <div ref={section5Ref} id="leaveYourInfo__home">
             <LeaveYourInfo />

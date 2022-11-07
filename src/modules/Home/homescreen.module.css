@@ -1,3 +1,18 @@
 .home {
   padding: 0px 60px;
 }
+
+.sideDiv {
+  width: 340px;
+}
+@media only screen and (max-width: 1390px) {
+  .sideDiv {
+    width: 290px;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .home {
+    padding: 0px 40px;
+  }
+}

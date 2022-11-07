@@ -1,36 +1,29 @@
 import Button from "../../package/Button/Button";
 import Flex from "../../package/Flex/Flex";
 import Text from "../../package/Text/Text";
-import { screenWidth } from "../../utils/constants";
+import { getLang } from "../../utils/constants";
 import styles from "./introcard.module.css";
 
 const IntroCard = () => {
+  const { I_AM_NAME, INTRO, HIRE_ME } = getLang;
+
   return (
-    <div className={styles.overAll}>
-      <Flex
-        row
-        between
-        width={screenWidth - 660}
-        className={styles.profileCard}
-      >
+    <Flex flex={1} className={styles.overAll}>
+      <Flex row between className={styles.profileCard}>
         <Flex className={styles.nameFlex}>
-          <Text bold size={40}>
-            I’m Arulraj
+          <Text bold size={40} className={styles.textSize}>
+            {I_AM_NAME}
           </Text>
-          <Text color="theme" bold size={48}>
+          <Text color="theme" bold size={48} className={styles.textSize}>
             Senior Software{" "}
-            <Text bold size={40} color="primary">
+            <Text bold size={40} color="primary" className={styles.textSize}>
               Engineer
             </Text>
           </Text>
           <Text className={styles.des} size={16} color="gray">
-            Hi, I am Arulraj currently, I am working as a Senior Software
-            Engineer with Squash Apps on website development and app
-            development. I have more than 2 years of experience in React js,
-            React Native, Angular, Redux, Typescript, and Javascript and I have
-            worked on cross-browser compatibility
+            {INTRO}
           </Text>
-          <Button className={styles.hireBtn}>Hire Me</Button>
+          <Button className={styles.hireBtn}>{HIRE_ME}</Button>
         </Flex>
         <img
           className={styles.profile}
@@ -38,7 +31,7 @@ const IntroCard = () => {
           src={require("../../images/profile2.png")}
         />
       </Flex>
-    </div>
+    </Flex>
   );
 };
 

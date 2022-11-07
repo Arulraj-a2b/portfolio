@@ -1,6 +1,5 @@
 .profile {
   width: 334px;
-  height: 100%;
 }
 .profileCard {
   background-color: var(--color-white, #ffffff);
@@ -26,4 +25,61 @@
 }
 .overAll {
   padding-top: 40px;
+}
+
+@media only screen and (min-width: 1250px) and (max-width: 1380px) {
+  .profile {
+    width: 220px;
+  }
+  .des {
+    margin-top: 30px;
+  }
+  .nameFlex {
+    margin-top: 0px;
+    padding-bottom: 24px;
+  }
+  .textSize {
+    font-size: 30px !important;
+  }
+  .profileCard {
+    padding: 10px 20px 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 1380px) and (max-width: 1540px) {
+  .profile {
+    width: 220px;
+  }
+  .des {
+    margin-top: 30px !important;
+  }
+  .nameFlex {
+    margin-top: 0px;
+    padding-bottom: 24px;
+  }
+  .textSize {
+    font-size: 36px !important;
+  }
+  .profileCard {
+    padding: 30px 30px 0px 30px;
+  }
+}
+
+@media only screen and (min-width: 1140px) and (max-width: 1250px) {
+  .profile {
+    width: 200px;
+  }
+  .des {
+    margin-top: 30px;
+  }
+  .nameFlex {
+    margin-top: 0px;
+    padding-bottom: 24px;
+  }
+  .textSize {
+    font-size: 24px !important;
+  }
+  .profileCard {
+    padding: 10px 20px 0px 20px;
+  }
 }

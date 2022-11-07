@@ -6,6 +6,7 @@ import {
   textAlignType,
   textBoldType,
   textTransform,
+  textSize,
 } from "./textTypes";
 
 const defaultProps = {
@@ -17,7 +18,7 @@ type Props = {
   tag: any;
   children: ReactNode;
   className?: string;
-  size?: number;
+  size?: textSize;
   color?: textColorsType;
   bold?: boolean;
   align?: textAlignType;
@@ -30,7 +31,7 @@ const Text = ({
   tag: Element,
   children,
   className,
-  size,
+  size = 14,
   color,
   bold,
   align,
@@ -42,15 +43,12 @@ const Text = ({
       bold,
       [`text-${align}`]: align,
       [`transform-${transform}`]: transform,
+      [`text-${size}`]: size,
     },
     className,
     styles.common
   );
-  return (
-    <Element style={{ fontSize: size }} className={textClassName}>
-      {children}
-    </Element>
-  );
+  return <Element className={textClassName}>{children}</Element>;
 };
 
 Text.defaultProps = defaultProps;

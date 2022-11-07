@@ -1,7 +1,7 @@
 import emailjs from "@emailjs/browser";
+import classNames from "classnames/bind";
 import { useFormik } from "formik";
 import { useState } from "react";
-import SvgCounty from "../../icons/SvgCounty";
 import Button from "../../package/Button/Button";
 import ErrorMessage from "../../package/ErrorMessage/ErrorMessage";
 import Flex from "../../package/Flex/Flex";
@@ -11,12 +11,18 @@ import Loader from "../../package/Loader/Loader";
 import { isEmpty } from "../../package/PackageUtils/validators";
 import Text from "../../package/Text/Text";
 import {
+  EMAIL_KEY,
+  EMAIL_SERVICE_KEY,
+  getLang,
   INVALID_EMAIL_ENTERED,
+  TEMPLATE_KEY,
   THIS_FIELD_REQUIRED,
 } from "../../utils/constants";
 import { isValidEmail } from "../../utils/validators";
 import styles from "./leaveyourinfo.module.css";
 import { contactList } from "./mock";
+
+const cx = classNames.bind(styles);
 
 type formType = {
   userName: string;
@@ -25,6 +31,7 @@ type formType = {
   subject: string;
   message: string;
 };
+
 const initialValues = {
   userName: "",
   userEmail: "",
@@ -32,8 +39,15 @@ const initialValues = {
   subject: "",
   message: "",
 };
-const LeaveYourInfo = () => {
+
+type Props = {
+  isMobile?: boolean;
+};
+
+const LeaveYourInfo = ({ isMobile }: Props) => {
   const [isLoader, setLoader] = useState(false);
+
+  const { LEAVE_INFO, SEND_MESSAGE, CONTACT_INFO } = getLang;
 
   const handleValidation = (values: formType) => {
     const errors: Partial<formType> = {};
@@ -70,16 +84,10 @@ const LeaveYourInfo = () => {
       message: values.message,
     };
     emailjs
-      .send(
-        "service_vg6jcvw",
-        "template_glh81xg",
-        templateParams,
-        "4rq5oSnnD8QxN7rri"
-      )
+      .send(EMAIL_SERVICE_KEY, TEMPLATE_KEY, templateParams, EMAIL_KEY)
       .then(
         (response) => {
           setLoader(false);
-          // console.log("SUCCESS!", response.status, response.text);
           if (response.text === "OK") {
             formik.resetForm();
           } else {
@@ -97,10 +105,13 @@ const LeaveYourInfo = () => {
   return (
     <>
       {isLoader && <Loader />}
-      <Flex row className={styles.overAll}>
-        <Flex flex={7}>
-          <Text size={32} bold>
-            Leave us your info
+      <Flex
+        row={!isMobile}
+        className={cx({ overAll: !isMobile, overAllMobile: isMobile })}
+      >
+        <Flex flex={isMobile ? 1 : 7}>
+          <Text size={isMobile ? 18 : 32} bold className={styles.titleText}>
+            {LEAVE_INFO}
           </Text>
           <Flex flex={1} className={styles.infoCard}>
             <InputText
@@ -158,22 +169,25 @@ const LeaveYourInfo = () => {
               />
             </LabelWrapper>
             <Button onClick={formik.handleSubmit} className={styles.sendBtn}>
-              Send Message
+              {SEND_MESSAGE}
             </Button>
           </Flex>
         </Flex>
-        <Flex flex={5} className={styles.contactFlex}>
-          <Text size={32} bold>
-            Contact information
+        <Flex
+          flex={isMobile ? 1 : 5}
+          className={cx({ contactFlex: !isMobile, contactMarginTop:isMobile })}
+        >
+          <Text size={isMobile ? 18 : 32} bold className={styles.titleText}>
+            {CONTACT_INFO}
           </Text>
-          <div style={{ marginTop: 50 }}>
+          <div style={{ marginTop: 40 }}>
             {contactList.map((data, index) => (
               <Flex
-                className={
-                  contactList.length - 1 === index
-                    ? styles.countryCard
-                    : styles.countryCard1
-                }
+                className={cx("countryCard", {
+                  countryCardMarginBottom: contactList.length - 1 !== index,
+                  countryCard1: !isMobile,
+                  countryCardMobile: isMobile,
+                })}
                 key={index.toString()}
               >
                 <Flex center className={styles.svgCountry}>
@@ -187,14 +201,19 @@ const LeaveYourInfo = () => {
                     key={index1.toString()}
                     className={styles.dataList}
                   >
-                    <Text size={18}>{dataList.title}:</Text>
+                    <Text size={isMobile ? 14 : 18}>{dataList.title}:</Text>
 
                     {dataList.value.includes("https:") ? (
-                      <a className={styles.atag} href={dataList.value} target="_blank">
+                      <a
+                        style={{ fontSize: isMobile ? 12 : 16 }}
+                        className={styles.atag}
+                        href={dataList.value}
+                        target="_blank"
+                      >
                         {dataList.value}
                       </a>
                     ) : (
-                      <Text size={16} color="gray">
+                      <Text size={isMobile ? 12 : 16} color="gray">
                         {dataList.value}
                       </Text>
                     )}

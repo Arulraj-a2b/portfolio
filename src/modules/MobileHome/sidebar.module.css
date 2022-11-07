@@ -1,0 +1,36 @@
+.overAll {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 12;
+}
+.cardStyle {
+  background-color: var(--color-white, #ffffff);
+  height: 100%;
+  width: 200px;
+  padding: 16px;
+}
+.aTag {
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.listTitle {
+  margin-left: 12px;
+}
+.hide {
+  display: none;
+}
+
+/* .animation {
+  background: rgba(239, 108, 0, 0.6);
+  height: 100vh;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+} */
