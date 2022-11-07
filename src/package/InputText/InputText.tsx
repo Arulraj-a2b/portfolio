@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 import LabelWrapper from "../LabelWrapper/LabelWrapper";
 import styles from "./inputtext.module.css";
 import { keyBoardProps } from "./inputTextTypes";
@@ -44,20 +44,20 @@ const InputText = ({
 
   return (
     <LabelWrapper label={label} required={required}>
-        <input
-          maxLength={maxLength}
-          minLength={minLength}
-          onKeyPress={onKeyPress}
-          disabled={disabled}
-          type={keyboardType}
-          onChange={onChange}
-          value={value}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          placeholder={placeholder}
-          className={styles.common}
-          style={style}
-        />
+      <input
+        maxLength={maxLength}
+        minLength={minLength}
+        onKeyPress={onKeyPress}
+        disabled={disabled}
+        type={keyboardType}
+        onChange={onChange}
+        value={value}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder={placeholder}
+        className={inputClassName}
+        style={style}
+      />
     </LabelWrapper>
   );
 };

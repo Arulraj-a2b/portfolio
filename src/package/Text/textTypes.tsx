@@ -15,7 +15,6 @@ export type textAlignType =
   | "center"
   | "justify";
 
-export type textBoldType = "bold" | "semiBold" | "";
 export type textTransform =
   | "capitalize"
   | "lowercase"

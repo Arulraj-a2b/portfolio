@@ -4,7 +4,6 @@ import styles from "./text.module.css";
 import {
   textColorsType,
   textAlignType,
-  textBoldType,
   textTransform,
   textSize,
 } from "./textTypes";
