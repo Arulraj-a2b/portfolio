@@ -35,10 +35,20 @@ const SideNav = ({ isMobile }: Props) => {
             Senior Software Engineering
           </Text>
           <Flex row middle center className={styles.svgContainer}>
-            <SvgGitUp />
-            <div style={{ margin: "0 16px", marginTop: 3 }}>
+            <a
+              target={"_blank"}
+              style={{ textDecoration: "none" }}
+              href="https://github.com/Arulraj-a2b"
+            >
+              <SvgGitUp />
+            </a>
+            <a
+              target={"_blank"}
+              style={{ textDecoration: "none", margin: "0 16px", marginTop: 3 }}
+              href="https://www.linkedin.com/in/abofficial1997"
+            >
               <SvgLinkedIn />
-            </div>
+            </a>
           </Flex>
         </Flex>
       ) : (
@@ -143,9 +153,9 @@ const SideNav = ({ isMobile }: Props) => {
         );
       })}
       <div style={{ paddingTop: 16 }} className={styles.borderBottom} />
-      <Flex start={isMobile}>
+      {/* <Flex start={isMobile}>
         <Button className={styles.btnStyle}>{DOWNLOAD_CV}</Button>
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 };

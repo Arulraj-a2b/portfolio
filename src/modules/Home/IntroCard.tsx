@@ -20,10 +20,12 @@ const IntroCard = () => {
               Engineer
             </Text>
           </Text>
-          <Text align='justify' className={styles.des} size={16} color="gray">
+          <Text align="justify" className={styles.des} size={16} color="gray">
             {INTRO}
           </Text>
-          <Button className={styles.hireBtn}>{HIRE_ME}</Button>
+          <a href="#leaveYourInfo__home">
+            <Button className={styles.hireBtn}>{HIRE_ME}</Button>
+          </a>
         </Flex>
         <img
           className={styles.profile}
