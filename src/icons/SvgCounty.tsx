@@ -12,7 +12,6 @@ const SvgCounty = ({ width, height, className }: typeof defaultProps) => {
       width={width}
       height={height}
       viewBox="0 0 40 40"
-      style={{ cursor: "pointer" }}
       fill="none"
       className={className}
     >

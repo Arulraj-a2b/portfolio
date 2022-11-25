@@ -53,6 +53,8 @@ const LeaveYourInfo = ({ isMobile }: Props) => {
     const errors: Partial<formType> = {};
     if (isEmpty(values.userName)) {
       errors.userName = THIS_FIELD_REQUIRED;
+    } else if (values.userName.length < 3) {
+      errors.userName = "Invalid name";
     }
     if (isEmpty(values.userEmail)) {
       errors.userEmail = THIS_FIELD_REQUIRED;
@@ -64,6 +66,8 @@ const LeaveYourInfo = ({ isMobile }: Props) => {
     }
     if (isEmpty(values.message)) {
       errors.message = THIS_FIELD_REQUIRED;
+    } else if (values.message.length < 70) {
+      errors.message = "Text length should contain at least 70 characters.";
     }
     return errors;
   };
@@ -175,7 +179,7 @@ const LeaveYourInfo = ({ isMobile }: Props) => {
         </Flex>
         <Flex
           flex={isMobile ? 1 : 5}
-          className={cx({ contactFlex: !isMobile, contactMarginTop:isMobile })}
+          className={cx({ contactFlex: !isMobile, contactMarginTop: isMobile })}
         >
           <Text size={isMobile ? 18 : 32} bold className={styles.titleText}>
             {CONTACT_INFO}

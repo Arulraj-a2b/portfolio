@@ -7,20 +7,12 @@ import SvgWebDevelopment from "../../icons/SvgWebDevelopment";
 
 export const addressList = [
   {
-    title: "Age",
-    value: "25",
-  },
-  {
     title: "Residence",
     value: "IND",
   },
   {
     title: "Freelance",
     value: "Available",
-  },
-  {
-    title: "Address",
-    value: "Salem, Tamilnadu.",
   },
 ];
 
@@ -112,13 +104,28 @@ export const educationList = [
     collegeName: "Thiagarajar Polytechic College, Salem",
     date: "2015 - 2017",
     course: "Diploma",
-    des: ["Electronics and communications Engineering.", "Percentage: 89%."],
+    position: "Student",
+    des: [
+      {
+        data: [
+          "Electronics and communications Engineering.",
+          "Percentage: 89%.",
+        ],
+        url: "",
+      },
+    ],
   },
   {
     collegeName: "Thiagarajar College of Engineering, Madurai",
     date: "2017 - 2020",
     course: "Bachelor of Engineering",
-    des: ["Computer Science Engineering.", "CGPA : 7.03"],
+    position: "Student",
+    des: [
+      {
+        data: ["Computer Science Engineering.", "CGPA : 7.03"],
+        url: "",
+      },
+    ],
   },
 ];
 
@@ -127,24 +134,48 @@ export const workList = [
     collegeName: "Squash Apps, Coimbatore",
     date: "April 2022 - Present",
     course: "Senior Software Engineer",
+    position: "Developer",
     des: [
-      "Developing Payment Convenience Android, IOS, and Web Applications Using Ionic Angular framework.",
+      {
+        data: [
+          "Developing Payment Convenience Android, IOS, and Web Applications Using Ionic Angular framework.",
+        ],
+        url: "https://www.payfiniti.com",
+      },
+      {
+        data: [
+          "Developed Office Desk booking Applications Android, IOS Using React Native Cli.",
+        ],
+        url: "https://www.hydesq.com",
+      },
     ],
   },
   {
     collegeName: "Zita, Coimbatore",
     date: "October 2021 - March 2022",
     course: "Frontend Developer",
+    position: "Developer",
     des: [
-      "Developed the front end of the complete AI-powered application in REACT.",
+      {
+        data: [
+          "Developed the front end of the complete AI-powered application in React js.",
+        ],
+        url: "https://www.zita.ai",
+      },
     ],
   },
   {
     collegeName: "ShopUp, Bangalore",
     date: "2020 - October 2021",
     course: "Frontend Developer",
+    position: "Developer",
     des: [
-      "Worked on Companies Customized UI Component NPM Library. And a UI for managing all the products.",
+      {
+        data: [
+          "Worked on Companies Customized UI Component NPM Library. And a UI for managing all the products.",
+        ],
+        url: "https://uikit.shopup.center",
+      },
     ],
   },
 ];

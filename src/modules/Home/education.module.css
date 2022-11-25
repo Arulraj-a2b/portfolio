@@ -42,5 +42,6 @@
   margin-bottom: 20px;
 }
 .desList {
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
+  margin-top: 8px;
 }

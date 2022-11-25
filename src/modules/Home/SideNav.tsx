@@ -26,13 +26,13 @@ const SideNav = ({ isMobile }: Props) => {
           <img
             className={styles.profile}
             alt="Profile"
-            src={require("../../images/profile.jpg")}
+            src={require("../../images/profile.png")}
           />
           <Text size={20} bold className={styles.name}>
             {I_AM_NAME}
           </Text>
           <Text bold color="gray">
-            Software Engineering
+            Senior Software Engineering
           </Text>
           <Flex row middle center className={styles.svgContainer}>
             <SvgGitUp />
@@ -46,7 +46,7 @@ const SideNav = ({ isMobile }: Props) => {
           <Text bold size={18}>
             About Me
           </Text>
-          <Text className={styles.des} size={16} color="gray">
+          <Text align="justify" className={styles.des} size={16} color="gray">
             {INTRO}
           </Text>
         </Flex>
@@ -64,7 +64,12 @@ const SideNav = ({ isMobile }: Props) => {
             <Flex center middle className={styles.ageText}>
               <Text size={16}>{list.title}:</Text>
             </Flex>
-            <Text size={16}>{list.value}</Text>
+            <Text
+              size={16}
+              color={list.value === "Available" ? "success" : "primary"}
+            >
+              {list.value}
+            </Text>
           </Flex>
         );
       })}

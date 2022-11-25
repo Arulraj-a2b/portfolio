@@ -11,6 +11,9 @@
 .color-white {
   color: var(--color-white, #ffffff);
 }
+.color-link {
+  color: var(--color-link, #448aff);
+}
 .color-gray {
   color: var(--color-gray-50, #767676);
 }

@@ -13,11 +13,7 @@ export const getLang = {
   STUDENT: "Student",
   EDUCATION: "Education",
   I_AM_NAME: "I’m Arulraj",
-  INTRO: `Hi, I am Arulraj currently, I am working as a Senior Software
-  Engineer with Squash Apps on website development and app
-  development. I have more than 2.5 years of experience in React js,
-  React Native, Angular, Flutter, Redux, Typescript, and Javascript
-  and I have worked on cross-browser compatibility`,
+  INTRO: `Hi, I am Arulraj Venkadachalam. I have total of 3 years experience in web and App development. Currently I work as a Senior Software Engineer with Squash Apps. Good in React js, React Native (Cli & Expo), Angular, Flutter, Ionic, Redux, Typescript, and Javascript etc.`,
   HIRE_ME: "Hire Me",
   LEAVE_INFO: "Leave us your info",
   SEND_MESSAGE: "Send Message",
