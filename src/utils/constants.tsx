@@ -1,3 +1,5 @@
+/* eslint max-len: ["error", { "code": 2000 }] */
+
 export const screenHeight = window.innerHeight;
 export const screenWidth = window.innerWidth;
 

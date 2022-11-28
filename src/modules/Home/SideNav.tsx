@@ -2,7 +2,6 @@ import classNames from "classnames/bind";
 import SvgExtraSkill from "../../icons/SvgExtraSkill";
 import SvgGitUp from "../../icons/SvgGitUp";
 import SvgLinkedIn from "../../icons/SvgLinkedIn";
-import Button from "../../package/Button/Button";
 import Flex from "../../package/Flex/Flex";
 import Text from "../../package/Text/Text";
 import { getLang, screenHeight } from "../../utils/constants";
@@ -14,7 +13,7 @@ type Props = {
   isMobile?: boolean;
 };
 const SideNav = ({ isMobile }: Props) => {
-  const { INTRO, I_AM_NAME, LANGUAGES, SKILLS, EXTRA_SKILLS, DOWNLOAD_CV } =
+  const { INTRO, I_AM_NAME, LANGUAGES, SKILLS, EXTRA_SKILLS } =
     getLang;
   return (
     <Flex

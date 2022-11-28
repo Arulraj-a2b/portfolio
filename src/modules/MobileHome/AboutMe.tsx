@@ -1,4 +1,3 @@
-import Button from "../../package/Button/Button";
 import Flex from "../../package/Flex/Flex";
 import Text from "../../package/Text/Text";
 import { getLang } from "../../utils/constants";

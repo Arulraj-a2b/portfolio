@@ -1,17 +1,29 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "author": "Arulraj",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "check:types": "tsc --noEmit",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src/ --fix",
+    "prettify": "npx prettier --write src/**.*"
+  },
   "dependencies": {
     "@emailjs/browser": "^3.9.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "classnames": "^2.3.2",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.11",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,11 +33,11 @@
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0"
   },
   "eslintConfig": {
     "extends": [
