@@ -195,7 +195,7 @@ export const contactList = [
     list: [
       { title: "Email", value: "abofficial1997@gmail.com" },
       { title: "Skype", value: "https://join.skype.com/invite/wdUBsZhp9MSb" },
-      { title: "Instagram", value: "https://www.instagram.com/arul__ab__" },
+      // { title: "Instagram", value: "https://www.instagram.com/arul__ab__" },
     ],
   },
   {
