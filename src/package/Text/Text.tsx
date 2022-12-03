@@ -1,16 +1,17 @@
-import classNames from "classnames/bind";
-import { ReactNode } from "react";
-import styles from "./text.module.css";
+import classNames from 'classnames/bind';
+import {ReactNode} from 'react';
+import styles from './text.module.css';
 import {
   textColorsType,
   textAlignType,
   textTransform,
   textSize,
-} from "./textTypes";
+} from './textTypes';
 
 const defaultProps = {
-  tag: "span",
-  color: "primary",
+  tag: 'span',
+  color: 'primary',
+  size: 14,
 };
 
 type Props = {
@@ -30,7 +31,7 @@ const Text = ({
   tag: Element,
   children,
   className,
-  size = 14,
+  size,
   color,
   bold,
   align,
@@ -45,7 +46,7 @@ const Text = ({
       [`text-${size}`]: size,
     },
     className,
-    styles.common
+    styles.common,
   );
   return <Element className={textClassName}>{children}</Element>;
 };

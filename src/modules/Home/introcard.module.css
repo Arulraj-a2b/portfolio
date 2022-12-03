@@ -1,11 +1,14 @@
 .profile {
   width: 334px;
 }
-.profileCard {
+.backgroundColor {
   background-color: var(--color-white, #ffffff);
+  border-radius: 8px;
+}
+.profileCard {
   padding: 40px 50px 0px 50px;
   border-radius: 8px;
-  background: url(../../images/profileBackground.png);
+  background: url(../../images/profileBackground1.png);
   background-size: cover;
 }
 .hireBtn {

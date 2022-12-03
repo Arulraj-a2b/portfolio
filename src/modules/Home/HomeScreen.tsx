@@ -1,20 +1,20 @@
-import Flex from "../../package/Flex/Flex";
-import Layout from "../Layout/Layout";
-import SideNav from "./SideNav";
-import styles from "./homescreen.module.css";
-import IntroCard from "./IntroCard";
-import MyServices from "./MyServices";
-import Education from "./Education";
-import LeaveYourInfo from "./LeaveYourInfo";
-import { useRef, useState } from "react";
-import SvgHome from "../../icons/SvgHome";
-import SvgContact from "../../icons/SvgContact";
-import SvgCv from "../../icons/SvgCv";
-import SvgPortfolio from "../../icons/SvgPortfolio";
-import SvgService from "../../icons/SvgService";
-import { GRAY_20, GRAY_50, PRIMARY, GRAY_70 } from "../../utils/colors";
-import { getLang } from "../../utils/constants";
-import { educationList, workList } from "./mock";
+import Flex from '../../package/Flex/Flex';
+import Layout from '../Layout/Layout';
+import SideNav from './SideNav';
+import styles from './homescreen.module.css';
+import IntroCard from './IntroCard';
+import MyServices from './MyServices';
+import Education from './Education';
+import LeaveYourInfo from './LeaveYourInfo';
+import {useRef, useState} from 'react';
+import SvgHome from '../../icons/SvgHome';
+import SvgContact from '../../icons/SvgContact';
+import SvgCv from '../../icons/SvgCv';
+import SvgPortfolio from '../../icons/SvgPortfolio';
+import SvgService from '../../icons/SvgService';
+import {GRAY_20, GRAY_50, PRIMARY, GRAY_70} from '../../utils/colors';
+import {getLang} from '../../utils/constants';
+import {educationList, workList} from './mock';
 
 const HomeScreen = () => {
   const section1Ref = useRef<any>();
@@ -23,7 +23,7 @@ const HomeScreen = () => {
   const section4Ref = useRef<any>();
   const section5Ref = useRef<any>();
   const [activeIndex, setActiveIndex] = useState(0);
-  const { EDUCATION, WORK_HISTORY } = getLang;
+  const {EDUCATION, WORK_HISTORY} = getLang;
 
   const navHeader = [
     {
@@ -34,7 +34,7 @@ const HomeScreen = () => {
           circleFill={activeIndex === 0 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#introCard__home",
+      headerID: '#introCard__home',
     },
     {
       headerRef: section2Ref,
@@ -44,7 +44,7 @@ const HomeScreen = () => {
           circleFill={activeIndex === 1 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#myServices__home",
+      headerID: '#myServices__home',
     },
     {
       headerRef: section3Ref,
@@ -54,7 +54,7 @@ const HomeScreen = () => {
           circleFill={activeIndex === 2 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#education__home",
+      headerID: '#education__home',
     },
     {
       headerRef: section4Ref,
@@ -64,7 +64,7 @@ const HomeScreen = () => {
           circleFill={activeIndex === 3 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#workHistory__home",
+      headerID: '#workHistory__home',
     },
     {
       headerRef: section5Ref,
@@ -74,7 +74,7 @@ const HomeScreen = () => {
           circleFill={activeIndex === 4 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#leaveYourInfo__home",
+      headerID: '#leaveYourInfo__home',
     },
   ];
 
@@ -94,7 +94,7 @@ const HomeScreen = () => {
             <Education data={educationList} title={EDUCATION} />
           </div>
           <div ref={section4Ref} id="workHistory__home">
-            <Education data={workList} title={WORK_HISTORY} />{" "}
+            <Education data={workList} title={WORK_HISTORY} />{' '}
           </div>
           <div ref={section5Ref} id="leaveYourInfo__home">
             <LeaveYourInfo />

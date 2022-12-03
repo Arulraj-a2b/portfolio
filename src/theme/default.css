@@ -21,3 +21,22 @@
   --color-error: #fe2222;
   --color-success: #34cc65;
 }
+
+body[theme='dark'] {
+  --color-white: #000000;
+  --color-black: #ffffff;
+
+  --color-gray-10: #18191a;
+  --color-gray-20: #ffffff;
+  --color-gray-30: #3a3b3c;
+  --color-gray-40: #242526;
+  --color-gray-50: #767676;
+  --color-gray-60: #e4e6eb;
+  --color-gray-70: #f0f0f6;
+  --color-gray-80: #131313;
+
+  --color-primary: #ffb400;
+  --color-link: #448aff;
+  --color-error: #fe2222;
+  --color-success: #34cc65;
+}

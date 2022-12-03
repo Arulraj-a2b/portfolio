@@ -1,5 +1,6 @@
 .home {
   padding: 0px 60px;
+  background-color: var(--color-gray-80, #e5e5e5);
 }
 
 .sideDiv {

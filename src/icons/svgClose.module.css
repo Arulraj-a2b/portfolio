@@ -1,0 +1,3 @@
+.fillColor {
+  fill: var(--color-black, #000000);
+}

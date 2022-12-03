@@ -9,6 +9,7 @@ const IntroCard = () => {
 
   return (
     <Flex flex={1} className={styles.overAll}>
+      <div className={styles.backgroundColor}>
       <Flex row between className={styles.profileCard}>
         <Flex className={styles.nameFlex}>
           <Text bold size={40} className={styles.textSize}>
@@ -33,6 +34,7 @@ const IntroCard = () => {
           src={require("../../images/profile2.png")}
         />
       </Flex>
+      </div>
     </Flex>
   );
 };

@@ -6,3 +6,7 @@
   height: 50px;
   padding: 0 16px;
 }
+
+.sideDiv {
+  background-color: var(--color-gray-80, #e5e5e5);
+}

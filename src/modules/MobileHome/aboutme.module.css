@@ -17,6 +17,8 @@
 }
 .helloText {
   margin-bottom: 4px;
+  color:#2b2b2b
+
 }
 .nameFlex {
   position: absolute;
@@ -30,4 +32,8 @@
 .des {
   margin-top: 10px;
   padding: 0 16px;
+}
+
+.textDefaultWhite{
+  color:#2b2b2b
 }

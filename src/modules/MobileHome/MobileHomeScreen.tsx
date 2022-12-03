@@ -1,21 +1,23 @@
-import { useRef, useState } from "react";
-import SvgContact from "../../icons/SvgContact";
-import SvgCv from "../../icons/SvgCv";
-import SvgHome from "../../icons/SvgHome";
-import SvgMenu from "../../icons/SvgMenu";
-import SvgPortfolio from "../../icons/SvgPortfolio";
-import SvgService from "../../icons/SvgService";
-import Flex from "../../package/Flex/Flex";
-import { GRAY_20, GRAY_50, PRIMARY, GRAY_70 } from "../../utils/colors";
-import { getLang } from "../../utils/constants";
-import Education from "../Home/Education";
-import LeaveYourInfo from "../Home/LeaveYourInfo";
-import { educationList, workList } from "../Home/mock";
-import MyServices from "../Home/MyServices";
-import SideNav from "../Home/SideNav";
-import AboutMe from "./AboutMe";
-import styles from "./mobilehomescreen.module.css";
-import SideBar from "./SideBar";
+import {useRef, useState} from 'react';
+import SvgContact from '../../icons/SvgContact';
+import SvgContrast from '../../icons/SvgContrast';
+import SvgCv from '../../icons/SvgCv';
+import SvgHome from '../../icons/SvgHome';
+import SvgMenu from '../../icons/SvgMenu';
+import SvgPortfolio from '../../icons/SvgPortfolio';
+import SvgService from '../../icons/SvgService';
+import Flex from '../../package/Flex/Flex';
+import {GRAY_20, GRAY_50, PRIMARY, GRAY_70} from '../../utils/colors';
+import {getLang} from '../../utils/constants';
+import {useTheme} from '../../utils/helpers';
+import Education from '../Home/Education';
+import LeaveYourInfo from '../Home/LeaveYourInfo';
+import {educationList, workList} from '../Home/mock';
+import MyServices from '../Home/MyServices';
+import SideNav from '../Home/SideNav';
+import AboutMe from './AboutMe';
+import styles from './mobilehomescreen.module.css';
+import SideBar from './SideBar';
 
 const MobileHomeScreen = () => {
   const [isMenu, setMenu] = useState(false);
@@ -25,7 +27,7 @@ const MobileHomeScreen = () => {
   const section4Ref = useRef<any>();
   const section5Ref = useRef<any>();
   const [activeIndex, setActiveIndex] = useState(0);
-  const { EDUCATION, WORK_HISTORY } = getLang;
+  const {EDUCATION, WORK_HISTORY} = getLang;
 
   const navHeader = [
     {
@@ -36,8 +38,8 @@ const MobileHomeScreen = () => {
           circleFill={activeIndex === 0 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#introCard__home",
-      title: "Home",
+      headerID: '#introCard__home',
+      title: 'Home',
     },
     {
       headerRef: section2Ref,
@@ -47,8 +49,8 @@ const MobileHomeScreen = () => {
           circleFill={activeIndex === 1 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#myServices__home",
-      title: "My Service",
+      headerID: '#myServices__home',
+      title: 'My Service',
     },
     {
       headerRef: section3Ref,
@@ -58,8 +60,8 @@ const MobileHomeScreen = () => {
           circleFill={activeIndex === 2 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#education__home",
-      title: "Education",
+      headerID: '#education__home',
+      title: 'Education',
     },
     {
       headerRef: section4Ref,
@@ -69,8 +71,8 @@ const MobileHomeScreen = () => {
           circleFill={activeIndex === 3 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#workHistory__home",
-      title: "Work Experience",
+      headerID: '#workHistory__home',
+      title: 'Work Experience',
     },
     {
       headerRef: section5Ref,
@@ -80,8 +82,8 @@ const MobileHomeScreen = () => {
           circleFill={activeIndex === 4 ? PRIMARY : GRAY_70}
         />
       ),
-      headerID: "#leaveYourInfo__home",
-      title: "Contact",
+      headerID: '#leaveYourInfo__home',
+      title: 'Contact',
     },
   ];
 
@@ -90,33 +92,42 @@ const MobileHomeScreen = () => {
 
   return (
     <Flex>
-     
-        <SideBar
-          setActiveIndex={setActiveIndex}
-          close={handleCloseMenu}
-          navHeader={navHeader}
-          isMenu={isMenu}
-        />
+      <SideBar
+        setActiveIndex={setActiveIndex}
+        close={handleCloseMenu}
+        navHeader={navHeader}
+        isMenu={isMenu}
+      />
 
-      <Flex middle className={styles.svgMenuFlex}>
-        <div ref={section1Ref} onClick={handleOpenMenu} id="introCard__home">
+      <Flex row center between className={styles.svgMenuFlex}>
+        <div
+          style={{width: 'fit-content'}}
+          ref={section1Ref}
+          onClick={handleOpenMenu}
+          id="introCard__home">
           <SvgMenu />
+        </div>
+        <div tabIndex={-1} onClick={useTheme}>
+          <SvgContrast className={styles.svgContrast} />
         </div>
       </Flex>
       <AboutMe />
-      <div style={{ backgroundColor: "white" }}>
+      <div className={styles.sideDiv}>
         <SideNav isMobile />
       </div>
-      <div ref={section2Ref} id="myServices__home">
+      <div className={styles.sideDiv} ref={section2Ref} id="myServices__home">
         <MyServices isMobile />
       </div>
-      <div ref={section3Ref} id="education__home">
+      <div className={styles.sideDiv} ref={section3Ref} id="education__home">
         <Education isMobile data={educationList} title={EDUCATION} />
       </div>
-      <div ref={section4Ref} id="workHistory__home">
+      <div className={styles.sideDiv} ref={section4Ref} id="workHistory__home">
         <Education isMobile data={workList} title={WORK_HISTORY} />
       </div>
-      <div ref={section5Ref} id="leaveYourInfo__home">
+      <div
+        className={styles.sideDiv}
+        ref={section5Ref}
+        id="leaveYourInfo__home">
         <LeaveYourInfo isMobile />
       </div>
     </Flex>

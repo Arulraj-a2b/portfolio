@@ -23,6 +23,7 @@
   border: 1px solid var(--color-gray-70, #f0f0f6);
   resize: none;
   outline: none;
+  background-color: var(--color-white, #ffffff);
 }
 .textarea:focus {
   border: 1px solid var(--color-primary, #ffb400) !important;
