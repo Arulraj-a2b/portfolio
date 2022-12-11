@@ -1,31 +1,36 @@
-import classNames from "classnames/bind";
-import SvgExtraSkill from "../../icons/SvgExtraSkill";
-import SvgGitUp from "../../icons/SvgGitUp";
-import SvgLinkedIn from "../../icons/SvgLinkedIn";
-import Flex from "../../package/Flex/Flex";
-import Text from "../../package/Text/Text";
-import { getLang, screenHeight } from "../../utils/constants";
-import { addressList, extraSkill, languagesList, skillList } from "./mock";
-import styles from "./sidenav.module.css";
+import classNames from 'classnames/bind';
+import SvgExtraSkill from '../../icons/SvgExtraSkill';
+import SvgGitUp from '../../icons/SvgGitUp';
+import SvgLinkedIn from '../../icons/SvgLinkedIn';
+import Button from '../../package/Button/Button';
+import Flex from '../../package/Flex/Flex';
+import Text from '../../package/Text/Text';
+import {getLang, RESUME_LINK, screenHeight} from '../../utils/constants';
+import {addressList, extraSkill, languagesList, skillList} from './mock';
+import styles from './sidenav.module.css';
 
 const cx = classNames.bind(styles);
 type Props = {
   isMobile?: boolean;
 };
-const SideNav = ({ isMobile }: Props) => {
-  const { INTRO, I_AM_NAME, LANGUAGES, SKILLS, EXTRA_SKILLS } =
+const SideNav = ({isMobile}: Props) => {
+  const {INTRO, I_AM_NAME, LANGUAGES, SKILLS, EXTRA_SKILLS, DOWNLOAD_CV} =
     getLang;
+
+  const handleDownload = () => {
+    window.open(RESUME_LINK);
+  };
+
   return (
     <Flex
-      className={cx({ overAll: !isMobile, overAllMobile: isMobile })}
-      height={isMobile ? "" : screenHeight - 70}
-    >
+      className={cx({overAll: !isMobile, overAllMobile: isMobile})}
+      height={isMobile ? '' : screenHeight - 70}>
       {!isMobile ? (
         <Flex center>
           <img
             className={styles.profile}
             alt="Profile"
-            src={require("../../images/profile.png")}
+            src={require('../../images/profile.png')}
           />
           <Text size={20} bold className={styles.name}>
             {I_AM_NAME}
@@ -35,17 +40,15 @@ const SideNav = ({ isMobile }: Props) => {
           </Text>
           <Flex row middle center className={styles.svgContainer}>
             <a
-              target={"_blank"}
-              style={{ textDecoration: "none" }}
-              href="https://github.com/Arulraj-a2b"
-            >
+              target={'_blank'}
+              style={{textDecoration: 'none'}}
+              href="https://github.com/Arulraj-a2b">
               <SvgGitUp />
             </a>
             <a
-              target={"_blank"}
-              style={{ textDecoration: "none", margin: "0 16px", marginTop: 3 }}
-              href="https://www.linkedin.com/in/abofficial1997"
-            >
+              target={'_blank'}
+              style={{textDecoration: 'none', margin: '0 16px', marginTop: 3}}
+              href="https://www.linkedin.com/in/abofficial1997">
               <SvgLinkedIn />
             </a>
           </Flex>
@@ -60,7 +63,7 @@ const SideNav = ({ isMobile }: Props) => {
           </Text>
         </Flex>
       )}
-      <div className={styles.borderBottom} style={{ marginBottom: 20 }} />
+      <div className={styles.borderBottom} style={{marginBottom: 20}} />
       {addressList.map((list, index) => {
         return (
           <Flex
@@ -68,21 +71,19 @@ const SideNav = ({ isMobile }: Props) => {
             center
             between
             key={index.toString()}
-            className={styles.addressList}
-          >
+            className={styles.addressList}>
             <Flex center middle className={styles.ageText}>
               <Text size={16}>{list.title}:</Text>
             </Flex>
             <Text
               size={16}
-              color={list.value === "Available" ? "success" : "primary"}
-            >
+              color={list.value === 'Available' ? 'success' : 'primary'}>
               {list.value}
             </Text>
           </Flex>
         );
       })}
-      <div style={{ paddingTop: 16 }} className={styles.borderBottom} />
+      <div style={{paddingTop: 16}} className={styles.borderBottom} />
       <Text size={18} bold className={styles.languageText}>
         {LANGUAGES}
       </Text>
@@ -99,14 +100,14 @@ const SideNav = ({ isMobile }: Props) => {
             </Flex>
             <div className={styles.progressBorder}>
               <div
-                style={{ width: list.value }}
+                style={{width: list.value}}
                 className={styles.progressColor}
               />
             </div>
           </Flex>
         );
       })}
-      <div style={{ paddingTop: 16 }} className={styles.borderBottom} />
+      <div style={{paddingTop: 16}} className={styles.borderBottom} />
       <Text bold size={18} className={styles.languageText}>
         {SKILLS}
       </Text>
@@ -123,14 +124,14 @@ const SideNav = ({ isMobile }: Props) => {
             </Flex>
             <div className={styles.progressBorder}>
               <div
-                style={{ width: list.value }}
+                style={{width: list.value}}
                 className={styles.progressColor}
               />
             </div>
           </Flex>
         );
       })}
-      <div style={{ paddingTop: 16 }} className={styles.borderBottom} />
+      <div style={{paddingTop: 16}} className={styles.borderBottom} />
       <Text bold size={18} className={styles.languageText}>
         {EXTRA_SKILLS}
       </Text>
@@ -140,9 +141,8 @@ const SideNav = ({ isMobile }: Props) => {
             row
             center
             className={styles.addressList}
-            key={index.toString()}
-          >
-            <div style={{ marginRight: 8 }}>
+            key={index.toString()}>
+            <div style={{marginRight: 8}}>
               <SvgExtraSkill />
             </div>
             <Text color="gray" size={16}>
@@ -151,10 +151,12 @@ const SideNav = ({ isMobile }: Props) => {
           </Flex>
         );
       })}
-      <div style={{ paddingTop: 16 }} className={styles.borderBottom} />
-      {/* <Flex start={isMobile}>
-        <Button className={styles.btnStyle}>{DOWNLOAD_CV}</Button>
-      </Flex> */}
+      <div style={{paddingTop: 16}} className={styles.borderBottom} />
+      <Flex start={isMobile}>
+        <Button onClick={handleDownload} className={styles.btnStyle}>
+          {DOWNLOAD_CV}
+        </Button>
+      </Flex>
     </Flex>
   );
 };
