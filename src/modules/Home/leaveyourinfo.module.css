@@ -24,6 +24,7 @@
   resize: none;
   outline: none;
   background-color: var(--color-white, #ffffff);
+  color:var(--color-gray-20, #2b2b2b)
 }
 .textarea:focus {
   border: 1px solid var(--color-primary, #ffb400) !important;
