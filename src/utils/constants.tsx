@@ -12,7 +12,7 @@ export const INVALID_EMAIL_ENTERED = 'Invalid email entered';
 export const INVALID_PHONE_ENTERED = 'Invalid phone number entered';
 
 export const RESUME_LINK =
-  'https://drive.google.com/file/d/1sh6b2mtatYzJvXvgJB48z2-n1xtBARMu/view?usp=sharing';
+  'https://drive.google.com/file/d/1u3UQp6lm6lQCpDJXSAEf2oEE8dNP3r44/view?usp=sharing';
   
 export const getLang = {
   STUDENT: 'Student',
