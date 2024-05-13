@@ -209,7 +209,7 @@ export const contactList = [
     icon: <SvgEmail />,
     list: [
       {title: 'Email', value: 'abofficial1997@gmail.com'},
-      {title: 'Skype', value: 'https://join.skype.com/invite/wdUBsZhp9MSb'},
+      // {title: 'Skype', value: 'https://join.skype.com/invite/wdUBsZhp9MSb'},
       // { title: "Instagram", value: "https://www.instagram.com/arul__ab__" },
     ],
   },
