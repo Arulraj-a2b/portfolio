@@ -13,12 +13,12 @@ export const INVALID_PHONE_ENTERED = 'Invalid phone number entered';
 
 export const RESUME_LINK =
   'https://drive.google.com/file/d/1u3UQp6lm6lQCpDJXSAEf2oEE8dNP3r44/view?usp=sharing';
-  
+
 export const getLang = {
   STUDENT: 'Student',
   EDUCATION: 'Education',
   I_AM_NAME: 'I’m Arulraj',
-  INTRO: `Hi, I am Arulraj Venkadachalam. I have total of 3 years experience in web and App development. Currently I work as a Senior Software Engineer with Squash Apps. Good in React js, React Native (Cli & Expo), Angular, Flutter, Ionic, Redux, Typescript, and Javascript etc.`,
+  INTRO: `Hi, I'm Arulraj Venkadachalam. I have over 4 years of experience in web and app development. Currently, I work as a Software Engineer at Ripple Street. I'm proficient in React.js, React Native (CLI & Expo), Angular, Flutter, Ionic, Redux, TypeScript, JavaScript, GraphQL, etc.`,
   HIRE_ME: 'Hire Me',
   LEAVE_INFO: 'Leave us your info',
   SEND_MESSAGE: 'Send Message',
