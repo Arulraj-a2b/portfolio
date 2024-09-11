@@ -20,7 +20,7 @@ const AboutMe = () => {
             {I_AM_NAME}
           </Text>
           <Text color="theme" bold size={30}>
-            Senior Software{' '}
+            Software{' '}
             <Text className={styles.textDefaultWhite} bold size={24}>
               Engineer
             </Text>

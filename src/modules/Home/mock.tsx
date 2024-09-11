@@ -11,10 +11,10 @@ export const addressList = [
     title: 'Residence',
     value: 'IND',
   },
-  {
-    title: 'Freelance',
-    value: 'Available',
-  },
+  // {
+  //   title: 'Freelance',
+  //   value: 'Available',
+  // },
 ];
 
 export const languagesList = [
@@ -139,7 +139,10 @@ export const workList = [
     des: [
       {
         data: [
-          'Developing a marketing platform to connect brands with their biggest fans at home through Android, iOS, and Web Applications using the React framework.',
+          'Ripple Street is the leading business-to-humans (B2H) marketing platform, connecting brands with their most passionate fans at home. For over a decade, our proprietary platform has driven brand awareness and sales, empowering brands to IDENTIFY, ENGAGE, AMPLIFY, and MEASURE their success.',
+          'We have developed cross-platform mobile applications for both iOS and Android, enhancing user engagement and brand visibility.',
+          'Designed and implemented responsive interfaces tailored for both mobile and tablet devices, ensuring a seamless user experience across different platforms.',
+          'Took ownership of core features, optimizing performance and eliminating redundant code to enhance maintainability.',
         ],
         url: 'https://www.ripplestreet.com',
       },
@@ -153,7 +156,20 @@ export const workList = [
     des: [
       {
         data: [
-          'Developing Payment Convenience Android, iOS, and Web Applications Using the Ionic Angular framework.',
+          'Led the development of a hospital management system consisting of five key applications: Doctor, Patient, Nurse.',
+          'Developed cross-platform mobile applications for both iOS and Android.',
+          'Led a team of one engineer to ensure smooth project execution.',
+          'Designed and implemented responsive interfaces for mobile and tablet devices.',
+          'Utilized a theme-based NPM package to ensure consistency and scalability across the project.',
+          '',
+        ],
+        url: '',
+      },
+      {
+        data: [
+          'Developed web, Android, and iOS applications that provide seamless payment solutions.',
+          'Took ownership of core features, optimizing performance and eliminating redundant code to enhance maintainability.',
+          'Led a team of two engineers, overseeing feature implementation and ensuring timely delivery.',
         ],
         url: 'https://www.payfiniti.com',
       },
@@ -161,7 +177,7 @@ export const workList = [
         data: [
           'Developed Office Desk booking Applications Android, IOS Using React Native Cli.',
         ],
-        url: 'https://www.hydesq.com',
+        url: '',
       },
     ],
   },
@@ -173,7 +189,9 @@ export const workList = [
     des: [
       {
         data: [
-          'Developed the front end of the complete AI-powered application in React js.',
+          `Harnessed the power of Zita's AI to streamline the resume evaluation process, reducing candidate selection time by 50% compared to traditional methods.`,
+          'Developed the entire front-end of the AI-powered application using React.js.',
+          'Took complete ownership of the project, overseeing all aspects from design to deployment.',
         ],
         url: 'https://www.zita.ai',
       },
@@ -187,7 +205,8 @@ export const workList = [
     des: [
       {
         data: [
-          'Worked on Companies Customized UI Component NPM Library. And a UI for managing all the products.',
+          'Developed a customized UI component NPM library tailored for companies to streamline and standardize UI across various projects.',
+          'Designed and implemented a UI for managing all products, ensuring intuitive interaction and efficient management capabilities.',
         ],
         url: 'https://uikit.shopup.center',
       },

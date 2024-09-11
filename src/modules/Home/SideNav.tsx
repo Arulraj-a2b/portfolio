@@ -36,7 +36,7 @@ const SideNav = ({isMobile}: Props) => {
             {I_AM_NAME}
           </Text>
           <Text bold color="gray">
-            Senior Software Engineering
+            Software Engineering
           </Text>
           <Flex row middle center className={styles.svgContainer}>
             <a

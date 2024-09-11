@@ -12,13 +12,13 @@ export const INVALID_EMAIL_ENTERED = 'Invalid email entered';
 export const INVALID_PHONE_ENTERED = 'Invalid phone number entered';
 
 export const RESUME_LINK =
-  'https://drive.google.com/file/d/1u3UQp6lm6lQCpDJXSAEf2oEE8dNP3r44/view?usp=sharing';
+  'https://drive.google.com/file/d/1WtsQMILk9np3dJNkDxaUGabOxEsQLNQb/view?usp=sharing';
 
 export const getLang = {
   STUDENT: 'Student',
   EDUCATION: 'Education',
   I_AM_NAME: 'I’m Arulraj',
-  INTRO: `Hi, I'm Arulraj Venkadachalam. I have over 4 years of experience in web and app development. Currently, I work as a Software Engineer at Ripple Street. I'm proficient in React.js, React Native (CLI & Expo), Angular, Flutter, Ionic, Redux, TypeScript, JavaScript, GraphQL, etc.`,
+  INTRO: `Hi, I'm Arulraj Venkadachalam. I have more than four years of experience in web and app development. Currently, I work as a Software Engineer at Ripple Street. I am proficient in technologies such as React.js, React Native (CLI & Expo), Angular, Flutter, Ionic, Redux, TypeScript, JavaScript, and GraphQL.`,
   HIRE_ME: 'Hire Me',
   LEAVE_INFO: 'Leave us your info',
   SEND_MESSAGE: 'Send Message',
