@@ -201,7 +201,7 @@ export const DATA = {
       dates: "present",
       active: true,
       description:
-        "We have developed cross-platform mobile applications for both [IOS](https://apps.apple.com/us/app/ripple-street-activities/id1623388148) and [Android](https://play.google.com/store/apps/details?id=com.ripplestreetfun), enhancing user engagement and brand visibility.",
+        "We have developed cross-platform mobile applications for both IOS and Android, enhancing user engagement and brand visibility.",
       technologies: [
         "React Native",
         "Redux",
