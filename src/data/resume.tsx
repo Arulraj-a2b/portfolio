@@ -289,58 +289,58 @@ export const DATA = {
       image: "",
       video: "/testosteronology.mov",
     },
-    {
-      title: "DrugRound",
-      href: "https://play.google.com/store/apps/details?id=com.drug_round",
-      dates: "-",
-      active: true,
-      description:
-        "I took full ownership of the frontend development for mobile applications (Android and iOS), ensuring the consistent delivery of high-quality, user-centric experiences across platforms. My focus was on crafting intuitive, responsive interfaces and optimizing performance to meet the needs of our users, all while ensuring a seamless experience on both Android and iOS devices.",
-      technologies: [
-        "React Native (CLI)",
-        "Redux",
-        "Typescript",
-        "Javascript",
-        "Offline Caching",
-      ],
-      links: [
-        {
-          type: "Android",
-          href: "https://play.google.com/store/apps/details?id=com.drug_round",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "IOS",
-          href: "https://apps.apple.com/in/app/druground/id1527065049",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      // video: "/testosteronology.mov",
-    },
-    {
-      title: "Dindigul Thookusatti",
-      href: "https://play.google.com/store/apps/details?id=com.thooku_satti",
-      dates: "-",
-      active: true,
-      description:
-        "I took full ownership of the frontend development for the Android mobile application, ensuring the consistent delivery of high-quality, user-centric experiences.",
-      technologies: [
-        "React Native (CLI)",
-        "Redux",
-        "Typescript",
-        "Javascript",
-        "Google Maps API",
-      ],
-      links: [
-        {
-          type: "Android",
-          href: "https://play.google.com/store/apps/details?id=com.thooku_satti",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      // video: "/testosteronology.mov",
-    },
+    // {
+    //   title: "DrugRound",
+    //   href: "https://play.google.com/store/apps/details?id=com.drug_round",
+    //   dates: "-",
+    //   active: true,
+    //   description:
+    //     "I took full ownership of the frontend development for mobile applications (Android and iOS), ensuring the consistent delivery of high-quality, user-centric experiences across platforms. My focus was on crafting intuitive, responsive interfaces and optimizing performance to meet the needs of our users, all while ensuring a seamless experience on both Android and iOS devices.",
+    //   technologies: [
+    //     "React Native (CLI)",
+    //     "Redux",
+    //     "Typescript",
+    //     "Javascript",
+    //     "Offline Caching",
+    //   ],
+    //   links: [
+    //     {
+    //       type: "Android",
+    //       href: "https://play.google.com/store/apps/details?id=com.drug_round",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //     {
+    //       type: "IOS",
+    //       href: "https://apps.apple.com/in/app/druground/id1527065049",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //   ],
+    //   image: "",
+    //   // video: "/testosteronology.mov",
+    // },
+    // {
+    //   title: "Dindigul Thookusatti",
+    //   href: "https://play.google.com/store/apps/details?id=com.thooku_satti",
+    //   dates: "-",
+    //   active: true,
+    //   description:
+    //     "I took full ownership of the frontend development for the Android mobile application, ensuring the consistent delivery of high-quality, user-centric experiences.",
+    //   technologies: [
+    //     "React Native (CLI)",
+    //     "Redux",
+    //     "Typescript",
+    //     "Javascript",
+    //     "Google Maps API",
+    //   ],
+    //   links: [
+    //     {
+    //       type: "Android",
+    //       href: "https://play.google.com/store/apps/details?id=com.thooku_satti",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //   ],
+    //   image: "",
+    //   // video: "/testosteronology.mov",
+    // },
   ],
 } as const;
