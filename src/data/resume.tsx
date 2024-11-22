@@ -4,6 +4,10 @@ import { HomeIcon } from "lucide-react";
 export const DATA = {
   name: "Arulraj Venkadachalam",
   initials: "AV",
+  email: "abofficial1997@gmail.com",
+  phoneNumber: "+91 8189838485",
+  resumeUrl:
+    "https://drive.google.com/file/d/1WtsQMILk9np3dJNkDxaUGabOxEsQLNQb/view?usp=sharing",
   url: "https://arulraj1997.netlify.app",
   location: "Salem, Tamil Nadu, India",
   locationLink: "https://maps.app.goo.gl/LnDvumCcyvShFhTq8",
@@ -71,9 +75,21 @@ export const DATA = {
       // },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:abofficial1997@gmail.com",
         icon: Icons.email,
-        navbar: false,
+        navbar: true,
+      },
+      whatsapp: {
+        name: "Send WhatsApp",
+        url: "https://wa.me/8189838485",
+        icon: Icons.whatsapp,
+        navbar: true,
+      },
+      phone: {
+        name: "Call",
+        url: "tel:+91 8189838485",
+        icon: Icons.phone,
+        navbar: true,
       },
     },
   },

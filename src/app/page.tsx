@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { Button } from "@/components/ui/button";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -29,16 +30,23 @@ export default function Page() {
                 text={DATA.description}
               />
             </div>
-            <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <AvatarImage
-                  className="object-cover"
-                  alt={DATA.name}
-                  src={DATA.avatarUrl}
-                />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
+            <div className="flex flex-col space-y-2 items-center">
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <Avatar className="size-28 border">
+                  <AvatarImage
+                    className="object-cover"
+                    alt={DATA.name}
+                    src={DATA.avatarUrl}
+                  />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+              </BlurFade>
+              <Link href={DATA.resumeUrl}>
+                <Button variant="outline" type="button">
+                  Resume
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
