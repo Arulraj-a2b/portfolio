@@ -12,9 +12,8 @@ export const DATA = {
   location: "Salem, Tamil Nadu, India",
   locationLink: "https://maps.app.goo.gl/LnDvumCcyvShFhTq8",
   description:
-    "Software Engineer at Ripple Street. I love building frontend technologies and helping people. Very active on LinkedIn.",
-  summary:
-    "I graduated with a [Bachelor of Engineering (BE) in Computer Science and Engineering from Thiagarajar College of Engineering, Madurai, in 2020](/#education). With over [four years of experience in web and app development](/#work), I specialize in building efficient, user-centric frontend solutions. Currently, I work as a [Software Engineer at Ripple Street](/#work), where I leverage technologies like React.js, React Native, Angular, and GraphQL to create impactful applications. I am passionate about technology, continuous learning, and helping others achieve their goals.",
+    "Senior Software Engineer, Frontend Lead at The Reward Store. I love building frontend technologies and helping people. Very active on LinkedIn.",
+  summary: `I graduated with a [Bachelor of Engineering (BE) in Computer Science and Engineering from Thiagarajar College of Engineering, Madurai, in 2020](/#education). With over [five and a half years of experience in web and mobile application development](#work), I specialize in building efficient, user-centric frontend solutions. Currently, I work as a [Senior Software Engineer at The Reward Store](#work), where I develop impactful applications using a modern tech stack. My expertise spans React.js, React Native (CLI & Expo), Angular, Ionic, Redux, TypeScript, JavaScript, GraphQL, npm, AWS Amplify, and more. I am passionate about technology, continuous learning, and helping others achieve their goals.`,
   avatarUrl: "/me.png",
   skills: [
     "React.js",
@@ -96,18 +95,37 @@ export const DATA = {
   work: [
     {
       company: "Ripple Street India Pvt Ltd",
+      href: "https://www.therewardstore.com",
+      badges: [],
+      location: "Bangalore",
+      title: "Senior Software Engineer, Frontend Lead",
+      logoUrl: "/the-reward-store.png",
+      start: "Jan 2025",
+      end: "Present",
+      description: [
+        `The Reward Store is your one-stop shop for all your reward programs across the globe, offering a wide range of redemption options including gift cards, merchandise, travel, and more.`,
+        `Leading the frontend development efforts, driving architecture decisions, setting coding standards, and mentoring junior developers to ensure high-quality and maintainable code.`,
+        `Developed cross-platform mobile applications for both iOS and Android using React Native, significantly enhancing user engagement and expanding brand reach.`,
+        `Built fully responsive web applications using modern frameworks, ensuring optimal performance and seamless user experience across all device sizes.`,
+        `Designed and implemented responsive, intuitive interfaces optimized for both mobile and tablet devices to ensure a seamless user experience across platforms.`,
+        `Maintaining a private npm package that consolidates reusable UI components and utilities, enabling consistency and development efficiency across all company products.`,
+        `Collaborated closely with cross-functional teams to build scalable frontend solutions and deliver high-performance applications aligned with business goals.`,
+      ],
+    },
+    {
+      company: "Ripple Street India Pvt Ltd",
       href: "https://www.ripplestreet.com",
       badges: [],
       location: "Bangalore",
       title: "Software Engineer",
       logoUrl: "/ripplestreet.png",
       start: "Jul 2023",
-      end: "Present",
+      end: "Jan 2025",
       description: [
-        `Ripple Street is the leading business-to-humans (B2H) marketing platform, connecting brands with their most passionate fans at home. For over a decade, our proprietary platform has driven brand awareness and sales, empowering brands to IDENTIFY, ENGAGE, AMPLIFY, and MEASURE their success.`,
-        `We have developed cross-platform mobile applications for both iOS and Android, enhancing user engagement and brand visibility.`,
-        `Designed and implemented responsive interfaces tailored for both mobile and tablet devices, ensuring a seamless user experience across different platforms.`,
-        "Took ownership of core features, optimizing performance and eliminating redundant code to enhance maintainability.",
+        `Ripple Street is a leading business-to-humans (B2H) marketing platform that connects brands with their most passionate fans at home. For over a decade, its proprietary platform has driven brand awareness and sales by empowering brands to IDENTIFY, ENGAGE, AMPLIFY, and MEASURE their success.`,
+        `Developed cross-platform mobile applications for both iOS and Android using React Native, significantly improving user engagement and brand visibility.`,
+        `Designed and implemented responsive user interfaces tailored for both mobile and tablet devices, delivering a seamless and consistent experience across platforms.`,
+        `Took ownership of key frontend features, optimizing application performance and refactoring redundant code to improve maintainability and scalability.`,
       ],
     },
     {
@@ -120,12 +138,12 @@ export const DATA = {
       start: "Apr 2022",
       end: "Jul 2023",
       description: [
-        "Led the development of a hospital management system consisting of three key applications: Doctor, Patient, Nurse.",
-        "Developed cross-platform mobile applications for both iOS and Android.",
-        "Led a team of one engineer to ensure smooth project execution.",
-        "Designed and implemented responsive interfaces for mobile and tablet devices.",
-        "Utilized a theme-based NPM package to ensure consistency and scalability across the project.",
-        "Developed Office Desk booking Applications Android, IOS Using React Native Cli.",
+        "Led the development of a hospital management system comprising three core applications: Doctor, Patient, and Nurse modules.",
+        "Developed cross-platform mobile applications for both iOS and Android using React Native CLI, ensuring seamless functionality across devices.",
+        "Managed and mentored a team of one engineer, overseeing project execution and delivery timelines.",
+        "Designed and implemented fully responsive interfaces optimized for both mobile and tablet experiences.",
+        "Utilized a centralized, theme-based private NPM package to maintain UI consistency and improve scalability across the system.",
+        "Developed an Office Desk Booking application for Android and iOS platforms using React Native CLI, supporting workspace scheduling and availability tracking.",
       ],
     },
     {
@@ -138,9 +156,9 @@ export const DATA = {
       start: "Oct 2021",
       end: "Mar 2022",
       description: [
-        "Harnessed the power of Zita's AI to streamline the resume evaluation process, reducing candidate selection time by 50% compared to traditional methods",
-        "Developed the entire front-end of the AI-powered application using React.js.",
-        "Took complete ownership of the project, overseeing all aspects from design to deployment.",
+        "Leveraged Zita's AI technology to streamline the resume evaluation process, reducing candidate selection time by 50% compared to traditional methods.",
+        "Designed and developed the complete frontend of the AI-powered application using React.js, ensuring a responsive and user-friendly interface.",
+        "Took full ownership of the project, managing end-to-end development—from UI/UX design to production deployment.",
       ],
     },
     {
@@ -153,8 +171,8 @@ export const DATA = {
       start: "May 2020",
       end: "Oct 2021",
       description: [
-        "Developed a customized UI component NPM library tailored for companies to streamline and standardize UI across various projects.",
-        "Designed and implemented a UI for managing all products, ensuring intuitive interaction and efficient management capabilities.",
+        "Developed a customized UI component library as a private NPM package, enabling companies to streamline and standardize UI across multiple projects.",
+        "Designed and implemented an intuitive UI for product management, enhancing usability and ensuring efficient handling of product-related operations.",
       ],
     },
   ],
@@ -214,7 +232,7 @@ export const DATA = {
     {
       title: "Ripple Street",
       href: "https://native-pilot-ui.netlify.app",
-      dates: "present",
+      dates: "Jul 2023 - Jun 2025",
       active: true,
       description:
         "We have developed cross-platform mobile applications for both IOS and Android, enhancing user engagement and brand visibility.",
@@ -332,7 +350,7 @@ export const DATA = {
         },
       ],
       image: "",
-      // video: "/testosteronology.mov",
+      video: "/druground.mp4",
     },
     {
       title: "Dindigul Thookusatti",
@@ -356,7 +374,7 @@ export const DATA = {
         },
       ],
       image: "",
-      // video: "/testosteronology.mov",
+      video: "/dindigul.mp4",
     },
   ],
 } as const;
