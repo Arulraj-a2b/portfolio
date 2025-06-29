@@ -94,7 +94,7 @@ export const DATA = {
   },
   work: [
     {
-      company: "Ripple Street India Pvt Ltd",
+      company: "The Reward Store (Vananam Rewards Private Limited)",
       href: "https://www.therewardstore.com",
       badges: [],
       location: "Bangalore",
