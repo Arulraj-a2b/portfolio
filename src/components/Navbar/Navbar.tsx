@@ -63,7 +63,29 @@ const Navbar = () => {
               handleNav('hero');
             }}
           >
-            <span className={styles.logoMark}>AB</span>
+            <svg
+              viewBox="0 0 32 32"
+              className={styles.logoIcon}
+            >
+              <rect width="32" height="32" rx="6" fill="#1A1A1A" />
+              <path
+                d={'M6 24L13 6H15.5L22.5 24H19.5L18 20H10.5'
+                  + 'L9 24H6ZM14.2 9.5L11.5 17H17L14.2 9.5Z'}
+                fill="#FFB400"
+              />
+              <path
+                d={'M18 24V14H23.5C25.5 14 26.5 15 26.5 16.5'
+                  + 'C26.5 17.5 26 18 25 18.3V18.5C26 18.8 27'
+                  + ' 19.5 27 21C27 23 25.5 24 23.5 24H18Z'}
+                fill="#FFB400"
+                fillOpacity="0.9"
+              />
+              <path
+                d="M18 24V14H19.5V24H18Z"
+                fill="#1A1A1A"
+                fillOpacity="0.3"
+              />
+            </svg>
           </motion.a>
 
           {/* Desktop Links */}
