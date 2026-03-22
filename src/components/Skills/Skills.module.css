@@ -187,9 +187,22 @@
 }
 
 @media (max-width: 768px) {
+  .skills {
+    padding: 40px 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .skillsGrid {
     grid-template-columns: 1fr;
     gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .languagesSection {
+    margin-bottom: var(--space-xl);
   }
 
   .languagesGrid {
@@ -204,5 +217,14 @@
   .circularCenter {
     width: 100px;
     height: 100px;
+  }
+
+  .extraSection {
+    margin-bottom: var(--space-xl);
+  }
+
+  .subTitle {
+    font-size: 18px;
+    margin-bottom: var(--space-md);
   }
 }

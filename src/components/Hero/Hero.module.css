@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: clip;
   padding: 100px var(--space-lg) var(--space-3xl);
 }
 
@@ -23,7 +23,7 @@
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 180, 0, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 180, 0, 0.06) 0%, transparent 70%);
   animation: pulse 8s ease-in-out infinite;
 }
 
@@ -35,7 +35,7 @@
   width: 60%;
   height: 60%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 140, 0, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.04) 0%, transparent 70%);
   animation: pulse 10s ease-in-out infinite reverse;
 }
 
@@ -182,11 +182,12 @@
 .scrollMouse {
   width: 26px;
   height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--color-gray-50);
   border-radius: 13px;
   display: flex;
   justify-content: center;
   padding-top: 8px;
+  opacity: 0.5;
 }
 
 .scrollDot {
@@ -199,16 +200,21 @@
 .scrollText {
   font-family: 'lato', sans-serif;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-gray-50);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 100px 16px 40px;
+    min-height: auto;
+  }
+
   .content {
     flex-direction: column-reverse;
     text-align: center;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
   }
 
   .nameContainer,
@@ -219,13 +225,24 @@
   .intro {
     margin-left: auto;
     margin-right: auto;
+    font-size: 14px;
   }
 
   .ctaGroup {
     justify-content: center;
   }
 
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+
   .imageWrapper {
-    width: 220px;
+    width: 180px;
+  }
+
+  .scrollIndicator {
+    display: none;
   }
 }

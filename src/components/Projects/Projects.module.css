@@ -142,13 +142,34 @@
 }
 
 @media (max-width: 768px) {
+  .projects {
+    padding: 40px 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .grid {
     grid-template-columns: 1fr;
     max-width: 500px;
     margin: 0 auto;
+    gap: var(--space-md);
   }
 
   .video {
     height: 160px;
+  }
+
+  .cardBody {
+    padding: var(--space-md);
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardDescription {
+    font-size: 13px;
   }
 }

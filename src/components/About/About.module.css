@@ -171,15 +171,31 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    padding: 40px 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .grid {
     flex-direction: column;
     text-align: center;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
   .imageContainer {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+  }
+
+  .greeting {
+    font-size: 20px;
+  }
+
+  .bio {
+    font-size: 14px;
   }
 
   .socialLinks {
@@ -191,12 +207,23 @@
   }
 
   .statsGrid {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
 
   .statCard {
-    width: 100%;
-    max-width: 300px;
+    flex: 1;
+    min-width: 90px;
+    max-width: none;
+    padding: var(--space-md);
+  }
+
+  .statValue {
+    font-size: 28px;
+  }
+
+  .statLabel {
+    font-size: 12px;
   }
 }

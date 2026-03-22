@@ -55,7 +55,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
           >
-            {getLang.INTRO}
+            {getLang.HERO_TAGLINE}
           </motion.p>
 
           {/* CTA Buttons */}

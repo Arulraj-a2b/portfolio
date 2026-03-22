@@ -268,9 +268,33 @@
 }
 
 @media (max-width: 768px) {
+  .contact {
+    padding: 40px 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .grid {
     flex-direction: column;
     gap: var(--space-xl);
+  }
+
+  .input,
+  .textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .floatingLabel {
+    left: 12px;
+    top: 12px;
+    font-size: 14px;
+  }
+
+  .inputGroup {
+    margin-bottom: var(--space-md);
   }
 
   .infoRow {
@@ -281,6 +305,10 @@
   .infoValue,
   .infoLink {
     text-align: left;
+  }
+
+  .infoCard {
+    padding: var(--space-md);
   }
 
   .toast {

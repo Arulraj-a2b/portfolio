@@ -63,25 +63,7 @@ const Navbar = () => {
               handleNav('hero');
             }}
           >
-            <svg
-              viewBox="0 0 64 64"
-              className={styles.logoIcon}
-            >
-              <rect width="64" height="64" rx="14" fill="#0f0f1a" />
-              <rect
-                x="2" y="2" width="60" height="60" rx="12"
-                fill="none" stroke="#ffb400" strokeWidth="2" opacity="0.3"
-              />
-              <text
-                x="32" y="44"
-                fontFamily="Arial, sans-serif"
-                fontWeight="bold" fontSize="30"
-                fill="#ffb400" textAnchor="middle"
-                letterSpacing="-1"
-              >
-                AB
-              </text>
-            </svg>
+            <span className={styles.logoMark}>AB</span>
           </motion.a>
 
           {/* Desktop Links */}

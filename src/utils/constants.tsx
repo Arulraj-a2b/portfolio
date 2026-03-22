@@ -19,6 +19,7 @@ export const getLang = {
   EDUCATION: 'Education',
   I_AM_NAME: 'I’m Arulraj',
   INTRO: `Hi, I'm Arulraj Venkadachalam, a Senior Software Engineer, Frontend with over five years of experience building scalable web and mobile applications. Currently at The Reward Store, I architect micro-frontend platforms with 12+ independently deployed apps, lead frontend teams, and deliver high-quality user experiences across web and mobile. I am proficient in React.js, React Native (Expo & CLI), TypeScript, Redux Toolkit, Next.js, Tailwind CSS, Micro-Frontends, GraphQL, and Angular.js. I also leverage AI tools like Claude, Cursor, and MCP Server to accelerate development workflows. I am passionate about crafting clean, performant, and user-centric interfaces that solve real-world problems and make a meaningful impact.`,
+  HERO_TAGLINE: 'I build scalable web and mobile applications with modern frontend technologies. Currently leading frontend at The Reward Store, architecting micro-frontend platforms with 12+ independently deployed apps.',
   HIRE_ME: 'Hire Me',
   LEAVE_INFO: 'Leave us your info',
   SEND_MESSAGE: 'Send Message',

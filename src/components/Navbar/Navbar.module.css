@@ -38,10 +38,19 @@
   letter-spacing: -0.5px;
 }
 
-.logoIcon {
-  width: 40px;
-  height: 40px;
-  display: block;
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--logo-bg);
+  color: var(--logo-text);
+  font-family: 'lato-bold', sans-serif;
+  font-size: 18px;
+  letter-spacing: -1px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--logo-border);
 }
 
 .navLinks {

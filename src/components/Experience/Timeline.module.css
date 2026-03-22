@@ -175,24 +175,53 @@
 }
 
 @media (max-width: 768px) {
+  .experience {
+    padding: 40px 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .timelineItem {
-    padding-left: 50px;
+    padding-left: 44px;
+    padding-bottom: var(--space-md);
   }
 
   .timelineLine {
-    left: 18px;
+    left: 14px;
   }
 
   .timelineDot {
-    left: 10px;
+    left: 6px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .timelineCard {
+    padding: var(--space-md);
   }
 
   .cardTop {
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardSubtitle {
+    font-size: 13px;
+  }
+
+  .cardText,
+  .pointItem {
+    font-size: 13px;
   }
 
   .dateBadge {
     align-self: flex-start;
+    font-size: 11px;
   }
 }

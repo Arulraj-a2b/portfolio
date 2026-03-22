@@ -88,9 +88,22 @@
 }
 
 @media (max-width: 768px) {
+  .services {
+    padding: 40px 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .cardsGrid {
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 0 auto;
+    gap: var(--space-md);
+  }
+
+  .card {
+    padding: var(--space-lg) var(--space-md);
   }
 }
