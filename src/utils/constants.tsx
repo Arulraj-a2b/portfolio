@@ -7,8 +7,8 @@ export const EMAIL_SERVICE_KEY = 'service_vg6jcvw';
 export const TEMPLATE_KEY = 'template_glh81xg';
 export const EMAIL_KEY = '4rq5oSnnD8QxN7rri';
 
-export const THIS_FIELD_REQUIRED = 'This Field Required';
-export const INVALID_EMAIL_ENTERED = 'Invalid email entered';
+export const THIS_FIELD_REQUIRED = 'This field is required';
+export const INVALID_EMAIL_ENTERED = 'Invalid email address';
 export const INVALID_PHONE_ENTERED = 'Invalid phone number entered';
 
 export const RESUME_LINK =
@@ -18,7 +18,7 @@ export const getLang = {
   STUDENT: 'Student',
   EDUCATION: 'Education',
   I_AM_NAME: 'I’m Arulraj',
-  INTRO: `Hi, I'm Arulraj Venkadachalam. I have more than four years of experience in web and app development. Currently, I work as a Software Engineer at Ripple Street. I am proficient in technologies such as React.js, React Native (CLI & Expo), Angular, Flutter, Ionic, Redux, TypeScript, JavaScript, and GraphQL.`,
+  INTRO: `Hi, I'm Arulraj Venkadachalam, a Senior Software Engineer, Frontend with over five years of experience building scalable web and mobile applications. Currently at The Reward Store, I architect micro-frontend platforms with 12+ independently deployed apps, lead frontend teams, and deliver high-quality user experiences across web and mobile. I am proficient in React.js, React Native (Expo & CLI), TypeScript, Redux Toolkit, Next.js, Tailwind CSS, Micro-Frontends, GraphQL, and Angular.js. I also leverage AI tools like Claude, Cursor, and MCP Server to accelerate development workflows. I am passionate about crafting clean, performant, and user-centric interfaces that solve real-world problems and make a meaningful impact.`,
   HIRE_ME: 'Hire Me',
   LEAVE_INFO: 'Leave us your info',
   SEND_MESSAGE: 'Send Message',

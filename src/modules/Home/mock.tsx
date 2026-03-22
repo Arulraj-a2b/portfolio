@@ -24,61 +24,97 @@ export const languagesList = [
   },
   {
     title: 'English',
-    value: '75%',
+    value: '90%',
   },
 ];
 
 export const skillList = [
   {
-    title: 'HTML',
+    title: 'HTML & CSS',
     value: '90%',
   },
   {
-    title: 'CSS',
-    value: '80%',
-  },
-  {
-    title: 'React JS & React Native',
+    title: 'React.js & React Native (Expo & CLI)',
     value: '85%',
   },
   {
-    title: 'Javascript',
+    title: 'TypeScript',
+    value: '85%',
+  },
+  {
+    title: 'Redux Toolkit',
+    value: '85%',
+  },
+  {
+    title: 'JavaScript',
+    value: '85%',
+  },
+  {
+    title: 'Tailwind CSS',
+    value: '85%',
+  },
+  {
+    title: 'Next.js',
     value: '80%',
   },
   {
-    title: 'Redux',
-    value: '95%',
-  },
-  {
-    title: 'Typescript',
-    value: '90%',
-  },
-  {
-    title: 'Jest & Enzyme',
+    title: 'GraphQL',
     value: '75%',
   },
   {
-    title: 'Angular',
-    value: '70%',
+    title: 'Storybook',
+    value: '80%',
   },
   {
-    title: 'Flutter',
-    value: '50%',
+    title: 'Unit Testing (Jest & RTL)',
+    value: '80%',
+  },
+  {
+    title: 'Angular.js',
+    value: '65%',
+  },
+  {
+    title: 'Flutter (Basic)',
+    value: '40%',
   },
 ];
 
 export const extraSkill = [
   {
-    title: 'Bootstrap, Materialize',
+    title: 'Micro-Frontends (Module Federation, Rspack)',
   },
   {
-    title: 'Styles, Sass, Less',
+    title: 'MUI & Ant Design',
   },
   {
-    title: 'GIT Knowledge',
+    title: 'Capacitor, Cordova & Ionic',
   },
   {
-    title: 'NPM Knowledge',
+    title: 'Google Maps & Firebase Push Notifications',
+  },
+  {
+    title: 'Google Analytics',
+  },
+  {
+    title: 'AWS Frontend Deployment',
+  },
+  {
+    title: 'AI Tools (Claude, Cursor, Antigravity, Figma Make, MCP Server)',
+  },
+  {
+    title: 'SQL, Go & Node.js',
+  },
+  {
+    title: 'Git & GitHub',
+  },
+  {
+    title: 'Netlify & Vercel',
+  },
+  {
+    title: 'Razorpay Integration',
+  },
+  {
+    title: 'Storybook',
   },
 ];
 
@@ -102,14 +138,14 @@ export const serviceList = [
 
 export const educationList = [
   {
-    collegeName: 'Thiagarajar Polytechic College, Salem',
+    collegeName: 'Thiagarajar Polytechnic College, Salem',
     date: '2015 - 2017',
     course: 'Diploma',
     position: 'Student',
     des: [
       {
         data: [
-          'Electronics and communications Engineering.',
+          'Electronics and Communication Engineering.',
           'Percentage: 89%.',
         ],
         url: '',
@@ -123,7 +159,7 @@ export const educationList = [
     position: 'Student',
     des: [
       {
-        data: ['Computer Science Engineering.', 'CGPA : 7.03'],
+        data: ['Computer Science Engineering.', 'CGPA: 7.03.'],
         url: '',
       },
     ],
@@ -132,8 +168,29 @@ export const educationList = [
 
 export const workList = [
   {
-    collegeName: 'Ripple Street India Private Limited, Bangalore.',
-    date: 'Jul 2023 - Present',
+    collegeName: 'The Reward Store (Vananam Rewards Private Limited)',
+    date: 'Present',
+    course: 'Senior Software Engineer, Frontend',
+    position: 'Developer',
+    des: [
+      {
+        data: [
+          'Architected and maintain three production micro-frontend platforms comprising 12+ independently deployed applications using Webpack Module Federation and Rspack — enabling parallel team development, independent deployments, and zero-downtime releases across 1,750+ TypeScript files.',
+          'Built the Store Front (8 micro-frontends, 1,100+ TS files) for product browsing, gift card redemption, flight booking, bill payments, and recharges; the Client Panel (4 micro-frontends, 487 TS files) for reward distribution, automated rewards engine, and reporting; and the Admin Panel (15 federated modules, 170 TS files) with drag-and-drop page builder and catalog management.',
+          'Leading all frontend development efforts, driving architecture decisions, establishing coding standards, conducting code reviews, and mentoring junior developers.',
+          'Developed cross-platform mobile applications for iOS and Android using React Native with CodePush OTA updates for instant production deployments.',
+          'Maintaining a private npm package (@therewardstore/ui) with 40+ reusable components and 15+ custom hooks, plus a visual UI Builder library driving consistency across all platforms.',
+          'Designed end-to-end features including flight booking with multi-city search, real-time bill payments with UPI, e-commerce catalog with cart management, automated rewards engine, and webhook management system.',
+          'Integrated Razorpay payment gateway, Google reCAPTCHA v3, and Microsoft Clarity analytics for secure transactions and data-driven UX improvements.',
+          'Collaborating with backend, design, and product teams with standardized commits, pre-commit validation, and strict TypeScript enforcement.',
+        ],
+        url: 'https://www.therewardstore.com',
+      },
+    ],
+  },
+  {
+    collegeName: 'Ripple Street India Private Limited, Bangalore',
+    date: 'Jul 2023 - Jun 2025',
     course: 'Software Engineer',
     position: 'Developer',
     des: [
@@ -156,12 +213,11 @@ export const workList = [
     des: [
       {
         data: [
-          'Led the development of a hospital management system consisting of five key applications: Doctor, Patient, Nurse.',
+          'Led the development of a hospital management system consisting of three key applications: Doctor, Patient, and Nurse.',
           'Developed cross-platform mobile applications for both iOS and Android.',
           'Led a team of one engineer to ensure smooth project execution.',
           'Designed and implemented responsive interfaces for mobile and tablet devices.',
           'Utilized a theme-based NPM package to ensure consistency and scalability across the project.',
-          '',
         ],
         url: '',
       },
@@ -175,7 +231,7 @@ export const workList = [
       },
       {
         data: [
-          'Developed Office Desk booking Applications Android, IOS Using React Native Cli.',
+          'Developed an office desk booking application for Android and iOS using React Native CLI.',
         ],
         url: '',
       },
@@ -199,7 +255,7 @@ export const workList = [
   },
   {
     collegeName: 'ShopUp, Bangalore',
-    date: '2020 - October 2021',
+    date: 'May 2020 - Oct 2021',
     course: 'Frontend Developer',
     position: 'Developer',
     des: [
@@ -235,5 +291,131 @@ export const contactList = [
   {
     icon: <SvgPhone />,
     list: [{title: 'Phone', value: '+918189838485'}],
+  },
+];
+
+export const projectList = [
+  {
+    title: 'React Native Uikit',
+    href: 'https://native-pilot-ui.netlify.app',
+    dates: 'Present',
+    description:
+      'Published a theme-based React Native NPM package for building consistent cross-platform UIs.',
+    technologies: [
+      'React Native',
+      'React Native Web',
+      'Styled Components',
+      'TypeScript',
+      'StoryBook',
+    ],
+    links: [
+      {type: 'Website', href: 'https://native-pilot-ui.netlify.app'},
+      {
+        type: 'Source',
+        href: 'https://github.com/Arulraj-a2b/native_pilot_uikit',
+      },
+    ],
+    video: '/native-pilot-ui.mov',
+  },
+  {
+    title: 'Ripple Street',
+    href: 'https://www.ripplestreet.com',
+    dates: 'Jul 2023 - Jun 2025',
+    description:
+      'Cross-platform mobile applications for both iOS and Android, enhancing user engagement and brand visibility.',
+    technologies: ['React Native', 'Redux', 'TypeScript', 'Apollo GraphQL'],
+    links: [
+      {type: 'Website', href: 'https://www.ripplestreet.com'},
+      {
+        type: 'Android',
+        href: 'https://play.google.com/store/apps/details?id=com.ripplestreetfun',
+      },
+      {
+        type: 'iOS',
+        href: 'https://apps.apple.com/us/app/ripple-street-activities/id1623388148',
+      },
+    ],
+    video: '/rippleStreet.mp4',
+  },
+  {
+    title: 'Zita.ai',
+    href: 'https://www.zita.ai',
+    dates: 'Oct 2021 - Mar 2022',
+    description:
+      'AI-powered recruitment platform. Took complete ownership from design to deployment.',
+    technologies: ['React.js', 'Redux', 'TypeScript', 'StoryBook'],
+    links: [{type: 'Website', href: 'https://www.zita.ai'}],
+    video: '/zitaAi.mov',
+  },
+  {
+    title: 'Testosteronology',
+    href: 'https://www.testosteronology.com',
+    dates: 'Squash Apps',
+    description:
+      'Full ownership of frontend development for websites and mobile apps (Android & iOS), delivering high-quality user experiences.',
+    technologies: [
+      'React.js',
+      'React Native (CLI)',
+      'Redux',
+      'TypeScript',
+      'Material UI',
+      'ChatBase',
+    ],
+    links: [
+      {type: 'Website', href: 'https://www.testosteronology.com'},
+      {
+        type: 'Android',
+        href: 'https://play.google.com/store/apps/details?id=com.testosteronology.health',
+      },
+      {
+        type: 'iOS',
+        href: 'https://apps.apple.com/us/app/testosteronology/id6479609801',
+      },
+    ],
+    video: '/testosteronology.mov',
+  },
+  {
+    title: 'DrugRound',
+    href: 'https://play.google.com/store/apps/details?id=com.drug_round',
+    dates: 'Squash Apps',
+    description:
+      'Mobile application for Android and iOS with offline caching, delivering responsive and intuitive healthcare interfaces.',
+    technologies: [
+      'React Native (CLI)',
+      'Redux',
+      'TypeScript',
+      'Offline Caching',
+    ],
+    links: [
+      {
+        type: 'Android',
+        href: 'https://play.google.com/store/apps/details?id=com.drug_round',
+      },
+      {
+        type: 'iOS',
+        href: 'https://apps.apple.com/in/app/druground/id1527065049',
+      },
+    ],
+    video: '/druground.mp4',
+  },
+  {
+    title: 'Dindigul Thookusatti',
+    href: 'https://play.google.com/store/apps/details?id=com.thooku_satti',
+    dates: 'Squash Apps',
+    description:
+      'Android mobile application with Google Maps integration, delivering high-quality user-centric experiences.',
+    technologies: [
+      'React Native (CLI)',
+      'Redux',
+      'TypeScript',
+      'Google Maps API',
+    ],
+    links: [
+      {
+        type: 'Android',
+        href: 'https://play.google.com/store/apps/details?id=com.thooku_satti',
+      },
+    ],
+    video: '/dindigul.mp4',
   },
 ];

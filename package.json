@@ -25,11 +25,11 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.11",
     "formik": "^2.2.9",
+    "framer-motion": "^12.38.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.0",
     "react-scripts": "5.0.1",
-    "react-spring": "^9.5.5",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },

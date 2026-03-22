@@ -1,22 +1,40 @@
-import React, {Suspense, useEffect} from 'react';
-import {useMediaQuery} from 'react-responsive';
-import Loader from './package/Loader/Loader';
-import {useTheme} from './utils/helpers';
-
-const HomeScreen = React.lazy(() => import('./modules/Home/HomeScreen'));
-const MobileHomeScreen = React.lazy(
-  () => import('./modules/MobileHome/MobileHomeScreen'),
-);
+import { useEffect } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import Skills from './components/Skills/Skills';
+import Experience from './components/Experience/Timeline';
+import Projects from './components/Projects/Projects';
+import Services from './components/Services/Services';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 function App() {
-  const isTabletOrMobile = useMediaQuery({query: '(max-width: 1140px)'});
   useEffect(() => {
-    useTheme();
+    // Initialize theme
+    const theme = window.localStorage.getItem('theme');
+    if (theme) {
+      document.body.setAttribute('theme', theme);
+    } else {
+      window.localStorage.setItem('theme', 'light');
+      document.body.setAttribute('theme', 'light');
+    }
   }, []);
+
   return (
-    <Suspense fallback={<Loader />}>
-      {isTabletOrMobile ? <MobileHomeScreen /> : <HomeScreen />}
-    </Suspense>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Services />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
 
