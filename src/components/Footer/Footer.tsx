@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SvgGitUp from '../../icons/SvgGitUp';
 import SvgLinkedIn from '../../icons/SvgLinkedIn';
+import SvgWhatsApp from '../../icons/SvgWhatsApp';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -31,6 +32,16 @@ const Footer = () => {
             whileTap={{ scale: 0.95 }}
           >
             <SvgLinkedIn />
+          </motion.a>
+          <motion.a
+            href="https://wa.me/918189838485"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.socialLink}
+            whileHover={{ scale: 1.15, y: -3 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <SvgWhatsApp />
           </motion.a>
         </div>
 

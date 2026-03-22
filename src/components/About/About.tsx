@@ -7,6 +7,7 @@ import { addressList } from '../../modules/Home/mock';
 import profileImg from '../../images/profile2.png';
 import SvgGitUp from '../../icons/SvgGitUp';
 import SvgLinkedIn from '../../icons/SvgLinkedIn';
+import SvgWhatsApp from '../../icons/SvgWhatsApp';
 import styles from './About.module.css';
 
 const stats = [
@@ -97,6 +98,14 @@ const About = () => {
                 className={styles.socialLink}
               >
                 <SvgLinkedIn />
+              </a>
+              <a
+                href="https://wa.me/918189838485"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialLink}
+              >
+                <SvgWhatsApp />
               </a>
             </motion.div>
           </motion.div>
