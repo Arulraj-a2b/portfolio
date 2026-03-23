@@ -11,15 +11,14 @@ export const THIS_FIELD_REQUIRED = 'This field is required';
 export const INVALID_EMAIL_ENTERED = 'Invalid email address';
 export const INVALID_PHONE_ENTERED = 'Invalid phone number entered';
 
-export const RESUME_LINK =
-  'https://drive.google.com/file/d/1WtsQMILk9np3dJNkDxaUGabOxEsQLNQb/view?usp=sharing';
+export const RESUME_LINK = '/Arulraj_Venkadachalam_CV.pdf';
 
 export const getLang = {
   STUDENT: 'Student',
   EDUCATION: 'Education',
   I_AM_NAME: 'I’m Arulraj',
-  INTRO: `Hi, I'm Arulraj Venkadachalam, a Senior Software Engineer, Frontend with over five years of experience building scalable web and mobile applications. Currently at The Reward Store, I architect micro-frontend platforms with 12+ independently deployed apps, lead frontend teams, and deliver high-quality user experiences across web and mobile. I am proficient in React.js, React Native (Expo & CLI), TypeScript, Redux Toolkit, Next.js, Tailwind CSS, Micro-Frontends, GraphQL, and Angular.js. I also leverage AI tools like Claude, Cursor, and MCP Server to accelerate development workflows. I am passionate about crafting clean, performant, and user-centric interfaces that solve real-world problems and make a meaningful impact.`,
-  HERO_TAGLINE: 'I build scalable web and mobile applications with modern frontend technologies. Currently leading frontend at The Reward Store, architecting micro-frontend platforms with 12+ independently deployed apps.',
+  INTRO: `Hi, I'm Arulraj Venkadachalam, a Senior Software Engineer, Frontend with over five years of experience building scalable web applications and cross-platform mobile apps. Currently at The Reward Store, I architect 5 micro-frontend web platforms (Store Front, Client Panel, Admin Panel, Vendor Dashboard, and Micro-Frontend) with 12+ independently deployed applications, alongside iOS and Android mobile apps. I lead frontend teams and deliver high-quality user experiences across web and mobile. Proficient in React.js, React Native (Expo & CLI), TypeScript, Redux Toolkit, Next.js, Tailwind CSS, Micro-Frontends, GraphQL, and Angular.js. Experienced with AI tools like Claude, Cursor, and MCP Server for accelerating development workflows. Passionate about crafting clean, performant, and user-centric interfaces that solve real-world problems.`,
+  HERO_TAGLINE: 'I build scalable web applications and cross-platform mobile apps with modern frontend technologies. Currently leading frontend at The Reward Store, architecting 5 micro-frontend web platforms with 12+ independently deployed applications, along with iOS and Android mobile apps.',
   HIRE_ME: 'Hire Me',
   LEAVE_INFO: 'Leave us your info',
   SEND_MESSAGE: 'Send Message',

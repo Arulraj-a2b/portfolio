@@ -84,7 +84,7 @@ const About = () => {
             </motion.div>
             <motion.div className={styles.socialLinks} variants={fadeUp}>
               <a
-                href="https://github.com/AarulrajVenkadachalam"
+                href="https://github.com/Arulraj-a2b"
                 target="_blank"
                 rel="noreferrer"
                 className={styles.socialLink}
@@ -92,7 +92,7 @@ const About = () => {
                 <SvgGitUp />
               </a>
               <a
-                href="https://www.linkedin.com/in/arulraj-v-713729191/"
+                href="https://www.linkedin.com/in/abofficial1997/"
                 target="_blank"
                 rel="noreferrer"
                 className={styles.socialLink}

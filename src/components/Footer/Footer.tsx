@@ -14,7 +14,7 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.socialLinks}>
           <motion.a
-            href="https://github.com/AarulrajVenkadachalam"
+            href="https://github.com/Arulraj-a2b"
             target="_blank"
             rel="noreferrer"
             className={styles.socialLink}
@@ -24,7 +24,7 @@ const Footer = () => {
             <SvgGitUp />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/arulraj-v-713729191/"
+            href="https://www.linkedin.com/in/abofficial1997/"
             target="_blank"
             rel="noreferrer"
             className={styles.socialLink}

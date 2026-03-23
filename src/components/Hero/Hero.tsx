@@ -75,8 +75,7 @@ const Hero = () => {
             </motion.button>
             <motion.a
               href={RESUME_LINK}
-              target="_blank"
-              rel="noreferrer"
+              download="Arulraj_Venkadachalam_CV.pdf"
               className={styles.ctaSecondary}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}

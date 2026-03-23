@@ -175,8 +175,10 @@ export const workList = [
     des: [
       {
         data: [
-          'Architected and maintain three production micro-frontend platforms comprising 12+ independently deployed applications using Webpack Module Federation and Rspack — enabling parallel team development, independent deployments, and zero-downtime releases across 1,750+ TypeScript files.',
-          'Built the Store Front (8 micro-frontends, 1,100+ TS files) for product browsing, gift card redemption, flight booking, bill payments, and recharges; the Client Panel (4 micro-frontends, 487 TS files) for reward distribution, automated rewards engine, and reporting; and the Admin Panel (15 federated modules, 170 TS files) with drag-and-drop page builder and catalog management.',
+          'Architect and maintain five production micro-frontend platforms (Store Front, Client Panel, Admin Panel, Vendor Dashboard, and Micro-Frontend) with 12+ independently deployed applications using Webpack Module Federation and Rspack, enabling parallel team development, independent deployments, and zero-downtime releases.',
+          'Built the Store Front (8 micro-frontends) for product browsing, gift card redemption, flight booking, bill payments, and recharges.',
+          'Developed the Client Panel (4 micro-frontends) for reward distribution, automated rewards engine, and reporting.',
+          'Created the Admin Panel (15 federated modules) with a drag-and-drop page builder and catalog management.',
           'Leading all frontend development efforts, driving architecture decisions, establishing coding standards, conducting code reviews, and mentoring junior developers.',
           'Developed cross-platform mobile applications for iOS and Android using React Native with CodePush OTA updates for instant production deployments.',
           'Maintaining a private npm package (@therewardstore/ui) with 40+ reusable components and 15+ custom hooks, plus a visual UI Builder library driving consistency across all platforms.',
@@ -196,8 +198,7 @@ export const workList = [
     des: [
       {
         data: [
-          'Ripple Street is the leading business-to-humans (B2H) marketing platform, connecting brands with their most passionate fans at home. For over a decade, our proprietary platform has driven brand awareness and sales, empowering brands to IDENTIFY, ENGAGE, AMPLIFY, and MEASURE their success.',
-          'We have developed cross-platform mobile applications for both iOS and Android, enhancing user engagement and brand visibility.',
+          'Developed cross-platform mobile applications for both iOS and Android, enhancing user engagement and brand visibility for a leading B2H marketing platform.',
           'Designed and implemented responsive interfaces tailored for both mobile and tablet devices, ensuring a seamless user experience across different platforms.',
           'Took ownership of core features, optimizing performance and eliminating redundant code to enhance maintainability.',
         ],
@@ -215,7 +216,7 @@ export const workList = [
         data: [
           'Led the development of a hospital management system consisting of three key applications: Doctor, Patient, and Nurse.',
           'Developed cross-platform mobile applications for both iOS and Android.',
-          'Led a team of one engineer to ensure smooth project execution.',
+          'Managed an engineer to ensure smooth project execution and timely delivery.',
           'Designed and implemented responsive interfaces for mobile and tablet devices.',
           'Utilized a theme-based NPM package to ensure consistency and scalability across the project.',
         ],
@@ -245,8 +246,8 @@ export const workList = [
     des: [
       {
         data: [
-          `Harnessed the power of Zita's AI to streamline the resume evaluation process, reducing candidate selection time by 50% compared to traditional methods.`,
-          'Developed the entire front-end of the AI-powered application using React.js.',
+          `Leveraged Zita's AI to streamline the resume evaluation process, reducing candidate selection time by 50% compared to traditional methods.`,
+          'Developed the entire frontend of the AI-powered application using React.js.',
           'Took complete ownership of the project, overseeing all aspects from design to deployment.',
         ],
         url: 'https://www.zita.ai',
