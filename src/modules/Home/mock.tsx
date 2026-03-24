@@ -175,7 +175,7 @@ export const workList = [
     des: [
       {
         data: [
-          'Architect and maintain five production micro-frontend platforms (Store Front, Client Panel, Admin Panel, Vendor Dashboard, and Micro-Frontend) with 12+ independently deployed applications using Webpack Module Federation and Rspack, enabling parallel team development, independent deployments, and zero-downtime releases.',
+          'Architect and maintain five production micro-frontend platforms (Store Front, Client Panel, Admin Panel, Vendor Dashboard, and Microsite) with 12+ independently deployed applications using Webpack Module Federation and Rspack, enabling parallel team development, independent deployments, and zero-downtime releases.',
           'Built the Store Front (8 micro-frontends) for product browsing, gift card redemption, flight booking, bill payments, and recharges.',
           'Developed the Client Panel (4 micro-frontends) for reward distribution, automated rewards engine, and reporting.',
           'Created the Admin Panel (15 federated modules) with a drag-and-drop page builder and catalog management.',
