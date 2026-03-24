@@ -87,9 +87,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-primary, #ffb400);
+  color: var(--color-primary, #3B82F6);
 }
 .contentOne {
   height: fit-content;
-  color: var(--color-primary, #ffb400);
+  color: var(--color-primary, #3B82F6);
 }

@@ -1,42 +1,55 @@
 /*
   author: arul
-  about: css themes directly added to the root elements
-  notes: please maintain the css variables in all the files
+  about: css themes — Bento Grid + Electric Blue
 */
 :root {
-  --color-white: #ffffff;
-  --color-black: #000000;
+  /* Primary Colors */
+  --color-primary: #3B82F6;
+  --color-primary-light: #60A5FA;
+  --color-primary-dark: #2563EB;
+  --gradient-primary: linear-gradient(135deg, #3B82F6, #2563EB);
+  --gradient-primary-text: linear-gradient(135deg, #60A5FA, #3B82F6);
 
-  --color-gray-10: #18191a;
-  --color-gray-20: #2b2b2b;
-  --color-gray-30: #3a3b3c;
-  --color-gray-40: #242526;
-  --color-gray-50: #767676;
-  --color-gray-60: #e4e6eb;
-  --color-gray-70: #f0f0f6;
-  --color-gray-80: #e5e5e5;
+  /* Base Colors */
+  --color-white: #F9FAFB;
+  --color-black: #111827;
 
-  --color-primary: #ffb400;
-  --color-primary-dark: #ff8c00;
-  --color-link: #448aff;
-  --color-error: #fe2222;
-  --color-success: #34cc65;
+  /* Gray Scale */
+  --color-gray-10: #F9FAFB;
+  --color-gray-20: #111827;
+  --color-gray-30: #374151;
+  --color-gray-40: #4B5563;
+  --color-gray-50: #9CA3AF;
+  --color-gray-60: #D1D5DB;
+  --color-gray-70: #E5E7EB;
+  --color-gray-80: #F3F4F6;
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #ffb400, #ff8c00);
-  --gradient-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  --gradient-dark-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  /* Semantic */
+  --color-link: #3B82F6;
+  --color-error: #EF4444;
+  --color-success: #10B981;
+
+  /* Backgrounds */
+  --body-bg: #06070A;
+  --section-bg: #06070A;
+  --section-bg-alt: #0A0B10;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-bg-solid: #0F1117;
+  --hero-bg: #06070A;
+  --hero-text: #F9FAFB;
 
   /* Glass */
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-bg-strong: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-strong: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-hover: rgba(59, 130, 246, 0.3);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 20px rgba(255, 180, 0, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(59, 130, 246, 0.2);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -56,70 +69,54 @@
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
   --radius-full: 50%;
 
-  /* Section BG */
-  --section-bg: #f8f9fa;
-  --section-bg-alt: #ffffff;
-  --card-bg: #ffffff;
-  --hero-bg: #f8f9fa;
-  --hero-text: #2b2b2b;
+  /* Bento */
+  --bento-gap: 16px;
+  --bento-radius: 20px;
+  --bento-padding: 28px;
 
   /* Navbar */
-  --nav-bg: rgba(255, 255, 255, 0.9);
-  --nav-text: #2b2b2b;
+  --nav-bg: rgba(6, 7, 10, 0.85);
+  --nav-text: #F9FAFB;
 
   /* Logo */
-  --logo-bg: #2b2b2b;
-  --logo-text: #ffb400;
-  --logo-border: rgba(255, 180, 0, 0.3);
+  --logo-bg: #0F1117;
+  --logo-text: #3B82F6;
 }
 
-body[theme='dark'] {
-  --color-white: #000000;
-  --color-black: #ffffff;
+body[theme='light'] {
+  --color-white: #111827;
+  --color-black: #F9FAFB;
 
-  --color-gray-10: #18191a;
-  --color-gray-20: #ffffff;
-  --color-gray-30: #3a3b3c;
-  --color-gray-40: #242526;
-  --color-gray-50: #a0a0a0;
-  --color-gray-60: #e4e6eb;
-  --color-gray-70: #f0f0f6;
-  --color-gray-80: #131313;
+  --color-gray-20: #111827;
+  --color-gray-50: #6B7280;
+  --color-gray-80: #F3F4F6;
 
-  --color-primary: #ffb400;
-  --color-primary-dark: #ff8c00;
-  --color-link: #448aff;
-  --color-error: #fe2222;
-  --color-success: #34cc65;
+  --body-bg: #FAFAFA;
+  --section-bg: #FAFAFA;
+  --section-bg-alt: #FFFFFF;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-bg-solid: #FFFFFF;
+  --hero-bg: #FAFAFA;
+  --hero-text: #111827;
 
-  /* Glass Dark */
-  --glass-bg: rgba(20, 20, 30, 0.85);
-  --glass-bg-strong: rgba(20, 20, 30, 0.95);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-bg-strong: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-border-hover: rgba(59, 130, 246, 0.3);
 
-  /* Shadows Dark */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
 
-  /* Section BG Dark */
-  --section-bg: #0a0a0f;
-  --section-bg-alt: #111118;
-  --card-bg: #1a1a24;
-  --hero-bg: #0a0a0f;
-  --hero-text: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-text: #111827;
 
-  /* Navbar Dark */
-  --nav-bg: rgba(10, 10, 15, 0.85);
-  --nav-text: #ffffff;
-
-  /* Logo Dark */
-  --logo-bg: #0f0f1a;
-  --logo-text: #ffb400;
-  --logo-border: rgba(255, 180, 0, 0.3);
+  --logo-bg: #F3F4F6;
+  --logo-text: #3B82F6;
 }
 
 @media (prefers-reduced-motion: reduce) {

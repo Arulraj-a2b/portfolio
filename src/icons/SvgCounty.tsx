@@ -15,7 +15,7 @@ const SvgCounty = ({ width, height, className }: typeof defaultProps) => {
       fill="none"
       className={className}
     >
-      <circle cx={20} cy={20} r={20} fill="#FFB400" />
+      <circle cx={20} cy={20} r={20} fill="#3B82F6" />
       <g clipPath="url(#County_svg__a)">
         <path
           d="m12.5 14.75 5.25-2.25 4.5 2.25 4.727-2.026a.375.375 0 0 1 .523.345V25.25l-5.25 2.25-4.5-2.25-4.727 2.026a.376.376 0 0 1-.523-.345V14.75Zm9.75 11.073v-9.441l-.049.021-4.451-2.226v9.441l.049-.021 4.451 2.226Z"

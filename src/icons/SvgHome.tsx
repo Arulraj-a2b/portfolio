@@ -3,7 +3,7 @@ const defaultProps = {
   fill: "#2B2B2B",
   width: 40,
   height: 40,
-  circleFill: "#FFB400",
+  circleFill: "#3B82F6",
 };
 
 const SvgHome = ({ width, height, fill, circleFill }: typeof defaultProps) => {

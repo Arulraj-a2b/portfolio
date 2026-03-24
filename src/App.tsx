@@ -11,13 +11,13 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   useEffect(() => {
-    // Initialize theme
+    // Initialize theme — dark is default
     const theme = window.localStorage.getItem('theme');
-    if (theme) {
-      document.body.setAttribute('theme', theme);
-    } else {
-      window.localStorage.setItem('theme', 'light');
+    if (theme === 'light') {
       document.body.setAttribute('theme', 'light');
+    } else {
+      window.localStorage.setItem('theme', 'dark');
+      document.body.removeAttribute('theme');
     }
   }, []);
 

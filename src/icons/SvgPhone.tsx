@@ -15,7 +15,7 @@ const SvgPhone = ({ width, height, className }: typeof defaultProps) => {
       fill="none"
       className={className}
     >
-      <circle cx={20} cy={20} r={20} fill="#FFB400" />
+      <circle cx={20} cy={20} r={20} fill="#3B82F6" />
       <g clipPath="url(#Phone_svg__a)">
         <path
           d="M15.5 12.5h9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75v-13.5a.75.75 0 0 1 .75-.75ZM20 23.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"

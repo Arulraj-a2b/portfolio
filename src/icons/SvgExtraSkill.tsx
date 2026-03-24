@@ -14,10 +14,10 @@ const defaultProps = {
         style={{ cursor: "pointer" }}
         fill="none"
       >
-        <path stroke="#FFB400" d="M.5.5h9v9h-9z" />
-    <path stroke="#FFB400" d="M5.5 5.5h9v9h-9z" />
-    <path stroke="#FFB400" d="M.5.5h9v9h-9z" />
-    <path stroke="#FFB400" d="M5.5 5.5h9v9h-9z" />
+        <path stroke="#3B82F6" d="M.5.5h9v9h-9z" />
+    <path stroke="#3B82F6" d="M5.5 5.5h9v9h-9z" />
+    <path stroke="#3B82F6" d="M.5.5h9v9h-9z" />
+    <path stroke="#3B82F6" d="M5.5 5.5h9v9h-9z" />
       </svg>
     );
   };
