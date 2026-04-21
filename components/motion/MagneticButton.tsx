@@ -15,10 +15,12 @@ type Props = {
   target?: string;
   rel?: string;
   download?: boolean | string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 };
 
 export const MagneticButton = forwardRef<HTMLElement, Props>(function MagneticButton(
-  { children, href, onClick, variant = 'primary', label, className, target, rel, download },
+  { children, href, onClick, variant = 'primary', label, className, target, rel, download, type = 'button', disabled },
   _ref
 ) {
   const cls = [styles.btn, styles[variant], className].filter(Boolean).join(' ');
@@ -61,7 +63,14 @@ export const MagneticButton = forwardRef<HTMLElement, Props>(function MagneticBu
 
   return (
     <Magnetic intensity={0.3} radius={160}>
-      <button type="button" className={cls} onClick={onClick} data-cursor-label={label} data-cursor-hover>
+      <button
+        type={type}
+        className={cls}
+        onClick={onClick}
+        disabled={disabled}
+        data-cursor-label={label}
+        data-cursor-hover
+      >
         {inner}
       </button>
     </Magnetic>

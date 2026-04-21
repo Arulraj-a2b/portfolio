@@ -95,9 +95,20 @@ export function Cursor() {
           borderColor: hover ? 'rgba(96, 165, 250, 1)' : 'rgba(255, 255, 255, 0.6)',
         }}
         transition={{ type: 'spring', stiffness: 400, damping: 26 }}
-      >
-        {label && <span className={styles.label}>{label}</span>}
-      </motion.div>
+      />
+      {label && (
+        <motion.div
+          aria-hidden
+          className={styles.label}
+          style={{ x: ringX, y: ringY }}
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          {label}
+        </motion.div>
+      )}
     </>
   );
 }

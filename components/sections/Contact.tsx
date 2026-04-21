@@ -224,15 +224,11 @@ export function Contact() {
                   By submitting, you agree to be contacted at the email provided.
                 </span>
                 <MagneticButton
+                  type="submit"
+                  disabled={submitting}
                   label={submitting ? 'Sending…' : 'Send'}
                 >
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    style={{ all: 'unset', cursor: submitting ? 'wait' : 'pointer' }}
-                  >
-                    {submitting ? 'Sending…' : 'Send message'}
-                  </button>
+                  {submitting ? 'Sending…' : 'Send message'}
                 </MagneticButton>
               </div>
             </form>

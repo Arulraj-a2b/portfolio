@@ -27,6 +27,7 @@ export function MobileMenu({ items }: Props) {
       <AnimatePresence>
         {open && (
           <motion.div
+            key="mobile-menu-backdrop"
             className={styles.backdrop}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -37,6 +38,7 @@ export function MobileMenu({ items }: Props) {
         )}
         {open && (
           <motion.nav
+            key="mobile-menu-panel"
             className={styles.panel}
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
