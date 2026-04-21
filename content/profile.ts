@@ -15,7 +15,7 @@ export const profile = {
   ],
   social: {
     github: 'https://github.com/Arulraj-a2b',
-    linkedin: 'https://www.linkedin.com/in/arulraj-venkadachalam-b68146194/',
+    linkedin: 'https://www.linkedin.com/in/abofficial1997',
     whatsapp: 'https://wa.me/918189838485',
     email: 'abofficial1997@gmail.com',
   },

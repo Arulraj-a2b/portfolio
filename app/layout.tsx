@@ -116,7 +116,7 @@ export const viewport: Viewport = {
 // TODO: Replace/Add social URLs when available
 const SOCIAL_URLS = {
   github: 'https://github.com/Arulraj-a2b',
-  linkedin: 'https://www.linkedin.com/in/arulraj-venkadachalam-b68146194/',
+  linkedin: 'https://www.linkedin.com/in/abofficial1997',
   // twitter: 'https://twitter.com/arulraj_a2b',
   // instagram: 'https://www.instagram.com/arulraj_v/',
 };
