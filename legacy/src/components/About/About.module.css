@@ -1,0 +1,163 @@
+.about {
+  padding: 0 var(--space-lg);
+  background: var(--section-bg);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #05080f;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 49px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.imageCol {
+  flex: 0 0 auto;
+}
+
+.imageContainer {
+  width: 362px;
+  background: #111827;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.aboutImage {
+  width: 100%;
+  height: 362px;
+  object-fit: cover;
+  display: block;
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 22.8px;
+}
+
+.heading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #f8fafc;
+  line-height: 32px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #374151;
+  margin: 0;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.bio {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.statsRow {
+  display: flex;
+  gap: 32px;
+  border-top: 1px solid #1f2937;
+  border-bottom: 1px solid #1f2937;
+  padding: 24px 0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statValue {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--color-primary);
+  line-height: 36px;
+}
+
+.statLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 20px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-md);
+  padding-top: 9px;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: #111827;
+  border: 1px solid #374151;
+  transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+  border-color: var(--color-primary);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.socialLink svg {
+  width: 16px;
+  height: 14px;
+  fill: #94a3b8;
+  transition: fill var(--transition-fast);
+}
+
+.socialLink:hover svg {
+  fill: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 0 16px;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    padding: var(--space-lg);
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .imageContainer {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .aboutImage {
+    height: 200px;
+  }
+
+  .heading {
+    align-self: center;
+  }
+
+  .statsRow {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+}

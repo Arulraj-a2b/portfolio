@@ -1,0 +1,125 @@
+.skills {
+  padding: 128px var(--space-lg) 64px;
+  background: var(--section-bg);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sectionTitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #f8fafc;
+  line-height: 32px;
+  margin: 0;
+}
+
+/* Skills Grid - Text Only */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 48px;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+}
+
+.skillName {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #f8fafc;
+  line-height: 20px;
+}
+
+.skillPercent {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 20px;
+}
+
+/* Core Skills */
+.coreSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.subTitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #f8fafc;
+  line-height: 28px;
+  margin: 0;
+}
+
+.pillsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  padding: 5px 13px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 4px;
+  line-height: 16px;
+}
+
+/* Languages */
+.languagesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.languageTags {
+  display: flex;
+  gap: 16px;
+}
+
+.languageTag {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 9px 17px;
+  background: #111827;
+  color: #f8fafc;
+  border: 1px solid #374151;
+  border-radius: 4px;
+  line-height: 20px;
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 64px 16px 40px;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pillsContainer {
+    gap: 8px;
+  }
+
+  .languageTags {
+    flex-wrap: wrap;
+  }
+}

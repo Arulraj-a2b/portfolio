@@ -1,0 +1,238 @@
+.experience {
+  position: relative;
+  padding: var(--section-pad-y) 0;
+  background: linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.02), transparent);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-pad-x);
+}
+
+.heading {
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: var(--space-3xl);
+  max-width: 900px;
+}
+
+.headingAccent {
+  color: var(--color-gray-40);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.block {
+  position: relative;
+  margin-bottom: var(--space-3xl);
+  padding-left: 40px;
+}
+
+.blockTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-xl);
+  color: var(--color-white);
+}
+
+.blockDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent, var(--color-primary));
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.line {
+  position: absolute;
+  left: 4px;
+  top: 32px;
+  bottom: 20px;
+  width: 1px;
+  background: var(--glass-border);
+  overflow: hidden;
+}
+
+.lineFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--glass-border-hover);
+  transform: translateY(-3px);
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: -46px;
+  top: var(--space-xl);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid var(--body-bg);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.cardSide {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardDate {
+  font-size: 0.78rem;
+  color: var(--color-primary-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cardIndex {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-gray-80);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardMain {
+  min-width: 0;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.cardOrg {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-white);
+}
+
+.cardLink {
+  font-size: 0.8rem;
+  color: var(--color-gray-30);
+  transition: color var(--transition-fast);
+}
+
+.cardLink:hover {
+  color: var(--color-primary-light);
+}
+
+.cardRole {
+  font-size: 0.88rem;
+  color: var(--color-gray-20);
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+
+.cardList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+}
+
+.cardList li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-gray-10);
+}
+
+.cardList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 1px;
+  background: var(--color-primary-light);
+}
+
+.cardToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  color: var(--color-primary-light);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cardToggle:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--color-white);
+}
+
+.cardToggleArrow {
+  transition: transform var(--transition-normal);
+}
+
+.cardToggleArrow[data-open='true'] {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .cardIndex {
+    font-size: 2rem;
+  }
+  .block {
+    padding-left: 24px;
+  }
+  .card::before {
+    left: -30px;
+  }
+}

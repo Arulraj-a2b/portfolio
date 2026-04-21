@@ -1,0 +1,115 @@
+/*
+  author: arul
+  about: css themes — Minimal Dark Navy
+*/
+:root {
+  /* Primary Colors */
+  --color-primary: #3B82F6;
+  --color-primary-light: #60A5FA;
+  --color-primary-dark: #2563EB;
+  --gradient-primary: linear-gradient(135deg, #3B82F6, #2563EB);
+  --gradient-primary-text: linear-gradient(135deg, #60A5FA, #3B82F6);
+
+  /* Base Colors */
+  --color-white: #f8fafc;
+  --color-black: #111827;
+
+  /* Gray Scale */
+  --color-gray-10: #f8fafc;
+  --color-gray-20: #d1d5db;
+  --color-gray-30: #94a3b8;
+  --color-gray-40: #6b7280;
+  --color-gray-50: #9CA3AF;
+  --color-gray-60: #D1D5DB;
+  --color-gray-70: #4b5563;
+  --color-gray-80: #1f2937;
+
+  /* Semantic */
+  --color-link: #3B82F6;
+  --color-error: #EF4444;
+  --color-success: #10B981;
+
+  /* Backgrounds */
+  --body-bg: #080c16;
+  --section-bg: #080c16;
+  --section-bg-alt: #080c16;
+  --card-bg: #05080f;
+  --card-bg-solid: #111827;
+  --hero-bg: #080c16;
+  --hero-text: #f8fafc;
+
+  /* Glass — replaced with solid borders */
+  --glass-bg: transparent;
+  --glass-bg-strong: rgba(59, 130, 246, 0.1);
+  --glass-border: #1f2937;
+  --glass-border-hover: #3B82F6;
+
+  /* Shadows — simplified, no glow */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: none;
+  --shadow-glow-lg: none;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 50%;
+
+  /* Bento */
+  --bento-gap: 24px;
+  --bento-radius: 16px;
+  --bento-padding: 32px;
+
+  /* Navbar */
+  --nav-bg: rgba(8, 12, 22, 0.9);
+  --nav-text: #f8fafc;
+
+  /* Logo */
+  --logo-bg: #111827;
+  --logo-text: #3B82F6;
+}
+
+/* Light theme — disabled (design is dark-only)
+body[theme='light'] {
+  --color-white: #111827;
+  --color-black: #F9FAFB;
+  --body-bg: #FAFAFA;
+  --section-bg: #FAFAFA;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-bg-solid: #FFFFFF;
+  --hero-bg: #FAFAFA;
+  --hero-text: #111827;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-text: #111827;
+  --logo-bg: #F3F4F6;
+  --logo-text: #3B82F6;
+}
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

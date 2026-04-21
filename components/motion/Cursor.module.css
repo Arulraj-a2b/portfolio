@@ -1,0 +1,55 @@
+.dot,
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: #ffffff;
+  will-change: transform;
+}
+
+.ring {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.label {
+  transform: translateY(30px);
+  background: rgba(255, 255, 255, 0.95);
+  color: #050810;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 9px;
+}
+
+@media (pointer: coarse) {
+  .dot,
+  .ring {
+    display: none;
+  }
+}

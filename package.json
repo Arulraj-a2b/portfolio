@@ -1,60 +1,40 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
-  "author": "Arulraj",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "check:types": "tsc --noEmit",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
-    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src/ --fix",
-    "prettify": "npx prettier --write src/**.*"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.9.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "classnames": "^2.3.2",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.11",
-    "formik": "^2.2.9",
-    "framer-motion": "^12.38.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-responsive": "^9.0.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "@emailjs/browser": "^4.4.1",
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.10",
+    "@hookform/resolvers": "^3.9.1",
+    "classnames": "^2.5.1",
+    "framer-motion": "^12.0.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "three": "^0.169.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0"
+    "@types/node": "^20.16.11",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.169.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.15",
+    "typescript": "^5.6.3"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "engines": {
+    "node": ">=18.17.0"
   }
 }

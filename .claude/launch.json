@@ -4,7 +4,7 @@
     {
       "name": "dev",
       "runtimeExecutable": "yarn",
-      "runtimeArgs": ["start"],
+      "runtimeArgs": ["dev"],
       "port": 3000
     }
   ]
