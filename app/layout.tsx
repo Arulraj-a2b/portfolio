@@ -52,15 +52,6 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: 'Arulraj Venkadachalam',
-    images: [
-      {
-        url: '/meta.png',
-        width: 1200,
-        height: 630,
-        alt: 'Arulraj Venkadachalam — Senior Software Engineer, Frontend',
-        type: 'image/png',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -68,7 +59,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/meta.png'],
     creator: TWITTER_HANDLE,
     site: TWITTER_HANDLE,
   },
