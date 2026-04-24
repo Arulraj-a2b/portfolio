@@ -4,6 +4,12 @@ import Lenis from 'lenis';
 import { useEffect, ReactNode } from 'react';
 import { usePrefersReducedMotion } from '@/lib/useMediaQuery';
 
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
+}
+
 export function LenisProvider({ children }: { children: ReactNode }) {
   const reduced = usePrefersReducedMotion();
 
@@ -15,6 +21,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
       smoothWheel: true,
       touchMultiplier: 1.2,
     });
+    window.__lenis = lenis;
 
     let raf: number;
     const tick = (time: number) => {
@@ -42,6 +49,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
       cancelAnimationFrame(raf);
       document.removeEventListener('click', onClick);
       lenis.destroy();
+      if (window.__lenis === lenis) delete window.__lenis;
     };
   }, [reduced]);
 
