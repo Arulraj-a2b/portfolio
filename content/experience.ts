@@ -9,7 +9,7 @@ export type TimelineEntry = {
 export const workList: TimelineEntry[] = [
   {
     org: 'The Reward Store',
-    date: 'Present',
+    date: 'Jan 2025 – Present',
     role: 'Senior Software Engineer, Frontend',
     url: 'https://www.therewardstore.com',
     bullets: [
@@ -26,7 +26,7 @@ export const workList: TimelineEntry[] = [
   },
   {
     org: 'Ripple Street',
-    date: 'Jul 2023 – Jun 2025',
+    date: 'Jul 2023 – Jan 2025',
     role: 'Software Engineer',
     url: 'https://www.ripplestreet.com',
     bullets: [
