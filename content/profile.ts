@@ -5,11 +5,11 @@ export const profile = {
   roleShort: 'Frontend Engineer',
   tagline:
     'I build scalable web applications and cross-platform mobile apps with modern frontend technologies. Currently leading frontend at The Reward Store, architecting 5 micro-frontend web platforms composed of 12+ independently deployed web modules, along with native iOS and Android mobile apps.',
-  bio: `Hi, I'm Arulraj Venkadachalam, a Senior Software Engineer, Frontend with over five years of experience building scalable web applications and cross-platform mobile apps. Currently at The Reward Store, I architect 5 micro-frontend web platforms (Store Front, Client Panel, Admin Panel, Vendor Dashboard, and Microsite) composed of 12+ independently deployed web modules, alongside native iOS and Android mobile apps. I lead frontend teams and deliver high-quality user experiences across web and mobile. Proficient in React.js, React Native (Expo & CLI), TypeScript, Redux Toolkit, Next.js, Tailwind CSS, Micro-Frontends, GraphQL, and Angular.js. Experienced with AI tools like Claude, Cursor, and MCP Server for accelerating development workflows. Passionate about crafting clean, performant, and user-centric interfaces that solve real-world problems.`,
+  bio: `Hi, I'm Arulraj Venkadachalam, a Senior Software Engineer, Frontend with over six years of experience building scalable web applications and cross-platform mobile apps. Currently at The Reward Store, I architect 5 micro-frontend web platforms (Store Front, Client Panel, Admin Panel, Vendor Dashboard, and Microsite) composed of 12+ independently deployed web modules, alongside native iOS and Android mobile apps. I lead frontend teams and deliver high-quality user experiences across web and mobile. Proficient in React.js, React Native (Expo & CLI), TypeScript, Redux Toolkit, Next.js, Tailwind CSS, Micro-Frontends, GraphQL, and Angular.js. Experienced with AI tools like Claude, Cursor, and MCP Server for accelerating development workflows. Passionate about crafting clean, performant, and user-centric interfaces that solve real-world problems.`,
   resumeUrl: '/Arulraj_Venkadachalam_CV.pdf',
   avatarUrl: '/profile.png',
   stats: [
-    { label: 'Years Experience', value: 5, suffix: '+' },
+    { label: 'Years Experience', value: 6, suffix: '+' },
     { label: 'Companies', value: 5, suffix: '' },
     { label: 'Projects Shipped', value: 10, suffix: '+' },
   ],
