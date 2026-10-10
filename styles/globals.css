@@ -63,17 +63,17 @@ h1, h2, h3, .display {
 }
 @media (min-width: 30rem) { .container-x { padding-inline: 20px; } }
 @media (min-width: 48rem) { .container-x { max-width: 720px; padding-inline: 24px; } }
-@media (min-width: 64rem) { .container-x { max-width: 1008px; } }
-@media (min-width: 80rem) { .container-x { max-width: 1168px; } }
-@media (min-width: 96rem) { .container-x { max-width: 1248px; } }
+@media (min-width: 64rem) { .container-x { max-width: 960px; } }
+@media (min-width: 80rem) { .container-x { max-width: 1040px; } }
+@media (min-width: 96rem) { .container-x { max-width: 1080px; } }
 
 .section-pad {
   padding-block: 56px;
 }
 @media (min-width: 30rem) { .section-pad { padding-block: 64px; } }
 @media (min-width: 48rem) { .section-pad { padding-block: 80px; } }
-@media (min-width: 64rem) { .section-pad { padding-block: 96px; } }
-@media (min-width: 80rem) { .section-pad { padding-block: 112px; } }
+@media (min-width: 64rem) { .section-pad { padding-block: 72px; } }
+@media (min-width: 80rem) { .section-pad { padding-block: 80px; } }
 
 section[id] {
   scroll-margin-top: 80px;
