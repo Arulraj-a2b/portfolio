@@ -50,8 +50,8 @@ export const profile = {
     { id: 'packages', label: 'Published packages', value: 10, suffix: '+' },
   ],
   resumeUrl: '/Arulraj_Venkadachalam_CV.pdf',
-  avatarUrl: '/avatar-3d.jpg',
-  avatarCircleUrl: '/avatar-3d-circle.jpg',
+  avatarUrl: '/avatar-3d.webp',
+  avatarCircleUrl: '/avatar-3d-circle.webp',
   social: {
     github: 'https://github.com/Arulraj-a2b',
     linkedin: 'https://www.linkedin.com/in/abofficial1997',

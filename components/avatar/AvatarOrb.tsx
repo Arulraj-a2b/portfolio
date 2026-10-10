@@ -37,14 +37,30 @@ export function AvatarOrb({ size = 260, className = '' }: { size?: number; class
   }, [fine, reduced]);
 
   return (
-    <div className={cn('float-y', className)} style={{ width: size, height: size, perspective: 800 }}>
+    <div
+      data-orb=""
+      className={cn('float-y', className)}
+      style={{ width: size, height: size, perspective: 800 }}
+    >
       <div
         ref={ref}
         className="glass relative h-full w-full overflow-hidden rounded-full transition-transform duration-300 ease-out"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        <div className="absolute inset-0 rounded-full" style={{ boxShadow: 'inset 0 0 0 1px var(--glass-border), inset 0 -30px 60px -30px color-mix(in srgb, var(--accent-2) 55%, transparent)' }} />
-        <div className="absolute -inset-1 rounded-full" style={{ background: 'radial-gradient(60% 60% at 30% 25%, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 70%)' }} />
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            boxShadow:
+              'inset 0 0 0 1px var(--glass-border), inset 0 -30px 60px -30px color-mix(in srgb, var(--accent-2) 55%, transparent)',
+          }}
+        />
+        <div
+          className="absolute -inset-1 rounded-full"
+          style={{
+            background:
+              'radial-gradient(60% 60% at 30% 25%, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 70%)',
+          }}
+        />
         {hasImage ? (
           <Image
             src={profile.avatarUrl}

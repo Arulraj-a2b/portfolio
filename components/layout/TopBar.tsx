@@ -46,19 +46,19 @@ export function TopBar() {
           >
             <a href="#home" aria-label={`${profile.shortName} — home`} className="flex items-center">
               <Image
-                src="/lockup-dark.png"
+                src="/lockup-dark.webp"
                 alt={profile.shortName}
-                width={1491}
-                height={380}
+                width={424}
+                height={108}
                 priority
                 className="lockup-dark h-8 w-auto md:h-9"
               />
               <Image
-                src="/lockup-light.png"
+                src="/lockup-light.webp"
                 alt=""
-                width={1491}
-                height={380}
-                priority
+                width={424}
+                height={108}
+                loading="lazy"
                 className="lockup-light h-8 w-auto md:h-9"
               />
             </a>

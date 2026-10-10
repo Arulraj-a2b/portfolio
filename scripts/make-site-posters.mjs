@@ -1,4 +1,4 @@
-// Screenshots live sites into public/posters/<slug>.jpg (1280x800, top of page).
+// Screenshots live sites into public/posters/<slug>.webp (1280x800, top of page).
 // Usage: PLAYWRIGHT_CORE=<path to playwright-core> node scripts/make-site-posters.mjs
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
@@ -29,7 +29,7 @@ for (const [slug, url] of sites) {
   await page.waitForTimeout(2500);
   // Hide common cookie / chat overlays.
   await page.addStyleTag({ content: '[id*="cookie"],[class*="cookie"],[id*="onetrust"],iframe[title*="chat" i]{display:none!important}' }).catch(() => {});
-  await page.screenshot({ path: path.join(out, `${slug}.jpg`), type: 'jpeg', quality: 86 });
+  await page.screenshot({ path: path.join(out, `${slug}.webp`), type: 'webp', quality: 82 });
   console.log('wrote', slug);
   await page.close();
 }

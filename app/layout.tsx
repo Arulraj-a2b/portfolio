@@ -10,14 +10,14 @@ import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { SceneRoot } from '@/components/scene/SceneRoot';
 
 const display = Space_Grotesk({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   weight: ['500', '600', '700'],
   variable: '--font-display',
   display: 'swap',
 });
-const body = Inter({ subsets: ['latin', 'latin-ext'], variable: '--font-body', display: 'swap' });
+const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 const mono = JetBrains_Mono({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
@@ -93,7 +93,7 @@ const person = {
   name: profile.name,
   jobTitle: profile.role,
   description: profile.siteDescription,
-  image: `${profile.siteUrl}${profile.avatarUrl}`,
+  image: `${profile.siteUrl}/avatar-3d.jpg`,
   url: profile.siteUrl,
   email: profile.social.email,
   telephone: profile.phoneRaw,

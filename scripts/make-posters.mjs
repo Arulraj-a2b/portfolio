@@ -45,7 +45,7 @@ for (const [slug, file, at] of jobs) {
           c.width = Math.min(1280, w);
           c.height = Math.round((c.width / w) * h);
           c.getContext('2d').drawImage(v, 0, 0, c.width, c.height);
-          resolve(c.toDataURL('image/jpeg', 0.86));
+          resolve(c.toDataURL('image/webp', 0.82));
         });
         document.body.appendChild(v);
       }),
@@ -56,7 +56,7 @@ for (const [slug, file, at] of jobs) {
     continue;
   }
   const buf = Buffer.from(dataUrl.split(',')[1], 'base64');
-  fs.writeFileSync(path.join(out, `${slug}.jpg`), buf);
+  fs.writeFileSync(path.join(out, `${slug}.webp`), buf);
   console.log('wrote', slug, buf.length);
 }
 await browser.close();

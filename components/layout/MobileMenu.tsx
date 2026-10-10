@@ -83,7 +83,7 @@ export function MobileMenu({ active, onClose }: { active: string; onClose: () =>
       html.style.removeProperty('--menu-origin-y');
       if (prevStyle === null) body.removeAttribute('style');
       else body.setAttribute('style', prevStyle);
-      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      window.scrollTo({ top: scrollY, behavior: 'auto' });
       const hash = pendingHash.current;
       if (!hash) return;
       pendingHash.current = null;
@@ -96,9 +96,13 @@ export function MobileMenu({ active, onClose }: { active: string; onClose: () =>
           ),
         );
       } else {
-        const top = scrollTargetFor(hash);
-        if (top !== null) window.scrollTo({ top, behavior: 'smooth' });
-        history.replaceState(null, '', hash);
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => {
+            const top = scrollTargetFor(hash);
+            if (top !== null) window.scrollTo({ top, behavior: 'smooth' });
+            history.replaceState(null, '', hash);
+          }),
+        );
       }
     };
   }, []);

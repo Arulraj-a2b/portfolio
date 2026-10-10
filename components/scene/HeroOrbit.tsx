@@ -18,8 +18,57 @@ export function HeroOrbit({ count = 8 }: { count?: number }) {
     >
       <ambientLight intensity={0.7} />
       <directionalLight position={[3, 5, 6]} intensity={1.3} />
+      <AvatarOccluder />
       <OrbitTiles count={count} />
     </Canvas>
+  );
+}
+
+/**
+ * Invisible disc the size of the avatar orb below the canvas. It writes depth only, so tiles on the back half
+ * of the orbit are hidden where they pass behind the photo while tiles on the front half draw over it.
+ */
+function AvatarOccluder() {
+  const { gl, viewport, size } = useThree();
+  const mesh = useRef<THREE.Mesh>(null);
+  const orb = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const box = gl.domElement.parentElement?.parentElement?.parentElement;
+    if (!box) return;
+    const find = () => {
+      orb.current =
+        Array.from(box.querySelectorAll<HTMLElement>('[data-orb]')).find((el) => el.offsetParent !== null) ??
+        null;
+    };
+    find();
+    const ro = new ResizeObserver(find);
+    ro.observe(box);
+    return () => ro.disconnect();
+  }, [gl]);
+
+  // Track the photo's live position and size (it floats and tilts), in scene units at z = 0.
+  useFrame(() => {
+    const m = mesh.current;
+    const el = orb.current?.firstElementChild as HTMLElement | null;
+    if (!m || !el) return;
+    const c = gl.domElement.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    const u = viewport.width / size.width; // units per px
+    m.position.set(
+      (r.left + r.width / 2 - (c.left + c.width / 2)) * u,
+      -(r.top + r.height / 2 - (c.top + c.height / 2)) * u,
+      0,
+    );
+    const radius = (Math.min(r.width, r.height) / 2) * u * 0.985;
+    m.scale.setScalar(radius);
+  });
+
+  return (
+    <mesh ref={mesh} renderOrder={-1}>
+      <circleGeometry args={[1, 64]} />
+      <meshBasicMaterial colorWrite={false} depthWrite />
+    </mesh>
   );
 }
 
@@ -28,12 +77,17 @@ function OrbitTiles({ count }: { count: number }) {
   const meshes = useRef<(THREE.Mesh | null)[]>([]);
   const { invalidate, viewport } = useThree();
   const skills = useMemo(() => sceneSkills.slice(0, count), [count]);
-  const materials = useMemo(() => skills.map((s, i) => makeTileMaterials(s.slug, s.label, TILE_COLORS[i % TILE_COLORS.length])), [skills]);
+  const materials = useMemo(
+    () => skills.map((s, i) => makeTileMaterials(s.slug, s.label, TILE_COLORS[i % TILE_COLORS.length])),
+    [skills],
+  );
   const radius = Math.min(viewport.width, viewport.height) * 0.42;
 
   useEffect(() => {
     const retint = () => {
-      skills.forEach((s, i) => retintTileMaterials(materials[i], s.slug, s.label, TILE_COLORS[i % TILE_COLORS.length]));
+      skills.forEach((s, i) =>
+        retintTileMaterials(materials[i], s.slug, s.label, TILE_COLORS[i % TILE_COLORS.length]),
+      );
       invalidate();
     };
     window.addEventListener('themechange', retint);

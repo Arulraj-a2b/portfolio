@@ -100,7 +100,7 @@ export function Hero() {
               transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
             >
               <div className="relative flex shrink-0 items-center justify-center w-[260px] h-[260px] md:w-[400px] md:h-[400px] lg:w-[min(460px,34vw)] lg:h-[min(460px,34vw)]">
-                <div className="absolute inset-0" aria-hidden="true">
+                <div className="pointer-events-none absolute inset-0 z-[1]" aria-hidden="true">
                   <HeroOrbit count={8} />
                 </div>
                 <AvatarOrb size={140} className="md:hidden" />

@@ -130,7 +130,7 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p:
           <button
             type="button"
             onClick={() => onOpen(project)}
-            className="text-[13px] text-accent-2 hover:underline underline-offset-4"
+            className="text-[13px] font-medium text-accent hover:underline underline-offset-4"
           >
             Details →
           </button>

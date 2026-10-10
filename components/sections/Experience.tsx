@@ -162,7 +162,7 @@ function RoleItem({ role }: { role: Role }) {
           type="button"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="mt-2 text-[13px] text-accent-2 hover:underline underline-offset-4"
+          className="mt-2 text-[13px] font-medium text-accent hover:underline underline-offset-4"
         >
           {expanded ? 'Show less' : `Show ${rest} more`}
         </button>

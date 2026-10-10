@@ -1,5 +1,5 @@
 /**
- * Projects shown in the Work grid. Posters live in public/posters/<slug>.jpg (generated from the videos).
+ * Projects shown in the Work grid. Posters live in public/posters/<slug>.webp (generated from the videos).
  * Independent projects are undated on purpose.
  */
 export type ProjectLink = { type: 'Website' | 'Android' | 'iOS' | 'Source'; href: string };
@@ -46,7 +46,7 @@ export const projectList: Project[] = [
     technologies: ['React 19', 'TypeScript', 'Rspack', 'Module Federation', 'Tailwind v4', 'Capacitor', 'Playwright'],
     categories: ['web', 'mobile', 'design-systems'],
     links: [{ type: 'Website', href: 'https://www.therewardstore.com' }],
-    media: { poster: '/posters/the-reward-store.jpg' },
+    media: { poster: '/posters/the-reward-store.webp' },
     accent: '#818cf8',
   },
   {
@@ -59,7 +59,7 @@ export const projectList: Project[] = [
     technologies: ['React 19', 'TypeScript', 'Radix UI', 'Tailwind v4', 'Storybook', 'Playwright', 'Design tokens'],
     categories: ['web', 'design-systems'],
     links: [{ type: 'Website', href: 'https://master.d2wh521lmmr77b.amplifyapp.com/' }],
-    media: { poster: '/posters/trs-design-system.jpg' },
+    media: { poster: '/posters/trs-design-system.webp' },
     accent: '#a78bfa',
   },
   {
@@ -74,7 +74,7 @@ export const projectList: Project[] = [
       { type: 'Website', href: 'https://www.a2v2.ai' },
       { type: 'Source', href: 'https://www.npmjs.com/package/@a2v2ai/uikit' },
     ],
-    media: { poster: '/posters/a2v2-frontend.jpg' },
+    media: { poster: '/posters/a2v2-frontend.webp' },
     accent: '#2dd4bf',
   },
   {
@@ -86,7 +86,7 @@ export const projectList: Project[] = [
     technologies: ['React 19', 'TypeScript', 'Vite 8', 'React Router 7', 'RTK Query', 'Firebase Auth', 'Storybook', 'Figma tokens'],
     categories: ['web', 'design-systems', 'independent'],
     links: [{ type: 'Website', href: 'https://www.drbrewerai.com' }],
-    media: { poster: '/posters/drbrewerai-frontend.jpg' },
+    media: { poster: '/posters/drbrewerai-frontend.webp' },
     accent: '#fb923c',
   },
   {
@@ -102,7 +102,7 @@ export const projectList: Project[] = [
       { type: 'Android', href: 'https://play.google.com/store/apps/details?id=com.ripplestreetfun' },
       { type: 'iOS', href: 'https://apps.apple.com/us/app/ripple-street-activities/id1623388148' },
     ],
-    media: { poster: '/posters/ripple-street.jpg', mp4: '/rippleStreet.mp4' },
+    media: { poster: '/posters/ripple-street.webp', mp4: '/rippleStreet.mp4' },
     accent: '#f472b6',
   },
   {
@@ -114,7 +114,7 @@ export const projectList: Project[] = [
     technologies: ['React.js', 'Redux', 'TypeScript', 'Storybook'],
     categories: ['web'],
     links: [{ type: 'Website', href: 'https://www.zita.ai' }],
-    media: { poster: '/posters/zita-ai.jpg', legacy: '/zitaAi.mov', heavy: true },
+    media: { poster: '/posters/zita-ai.webp', legacy: '/zitaAi.mov', heavy: true },
     accent: '#22d3ee',
   },
   {
@@ -129,7 +129,7 @@ export const projectList: Project[] = [
       { type: 'Android', href: 'https://play.google.com/store/apps/details?id=com.testosteronology.health' },
       { type: 'iOS', href: 'https://apps.apple.com/us/app/testosteronology/id6479609801' },
     ],
-    media: { poster: '/posters/testosteronology.jpg', legacy: '/testosteronology.mov', heavy: true },
+    media: { poster: '/posters/testosteronology.webp', legacy: '/testosteronology.mov', heavy: true },
     accent: '#a855f7',
   },
   {
@@ -143,7 +143,7 @@ export const projectList: Project[] = [
       { type: 'Android', href: 'https://play.google.com/store/apps/details?id=com.drug_round' },
       { type: 'iOS', href: 'https://apps.apple.com/us/app/druground/id1527065049' },
     ],
-    media: { poster: '/posters/druground.jpg', mp4: '/druground.mp4' },
+    media: { poster: '/posters/druground.webp', mp4: '/druground.mp4' },
     accent: '#10b981',
   },
 ];

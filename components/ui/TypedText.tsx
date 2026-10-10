@@ -30,7 +30,7 @@ export function TypedText({ phrases, className = '' }: { phrases: string[]; clas
   if (reduced) return <span className={className}>{phrases.join(' · ')}</span>;
 
   return (
-    <span className={className} aria-live="polite" aria-label={phrases.join(', ')}>
+    <span className={className} role="status" aria-live="polite" aria-label={phrases.join(', ')}>
       <span aria-hidden="true">{text}</span>
       <span aria-hidden="true" className="caret text-accent-2">
         |
