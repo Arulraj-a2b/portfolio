@@ -38,7 +38,7 @@ export function Hero() {
               variants={stagger(0.06, 0.2)}
               initial="hidden"
               animate="show"
-              className="lg:col-span-6 order-2 lg:order-1 text-center lg:text-left"
+              className="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left min-w-0"
             >
               <motion.p
                 variants={fadeUp}
@@ -46,7 +46,7 @@ export function Hero() {
               >
                 Hello, I&apos;m
               </motion.p>
-              <h1 className="mt-3 text-[clamp(40px,10vw,56px)] md:text-[64px] lg:text-[clamp(64px,6vw,84px)] font-bold">
+              <h1 className="mt-3 text-[clamp(40px,10vw,56px)] md:text-[60px] lg:text-[clamp(44px,4.6vw,72px)] font-bold break-words">
                 {words.map((w, i) => (
                   <motion.span key={i} variants={fadeUp} className="inline-block mr-[0.25em] last:mr-0">
                     {w}
@@ -93,18 +93,18 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="lg:col-span-6 order-1 lg:order-2 flex justify-center lg:justify-end lg:pr-2"
+              className="lg:col-span-5 order-1 lg:order-2 flex justify-center"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
             >
-              <div className="relative flex shrink-0 items-center justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[470px] lg:h-[470px]">
+              <div className="relative flex shrink-0 items-center justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[min(460px,34vw)] lg:h-[min(460px,34vw)]">
                 <div className="absolute inset-0" aria-hidden="true">
                   <HeroOrbit count={8} />
                 </div>
                 <AvatarOrb size={140} className="md:hidden" />
                 <AvatarOrb size={180} className="hidden md:block lg:hidden" />
-                <AvatarOrb size={250} className="hidden lg:block" />
+                <AvatarOrb size={230} className="hidden lg:block" />
               </div>
             </motion.div>
           </div>

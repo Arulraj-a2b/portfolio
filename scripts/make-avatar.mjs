@@ -31,6 +31,29 @@ const dataUrl = await page.evaluate(
     ctx.fillStyle = '#0a0a12';
     ctx.fillRect(0, 0, 1024, 1024);
     ctx.drawImage(img, x, y, w, h, 0, 0, 1024, 1024);
+    // Replace the maroon studio backdrop with the site background, feathered by hue distance.
+    const id = ctx.getImageData(0, 0, 1024, 1024);
+    const d = id.data;
+    const bg = [10, 10, 18];
+    for (let i = 0; i < d.length; i += 4) {
+      const r = d[i] / 255, g = d[i + 1] / 255, b = d[i + 2] / 255;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, delta = max - min;
+      const sat = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+      let hue = 0;
+      if (delta) {
+        if (max === r) hue = ((g - b) / delta) % 6; else if (max === g) hue = (b - r) / delta + 2; else hue = (r - g) / delta + 4;
+        hue = (hue * 60 + 360) % 360;
+      }
+      const hd = Math.min(Math.abs(hue - 345), 360 - Math.abs(hue - 345));
+      let k = 0;
+      if (sat > 0.3 && l < 0.5 && hd < 22) k = Math.min(1, (22 - hd) / 8) * Math.min(1, (sat - 0.3) / 0.15);
+      if (k > 0) {
+        d[i] = d[i] * (1 - k) + bg[0] * k;
+        d[i + 1] = d[i + 1] * (1 - k) + bg[1] * k;
+        d[i + 2] = d[i + 2] * (1 - k) + bg[2] * k;
+      }
+    }
+    ctx.putImageData(id, 0, 0);
     // Soft vignette + indigo rim so the photo sits in the dark glass orb.
     const g = ctx.createRadialGradient(512, 460, 300, 512, 512, 760);
     g.addColorStop(0, 'rgba(10,10,18,0)');
