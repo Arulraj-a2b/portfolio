@@ -19,9 +19,9 @@ type ShapeDef = {
 };
 
 const SPHERES: ShapeDef[] = [
-  { kind: 'sphere', pos: [5.6, 2.8, -3], size: 0.9, colorVar: '--shape-3', speed: 0.09, phase: 1.2, depth: 0.25 },
-  { kind: 'sphere', pos: [-5.2, -3.1, -4], size: 0.7, colorVar: '--shape-2', speed: 0.12, phase: 1.7, depth: 0.5 },
-  { kind: 'sphere', pos: [1.2, 3.8, -9], size: 1.1, colorVar: '--shape-5', speed: 0.07, phase: 2.9, depth: 0.2 },
+  { kind: 'sphere', pos: [5.6, 2.8, -3], size: 0.6, colorVar: '--shape-3', speed: 0.09, phase: 1.2, depth: 0.25 },
+  { kind: 'sphere', pos: [-5.2, -3.1, -4], size: 0.45, colorVar: '--shape-2', speed: 0.12, phase: 1.7, depth: 0.5 },
+  { kind: 'sphere', pos: [1.2, 3.8, -9], size: 0.75, colorVar: '--shape-5', speed: 0.07, phase: 2.9, depth: 0.2 },
 ];
 
 const TILE_COLORS = ['--shape-1', '--shape-2', '--shape-4', '--shape-5', '--shape-3'];
@@ -39,9 +39,9 @@ const TILE_SLOTS: Slot[] = Array.from({ length: 24 }, (_, i) => {
   const frac = ((n * 37) % 100) / 100;
   const nxMin = ring === 0 ? 0.62 : ring === 1 ? 0.45 : 0.05;
   const nx = side * (nxMin + frac * (0.95 - nxMin));
-  const ny = -0.9 + (((n * 53 + ring * 17) % 100) / 100) * 1.8;
+  const ny = -1.6 + (((n * 53 + ring * 17) % 100) / 100) * 3.2;
   const z = ring === 0 ? -1.5 - (n % 3) * 0.5 : ring === 1 ? -4.5 - (n % 3) * 0.6 : -8 - (n % 4) * 0.8;
-  const size = ring === 0 ? 1.25 + (n % 2) * 0.15 : ring === 1 ? 1.15 + (n % 2) * 0.1 : 1.0 + (n % 3) * 0.1;
+  const size = ring === 0 ? 0.82 + (n % 2) * 0.1 : ring === 1 ? 0.78 + (n % 2) * 0.08 : 0.7 + (n % 3) * 0.06;
   return { ring, nx, ny, z, size, colorVar: TILE_COLORS[i % TILE_COLORS.length], speed: 0.06 + ((i * 7) % 5) * 0.012, phase: (i * 1.7) % (Math.PI * 2), depth: ring === 0 ? 0.45 : ring === 1 ? 0.3 : 0.18 };
 });
 
@@ -111,7 +111,7 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
         kind: 'tile' as const,
         label: sceneSkills[i % sceneSkills.length].label,
         slug: sceneSkills[i % sceneSkills.length].slug,
-        pos: [slot.nx * hw, slot.ny * hh * 1.15, slot.z] as [number, number, number],
+        pos: [slot.nx * hw, slot.ny * hh, slot.z] as [number, number, number],
         size: slot.size,
         colorVar: slot.colorVar,
         speed: slot.speed,
@@ -211,7 +211,7 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
       if (!m) return;
       const drift = Math.sin(t * d.speed * Math.PI + d.phase) * 0.6;
       const sway = Math.cos(t * d.speed * Math.PI * 0.7 + d.phase) * 0.3;
-      m.position.set(d.pos[0] + sway, d.pos[1] + drift + scroll.current * 10 * d.depth, d.pos[2]);
+      m.position.set(d.pos[0] + sway, d.pos[1] + drift + scroll.current * 6 * d.depth, d.pos[2]);
       if (d.kind === 'sphere') {
         m.rotation.x = t * d.speed * 0.6 + d.phase;
         m.rotation.y = t * d.speed * 0.8 + d.phase;
