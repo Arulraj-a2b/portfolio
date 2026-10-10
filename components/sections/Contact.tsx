@@ -36,8 +36,10 @@ export function Contact() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, submitCount },
   } = useForm<Values>({ resolver: zodResolver(schema), mode: 'onSubmit', reValidateMode: 'onChange' });
+
+  const err = (m?: string) => (submitCount > 0 ? m : undefined);
 
   const onSubmit = async (v: Values) => {
     if (v.company) return;
@@ -100,13 +102,13 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 grid gap-4 sm:grid-cols-2"
           >
-            <FormField id="name" label="Your name" autoComplete="name" error={errors.name?.message} {...register('name')} />
-            <FormField id="email" label="Email" type="email" autoComplete="email" inputMode="email" error={errors.email?.message} {...register('email')} />
+            <FormField id="name" label="Your name" autoComplete="name" error={err(errors.name?.message)} {...register('name')} />
+            <FormField id="email" label="Email" type="email" autoComplete="email" inputMode="email" error={err(errors.email?.message)} {...register('email')} />
             <div className="sm:col-span-2">
-              <FormField id="subject" label="Subject" error={errors.subject?.message} {...register('subject')} />
+              <FormField id="subject" label="Subject" error={err(errors.subject?.message)} {...register('subject')} />
             </div>
             <div className="sm:col-span-2">
-              <FormField as="textarea" id="message" label="Message" error={errors.message?.message} {...register('message')} />
+              <FormField as="textarea" id="message" label="Message" error={err(errors.message?.message)} {...register('message')} />
             </div>
             <div className="hidden" aria-hidden="true">
               <label htmlFor="company">Company</label>
