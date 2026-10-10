@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import Script from 'next/script';
 import '@/styles/globals.css';
 import { profile } from '@/content/profile';
+import { skillGroups } from '@/content/skills';
+import { educationList } from '@/content/experience';
 import { themeInitScript } from '@/lib/useTheme';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { SceneRoot } from '@/components/scene/SceneRoot';
@@ -16,8 +18,17 @@ export const metadata: Metadata = {
   title: profile.siteTitle,
   description: profile.siteDescription,
   alternates: { canonical: '/' },
+  applicationName: profile.shortName,
+  authors: [{ name: profile.name, url: profile.siteUrl }],
+  creator: profile.name,
+  publisher: profile.name,
+  category: 'technology',
+  keywords: ['Arulraj Venkadachalam', 'Senior Frontend Engineer', 'Frontend Architect', 'React', 'React Native', 'TypeScript', 'Micro-frontends', 'Module Federation', 'Design systems', 'Next.js', 'Salem', 'India'],
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } },
+  formatDetection: { telephone: false, email: false, address: false },
   openGraph: {
     type: 'website',
+    locale: 'en_US',
     url: profile.siteUrl,
     title: profile.siteTitle,
     description: profile.siteDescription,
@@ -48,12 +59,16 @@ const jsonLd = {
   '@type': 'Person',
   name: profile.name,
   jobTitle: profile.role,
+  description: profile.siteDescription,
+  image: `${profile.siteUrl}${profile.avatarUrl}`,
   url: profile.siteUrl,
   email: profile.social.email,
   telephone: profile.phoneRaw,
   address: { '@type': 'PostalAddress', addressLocality: profile.address.city, addressRegion: profile.address.state, addressCountry: profile.address.countryShort },
   sameAs: [profile.social.github, profile.social.linkedin],
   worksFor: { '@type': 'Organization', name: profile.currently.org },
+  alumniOf: educationList.map((e) => ({ '@type': 'EducationalOrganization', name: e.org })),
+  knowsAbout: skillGroups.flatMap((g) => g.bars.map((b) => b.title)).slice(0, 24),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

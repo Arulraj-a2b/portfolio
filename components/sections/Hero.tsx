@@ -48,8 +48,9 @@ export function Hero() {
               </motion.p>
               <h1 className="mt-3 text-[clamp(40px,10vw,56px)] md:text-[60px] lg:text-[clamp(44px,4.6vw,72px)] font-bold break-words">
                 {words.map((w, i) => (
-                  <motion.span key={i} variants={fadeUp} className="inline-block mr-[0.25em] last:mr-0">
+                  <motion.span key={i} variants={fadeUp} className="inline-block">
                     {w}
+                    {i < words.length - 1 ? ' ' : ''}
                   </motion.span>
                 ))}
               </h1>
