@@ -1,32 +1,95 @@
 'use client';
 
 import { useFrame, useThree } from '@react-three/fiber';
-import { RoundedBox } from '@react-three/drei';
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
+import { sceneSkills } from '@/content/skills';
+import * as icons from 'simple-icons';
 
 type ShapeDef = {
-  kind: 'box' | 'sphere' | 'torus' | 'ico';
+  kind: 'sphere' | 'tile';
+  label?: string;
+  slug?: string;
   pos: [number, number, number];
   size: number;
   colorVar: string;
   speed: number;
   phase: number;
-  depth: number; // parallax factor (0.2–0.5)
+  depth: number; // parallax factor
 };
 
-const DEFS: ShapeDef[] = [
-  { kind: 'box', pos: [-4.2, 2.2, -2], size: 1.6, colorVar: '--shape-1', speed: 0.11, phase: 0.0, depth: 0.35 },
-  { kind: 'sphere', pos: [3.6, 2.6, -3], size: 0.9, colorVar: '--shape-3', speed: 0.09, phase: 1.2, depth: 0.25 },
-  { kind: 'box', pos: [4.4, -1.6, -1], size: 1.3, colorVar: '--shape-2', speed: 0.13, phase: 2.1, depth: 0.45 },
-  { kind: 'torus', pos: [-3.4, -2.4, -2.5], size: 1.0, colorVar: '--shape-4', speed: 0.08, phase: 0.7, depth: 0.3 },
-  { kind: 'ico', pos: [0.6, 3.4, -5], size: 0.8, colorVar: '--shape-5', speed: 0.1, phase: 2.8, depth: 0.2 },
-  { kind: 'sphere', pos: [-0.8, -3.2, -4], size: 0.6, colorVar: '--shape-2', speed: 0.12, phase: 1.7, depth: 0.5 },
-  { kind: 'box', pos: [1.8, 0.4, -7], size: 2.2, colorVar: '--shape-1', speed: 0.07, phase: 3.3, depth: 0.15 },
+const SPHERES: ShapeDef[] = [
+  { kind: 'sphere', pos: [5.6, 2.8, -3], size: 0.9, colorVar: '--shape-3', speed: 0.09, phase: 1.2, depth: 0.25 },
+  { kind: 'sphere', pos: [-5.2, -3.1, -4], size: 0.7, colorVar: '--shape-2', speed: 0.12, phase: 1.7, depth: 0.5 },
+  { kind: 'sphere', pos: [1.2, 3.8, -9], size: 1.1, colorVar: '--shape-5', speed: 0.07, phase: 2.9, depth: 0.2 },
 ];
 
-function readColor(v: string): string {
-  return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#312e81';
+const TILE_COLORS = ['--shape-1', '--shape-2', '--shape-4', '--shape-5', '--shape-3'];
+
+/**
+ * Normalised slots: nx/ny are fractions of the visible half-width/half-height at the tile's depth, so the
+ * layout scales with the viewport. Near tiles sit in the outer third (|nx| >= 0.62) so they never crowd the
+ * hero text; far tiles are small and may sit anywhere.
+ */
+type Slot = { ring: 0 | 1 | 2; nx: number; ny: number; z: number; size: number; colorVar: string; speed: number; phase: number; depth: number };
+const TILE_SLOTS: Slot[] = Array.from({ length: 24 }, (_, i) => {
+  const ring = (i % 3) as 0 | 1 | 2; // 0 near, 1 mid, 2 far
+  const n = Math.floor(i / 3); // 0..7 within the ring
+  const side = n % 2 === 0 ? -1 : 1;
+  const frac = ((n * 37) % 100) / 100;
+  const nxMin = ring === 0 ? 0.62 : ring === 1 ? 0.45 : 0.05;
+  const nx = side * (nxMin + frac * (0.95 - nxMin));
+  const ny = -0.9 + (((n * 53 + ring * 17) % 100) / 100) * 1.8;
+  const z = ring === 0 ? -1.5 - (n % 3) * 0.5 : ring === 1 ? -4.5 - (n % 3) * 0.6 : -8 - (n % 4) * 0.8;
+  const size = ring === 0 ? 1.25 + (n % 2) * 0.15 : ring === 1 ? 1.15 + (n % 2) * 0.1 : 1.0 + (n % 3) * 0.1;
+  return { ring, nx, ny, z, size, colorVar: TILE_COLORS[i % TILE_COLORS.length], speed: 0.06 + ((i * 7) % 5) * 0.012, phase: (i * 1.7) % (Math.PI * 2), depth: ring === 0 ? 0.45 : ring === 1 ? 0.3 : 0.18 };
+});
+
+function readVar(v: string, fallback: string): string {
+  return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || fallback;
+}
+
+/** A canvas texture with the skill logo on a tinted tile; the brand colour is used on dark tiles when it reads well. */
+function makeLogoTexture(slug: string, label: string, bg: string, isLight: boolean): THREE.CanvasTexture {
+  const c = document.createElement('canvas');
+  c.width = 512;
+  c.height = 512;
+  const ctx = c.getContext('2d')!;
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, 512, 512);
+  const grad = ctx.createLinearGradient(0, 0, 512, 512);
+  grad.addColorStop(0, 'rgba(255,255,255,0.2)');
+  grad.addColorStop(0.5, 'rgba(255,255,255,0)');
+  grad.addColorStop(1, 'rgba(0,0,0,0.2)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 512, 512);
+
+  const icon = (icons as unknown as Record<string, { path: string; hex: string } | undefined>)[slug];
+  const fg = isLight ? '#0f172a' : '#f8fafc';
+  if (icon) {
+    // Brand colour if it is bright enough for the dark tile, otherwise plain text colour.
+    const r = parseInt(icon.hex.slice(0, 2), 16);
+    const g = parseInt(icon.hex.slice(2, 4), 16);
+    const b = parseInt(icon.hex.slice(4, 6), 16);
+    const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    ctx.fillStyle = !isLight && lum > 90 ? `#${icon.hex}` : fg;
+    ctx.save();
+    const scale = 300 / 24;
+    ctx.translate(256 - 150, 256 - 150 - 22);
+    ctx.scale(scale, scale);
+    ctx.fill(new Path2D(icon.path));
+    ctx.restore();
+  }
+  ctx.fillStyle = fg;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = '600 44px "Space Grotesk", "Inter", system-ui, sans-serif';
+  ctx.fillText(label, 256, 456);
+
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  return tex;
 }
 
 export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
@@ -35,35 +98,79 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
   const pointer = useRef({ x: 0, y: 0 });
   const target = useRef({ x: 0, y: 0 });
   const scroll = useRef(0);
-  const { invalidate } = useThree();
+  const { invalidate, viewport, camera } = useThree();
+  const aspect = viewport.aspect;
 
-  const defs = useMemo(() => DEFS.slice(0, count), [count]);
-  const materials = useMemo(
-    () =>
-      defs.map(
-        (d) =>
-          new THREE.MeshStandardMaterial({
-            color: new THREE.Color(readColor(d.colorVar)),
-            roughness: 0.38,
-            metalness: 0.15,
-            transparent: true,
-            opacity: 0.92,
-          }),
-      ),
-    [defs],
-  );
+  const defs = useMemo<ShapeDef[]>(() => {
+    const camZ = camera.position.z;
+    const halfH = (z: number) => Math.tan(THREE.MathUtils.degToRad(45 / 2)) * (camZ - z);
+    const tiles: ShapeDef[] = TILE_SLOTS.map((slot, i) => {
+      const hh = halfH(slot.z);
+      const hw = hh * aspect;
+      return {
+        kind: 'tile' as const,
+        label: sceneSkills[i % sceneSkills.length].label,
+        slug: sceneSkills[i % sceneSkills.length].slug,
+        pos: [slot.nx * hw, slot.ny * hh * 1.15, slot.z] as [number, number, number],
+        size: slot.size,
+        colorVar: slot.colorVar,
+        speed: slot.speed,
+        phase: slot.phase,
+        depth: slot.depth,
+      };
+    });
+    const all: ShapeDef[] = [];
+    const sphereCount = Math.min(SPHERES.length, Math.max(1, Math.round(count * 0.35)));
+    all.push(...SPHERES.slice(0, sphereCount));
+    all.push(...tiles.slice(0, Math.max(0, count - sphereCount)));
+    return all;
+  }, [count, aspect, camera]);
+
+  const materials = useMemo(() => {
+    const isLight = document.documentElement.dataset.theme === 'light';
+    return defs.map((d) => {
+      const color = readVar(d.colorVar, '#312e81');
+      if (d.kind === 'sphere') {
+        return [new THREE.MeshStandardMaterial({ color: new THREE.Color(color), roughness: 0.35, metalness: 0.15, transparent: true, opacity: 0.92 })];
+      }
+      const side = new THREE.MeshStandardMaterial({ color: new THREE.Color(color), roughness: 0.4, metalness: 0.1 });
+      const face = new THREE.MeshStandardMaterial({ map: makeLogoTexture(d.slug!, d.label!, color, isLight), roughness: 0.45, metalness: 0.05 });
+      // BoxGeometry material order: +x, -x, +y, -y, +z (front), -z
+      return [side, side, side, side, face, face];
+    });
+  }, [defs]);
 
   // Re-tint on theme change.
   useEffect(() => {
     const retint = () => {
-      defs.forEach((d, i) => materials[i].color.set(readColor(d.colorVar)));
+      const isLight = document.documentElement.dataset.theme === 'light';
+      defs.forEach((d, i) => {
+        const color = readVar(d.colorVar, '#312e81');
+        const mats = materials[i] as THREE.MeshStandardMaterial[];
+        mats[0].color.set(color);
+        if (d.kind === 'tile') {
+          const face = mats[4];
+          face.map?.dispose();
+          face.map = makeLogoTexture(d.slug!, d.label!, color, isLight);
+          face.needsUpdate = true;
+        }
+      });
       invalidate();
     };
     window.addEventListener('themechange', retint);
     return () => window.removeEventListener('themechange', retint);
   }, [defs, materials, invalidate]);
 
-  useEffect(() => () => materials.forEach((m) => m.dispose()), [materials]);
+  useEffect(
+    () => () =>
+      materials.forEach((mats) =>
+        (mats as THREE.MeshStandardMaterial[]).forEach((m) => {
+          m.map?.dispose();
+          m.dispose();
+        }),
+      ),
+    [materials],
+  );
 
   useEffect(() => {
     const onMove = (e: PointerEvent) => {
@@ -102,11 +209,18 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
     defs.forEach((d, i) => {
       const m = meshes.current[i];
       if (!m) return;
-      const drift = Math.sin(t * d.speed * 2 * Math.PI * 0.5 + d.phase) * 0.6;
-      const sway = Math.cos(t * d.speed * 2 * Math.PI * 0.35 + d.phase) * 0.3;
+      const drift = Math.sin(t * d.speed * Math.PI + d.phase) * 0.6;
+      const sway = Math.cos(t * d.speed * Math.PI * 0.7 + d.phase) * 0.3;
       m.position.set(d.pos[0] + sway, d.pos[1] + drift + scroll.current * 10 * d.depth, d.pos[2]);
-      m.rotation.x = t * d.speed * 0.6 + d.phase;
-      m.rotation.y = t * d.speed * 0.8 + d.phase;
+      if (d.kind === 'sphere') {
+        m.rotation.x = t * d.speed * 0.6 + d.phase;
+        m.rotation.y = t * d.speed * 0.8 + d.phase;
+      } else {
+        // Tiles mostly face the camera, wobbling so the label stays readable.
+        m.rotation.x = Math.sin(t * d.speed * 1.4 + d.phase) * 0.22;
+        m.rotation.y = Math.sin(t * d.speed * 1.1 + d.phase * 1.3) * 0.35;
+        m.rotation.z = Math.sin(t * d.speed * 0.9 + d.phase) * 0.08;
+      }
     });
   });
 
@@ -116,26 +230,16 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
         const ref = (el: THREE.Mesh | null) => {
           meshes.current[i] = el;
         };
-        const mat = materials[i];
-        if (d.kind === 'box')
+        if (d.kind === 'sphere') {
           return (
-            <RoundedBox key={i} ref={ref} args={[d.size, d.size, d.size]} radius={d.size * 0.22} smoothness={4} material={mat} position={d.pos} />
-          );
-        if (d.kind === 'sphere')
-          return (
-            <mesh key={i} ref={ref} material={mat} position={d.pos}>
+            <mesh key={i} ref={ref} material={materials[i][0]} position={d.pos}>
               <sphereGeometry args={[d.size, 40, 40]} />
             </mesh>
           );
-        if (d.kind === 'torus')
-          return (
-            <mesh key={i} ref={ref} material={mat} position={d.pos}>
-              <torusGeometry args={[d.size, d.size * 0.38, 24, 64]} />
-            </mesh>
-          );
+        }
         return (
-          <mesh key={i} ref={ref} material={mat} position={d.pos}>
-            <icosahedronGeometry args={[d.size, 1]} />
+          <mesh key={i} ref={ref} material={materials[i]} position={d.pos}>
+            <boxGeometry args={[d.size, d.size, d.size * 0.18]} />
           </mesh>
         );
       })}

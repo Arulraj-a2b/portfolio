@@ -113,3 +113,31 @@ export const languagesList = [
   { title: 'Tamil', value: 100 },
   { title: 'English', value: 90 },
 ];
+
+/** Logos on the floating tiles in the 3D background (simple-icons slugs). Order mixes groups so every area shows early. */
+export const sceneSkills: { slug: string; label: string }[] = [
+  { slug: 'siReact', label: 'React' },
+  { slug: 'siTypescript', label: 'TypeScript' },
+  { slug: 'siNodedotjs', label: 'Node.js' },
+  { slug: 'siClaude', label: 'Claude Code' },
+  { slug: 'siTailwindcss', label: 'Tailwind CSS' },
+  { slug: 'siGo', label: 'Go' },
+  { slug: 'siNextdotjs', label: 'Next.js' },
+  { slug: 'siModelcontextprotocol', label: 'MCP' },
+  { slug: 'siExpo', label: 'React Native' },
+  { slug: 'siGraphql', label: 'GraphQL' },
+  { slug: 'siRedux', label: 'Redux' },
+  { slug: 'siPostgresql', label: 'PostgreSQL' },
+  { slug: 'siStorybook', label: 'Storybook' },
+  { slug: 'siCursor', label: 'Cursor' },
+  { slug: 'siCapacitor', label: 'Capacitor' },
+  { slug: 'siFirebase', label: 'Firebase' },
+  { slug: 'siVitest', label: 'Vitest' },
+  { slug: 'siSocketdotio', label: 'Socket.IO' },
+  { slug: 'siWebpack', label: 'Module Federation' },
+  { slug: 'siGit', label: 'Git' },
+  { slug: 'siVite', label: 'Vite' },
+  { slug: 'siFigma', label: 'Figma' },
+  { slug: 'siDocker', label: 'Docker' },
+  { slug: 'siFlutter', label: 'Flutter' },
+];

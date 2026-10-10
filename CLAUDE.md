@@ -24,7 +24,7 @@ node scripts/make-posters.mjs   # regenerate public/posters/*.jpg from the proje
 - `content/*.ts` — all copy and data. `profile.ts` (identity, facts, stats, socials, SEO), `experience.ts` (roles, education), `projects.ts` (work grid; `categories` drive the filter; independent projects have no `dates`), `skills.ts` (groups with bars + chips), `services.ts`, `nav.ts`. Components contain no literal copy except micro-labels. The résumé in `public/Arulraj_Venkadachalam_CV.pdf` is the source of truth; keep `experience.ts` in sync with it.
 - `design/tokens.css` — CSS variables for both themes and the Tailwind `@theme` bridge. Never hardcode colours in components; use `var(--…)` or the `text-accent` / `bg-accent` style utilities.
 - `styles/globals.css` — reset, `.glass` / `.glass-2` / `.glass-bar`, container and section padding, keyframes, reduced-motion, scene fallback, service-card hover.
-- `components/scene/` — `SceneRoot` (decides canvas vs static fallback via `useSyncExternalStore`), `SceneCanvas` (R3F canvas, DPR tiers, pauses when the tab is hidden), `Shapes` (7 shapes, drift, cursor tilt, scroll parallax, theme re-tint), `useSceneQuality` (desktop 7 / tablet 5 / phone 4 shapes).
+- `components/scene/` — `SceneRoot` (decides canvas vs static fallback via `useSyncExternalStore`), `SceneCanvas` (R3F canvas, DPR tiers, pauses when the tab is hidden), `Shapes` (3 spheres + up to 24 skill-logo tiles from `sceneSkills` in `content/skills.ts`, rendered with simple-icons onto canvas textures; near tiles stay in the outer third of the viewport; drift, cursor tilt, scroll parallax, theme re-tint), `useSceneQuality` (desktop 22 / tablet 12 / phone 8 shapes, camera further back on small tiers).
 - `components/layout/` — `TopBar` (sticky glass bar, active-section underline), `MobileMenu` (bottom sheet, focus trap, swipe to close), `ThemeToggle`, `SmoothScroll` (Lenis on pointer devices only), `Footer`.
 - `components/sections/` — Hero, About, Skills, Work, Experience, Services, Contact, in page order.
 - `components/ui/` — GlassCard, Section, SectionHeading, Button/ButtonLink, Chip/ChipButton, Counter, ProgressBar, Modal (dialog on tablet+, sheet on phones), Toast, FormField (floating label), ProjectCard, TypedText, IconLink, Icons.
@@ -36,7 +36,7 @@ node scripts/make-posters.mjs   # regenerate public/posters/*.jpg from the proje
 
 - Content rules: A2V2.ai and DrBrewerAI are **independent projects**, frontend scope, **no dates and never the word "freelance"**. Independent work is a project card, never a job entry.
 - Motion: one easing (`EASE` in `lib/motion.ts`), `whileInView` once, animate only `transform`/`opacity` (exceptions: timeline fill, filter reflow). Everything must degrade under `prefers-reduced-motion` (no scene, no typing, no float).
-- 3D: no shadows, no post-processing, no transmission materials, ≤ 7 shapes, `powerPreference: 'low-power'`, canvas paused when hidden. Keep the 3D chunk lazy (`next/dynamic`, `ssr: false`).
+- 3D: no shadows, no post-processing, no transmission materials, box tiles only (drei RoundedBox ignores per-face materials), `powerPreference: 'low-power'`, canvas paused when hidden. Keep the 3D chunk lazy (`next/dynamic`, `ssr: false`).
 - Accessibility: every icon button has `aria-label`; sheets and dialogs trap focus and close on Esc; inputs are 16px so iOS does not zoom.
 - React compiler lint rules are on: no `setState` directly in effects (use `useSyncExternalStore` for external state), no mutating `window.location.href` (use `assign`).
 

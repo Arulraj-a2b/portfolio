@@ -16,13 +16,15 @@ export function SceneCanvas() {
   }, []);
 
   const dpr = useMemo<[number, number]>(() => (quality.tier === 'phone' ? [1, 1] : quality.tier === 'tablet' ? [1, 1.5] : [1, 2]), [quality.tier]);
+  const camZ = quality.tier === 'phone' ? 14 : quality.tier === 'tablet' ? 11.5 : 9;
 
   return (
     <Canvas
       className="absolute inset-0"
       dpr={dpr}
       frameloop={running ? 'always' : 'never'}
-      camera={{ position: [0, 0, 9], fov: 45, near: 0.1, far: 60 }}
+      camera={{ position: [0, 0, camZ], fov: 45, near: 0.1, far: 60 }}
+      key={camZ}
       gl={{ antialias: quality.tier !== 'phone', alpha: true, powerPreference: 'low-power', stencil: false, depth: true }}
       style={{ opacity: 0, animation: 'scene-in 1.2s var(--ease) forwards' }}
     >

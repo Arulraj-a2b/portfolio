@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="container-x pb-8 pt-4">
       <div className="glass flex flex-col sm:flex-row items-center justify-between gap-4 px-5 py-4">
         <p className="text-[13px] text-muted">
-          © {new Date().getFullYear()} {profile.name}. Built with Next.js and React Three Fiber.
+          © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
         <div className="flex gap-2">
           <IconLink href={profile.social.github} label="GitHub">

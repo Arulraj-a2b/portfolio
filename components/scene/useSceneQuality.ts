@@ -7,13 +7,13 @@ export type SceneQuality = { tier: 'desktop' | 'tablet' | 'phone'; shapes: numbe
 const compute = (): SceneQuality => {
   const w = window.innerWidth;
   const fine = window.matchMedia('(pointer: fine)').matches;
-  if (w >= 1024) return { tier: 'desktop', shapes: 7, tilt: fine };
-  if (w >= 768) return { tier: 'tablet', shapes: 5, tilt: fine };
-  return { tier: 'phone', shapes: 4, tilt: false };
+  if (w >= 1024) return { tier: 'desktop', shapes: 22, tilt: fine };
+  if (w >= 768) return { tier: 'tablet', shapes: 12, tilt: fine };
+  return { tier: 'phone', shapes: 8, tilt: false };
 };
 
 export function useSceneQuality(): SceneQuality {
-  const [q, setQ] = useState<SceneQuality>({ tier: 'desktop', shapes: 7, tilt: false });
+  const [q, setQ] = useState<SceneQuality>({ tier: 'desktop', shapes: 22, tilt: false });
   useEffect(() => {
     const update = () => setQ(compute());
     update();

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import Script from 'next/script';
 import '@/styles/globals.css';
 import { profile } from '@/content/profile';
 import { themeInitScript } from '@/lib/useTheme';
@@ -52,10 +53,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
+        <Script id="theme-init" strategy="beforeInteractive">{themeInitScript}</Script>
         <a href="#main" className="skip-link">
           Skip to content
         </a>

@@ -12,12 +12,10 @@ const out = path.join(root, 'public', 'posters');
 fs.mkdirSync(out, { recursive: true });
 
 const jobs = [
-  ['native-pilot-ui', 'native-pilot-ui.mov', 2],
   ['ripple-street', 'rippleStreet.mp4', 2],
   ['zita-ai', 'zitaAi.mov', 3],
   ['testosteronology', 'testosteronology.mov', 3],
   ['druground', 'druground.mp4', 2],
-  ['dindigul', 'dindigul.mp4', 2],
 ];
 
 const browser = await chromium.launch({

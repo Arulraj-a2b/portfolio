@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import cn from 'classnames';
 import { skillGroups } from '@/content/skills';
@@ -9,10 +9,33 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { Chip } from '@/components/ui/Chip';
 import { EASE } from '@/lib/motion';
+import { ChevronDownIcon } from '@/components/ui/Icons';
 
 export function Skills() {
   const [active, setActive] = useState(skillGroups[0].id);
   const group = skillGroups.find((g) => g.id === active) ?? skillGroups[0];
+  const list = useRef<HTMLDivElement>(null);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
+
+  useEffect(() => {
+    const el = list.current;
+    if (!el) return;
+    const update = () => {
+      setCanLeft(el.scrollLeft > 4);
+      setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    };
+    update();
+    el.addEventListener('scroll', update, { passive: true });
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener('scroll', update);
+      ro.disconnect();
+    };
+  }, []);
+
+  const nudge = (dir: 1 | -1) => list.current?.scrollBy({ left: dir * 220, behavior: 'smooth' });
 
   return (
     <Section id="skills">
@@ -35,21 +58,41 @@ export function Skills() {
           </select>
         </label>
 
-        <div role="tablist" aria-label="Skill groups" className="hidden sm:flex gap-1 overflow-x-auto pb-2 -mx-2 px-2 [mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%-16px),transparent)]">
-          {skillGroups.map((g) => (
-            <button
-              key={g.id}
-              role="tab"
-              type="button"
-              aria-selected={active === g.id}
-              aria-controls={`skills-${g.id}`}
-              onClick={() => setActive(g.id)}
-              className={cn('relative shrink-0 px-4 py-2.5 text-[14px] whitespace-nowrap transition-colors', active === g.id ? 'text-text' : 'text-muted hover:text-text')}
-            >
-              {g.title}
-              {active === g.id && <motion.span layoutId="skills-tab" className="absolute inset-x-3 bottom-0 h-[2px] rounded-full bg-accent-2" transition={{ type: 'spring', stiffness: 400, damping: 36 }} />}
+        <div className="relative hidden sm:block">
+          {canLeft && (
+            <button type="button" onClick={() => nudge(-1)} aria-label="Scroll tabs left" className="glass-bar absolute left-0 top-1/2 z-10 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full text-text">
+              <ChevronDownIcon className="rotate-90" />
             </button>
-          ))}
+          )}
+          <div
+            ref={list}
+            role="tablist"
+            aria-label="Skill groups"
+            className={cn('flex gap-1 overflow-x-auto pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden transition-[padding]', canLeft && 'pl-11', canRight && 'pr-11')}
+          >
+            {skillGroups.map((g) => (
+              <button
+                key={g.id}
+                role="tab"
+                type="button"
+                aria-selected={active === g.id}
+                aria-controls={`skills-${g.id}`}
+                onClick={(e) => {
+                  setActive(g.id);
+                  (e.currentTarget as HTMLElement).scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+                }}
+                className={cn('relative shrink-0 px-4 py-2.5 text-[14px] whitespace-nowrap transition-colors', active === g.id ? 'text-text' : 'text-muted hover:text-text')}
+              >
+                {g.title}
+                {active === g.id && <motion.span layoutId="skills-tab" className="absolute inset-x-3 bottom-0 h-[2px] rounded-full bg-accent-2" transition={{ type: 'spring', stiffness: 400, damping: 36 }} />}
+              </button>
+            ))}
+          </div>
+          {canRight && (
+            <button type="button" onClick={() => nudge(1)} aria-label="Scroll tabs right" className="glass-bar absolute right-0 top-1/2 z-10 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full text-text">
+              <ChevronDownIcon className="-rotate-90" />
+            </button>
+          )}
         </div>
 
         <AnimatePresence mode="wait">

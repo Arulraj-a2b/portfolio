@@ -6,7 +6,7 @@
   --accent: #c7d2fe;
   --on-accent: #1e1b4b;
   --accent-2: #818cf8;
-  --glass: rgba(255, 255, 255, 0.07);
+  --glass: rgba(255, 255, 255, 0.09);
   --glass-border: rgba(255, 255, 255, 0.22);
   --glass-2: rgba(255, 255, 255, 0.1);
   --glass-2-border: rgba(255, 255, 255, 0.14);
@@ -24,7 +24,7 @@
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 24px;
-  --blur: 18px;
+  --blur: 26px;
   color-scheme: dark;
 }
 

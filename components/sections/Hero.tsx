@@ -21,9 +21,6 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <span aria-hidden="true" className="mono absolute right-6 top-4 text-[72px] md:text-[120px] lg:text-[160px] leading-none font-medium text-text/[0.06] select-none">
-            01
-          </span>
 
           <div className="relative grid w-full gap-10 lg:grid-cols-12 lg:items-center">
             <motion.div variants={stagger(0.06, 0.2)} initial="hidden" animate="show" className="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left">
