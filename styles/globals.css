@@ -188,3 +188,8 @@ section[id] {
   backdrop-filter: var(--bar-filter);
   border-radius: var(--radius-lg);
 }
+
+/* Theme-specific logo lockups (dark wordmark on light theme, pale on dark). */
+.lockup-light { display: none; }
+html[data-theme='light'] .lockup-dark { display: none; }
+html[data-theme='light'] .lockup-light { display: block; }

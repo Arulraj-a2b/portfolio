@@ -33,9 +33,9 @@ export function TopBar() {
       <header className={cn('sticky top-0 z-40 transition-[padding] duration-300', scrolled ? 'pt-2' : 'pt-3 md:pt-4')}>
         <div className="container-x">
           <div className={cn('glass-bar flex h-14 md:h-16 items-center justify-between gap-3 px-4 md:px-5', scrolled && 'shadow-lg')}>
-            <a href="#home" className="display flex items-center gap-2.5 text-[17px] font-semibold tracking-tight">
-              <Image src="/logo.png" alt="" width={30} height={30} priority className="h-[30px] w-[30px]" />
-              <span>{profile.shortName}</span>
+            <a href="#home" aria-label={`${profile.shortName} — home`} className="flex items-center">
+              <Image src="/lockup-dark.png" alt={profile.shortName} width={1491} height={380} priority className="lockup-dark h-8 w-auto md:h-9" />
+              <Image src="/lockup-light.png" alt="" width={1491} height={380} priority className="lockup-light h-8 w-auto md:h-9" />
             </a>
 
             <nav aria-label="Primary" className="hidden md:flex items-center gap-0 lg:gap-1">

@@ -9,7 +9,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default function OpenGraphImage() {
-  const logo = `data:image/png;base64,${fs.readFileSync(path.join(process.cwd(), 'public', 'logo.png')).toString('base64')}`;
+  const logo = `data:image/png;base64,${fs.readFileSync(path.join(process.cwd(), 'public', 'lockup-dark.png')).toString('base64')}`;
   return new ImageResponse(
     (
       <div
@@ -44,8 +44,7 @@ export default function OpenGraphImage() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logo} width={64} height={64} alt="" />
-            <div style={{ fontSize: 22, letterSpacing: 6, color: '#a5b4fc', textTransform: 'uppercase' }}>{'Hello, I\'m'}</div>
+            <img src={logo} width={251} height={64} alt="" />
           </div>
           <div style={{ fontSize: 76, fontWeight: 700, marginTop: 12, lineHeight: 1.05 }}>{profile.name}</div>
           <div style={{ fontSize: 32, color: '#c7d2fe', marginTop: 16 }}>Senior Frontend Engineer · Frontend Architect</div>
