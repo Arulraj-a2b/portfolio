@@ -8,8 +8,11 @@ export const alt = profile.siteTitle;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
+const read = (file: string) => `data:image/${file.endsWith('.png') ? 'png' : 'jpeg'};base64,${fs.readFileSync(path.join(process.cwd(), 'public', file)).toString('base64')}`;
+
 export default function OpenGraphImage() {
-  const logo = `data:image/png;base64,${fs.readFileSync(path.join(process.cwd(), 'public', 'lockup-dark.png')).toString('base64')}`;
+  const avatar = read('avatar-3d.jpg');
+  const lockup = read('lockup-dark.png');
   return new ImageResponse(
     (
       <div
@@ -17,38 +20,30 @@ export default function OpenGraphImage() {
           width: '100%',
           height: '100%',
           display: 'flex',
+          alignItems: 'center',
           background: 'linear-gradient(135deg, #0a0a12 0%, #14122b 60%, #0a0a12 100%)',
           color: '#f8fafc',
           fontFamily: 'sans-serif',
           position: 'relative',
         }}
       >
-        <div style={{ position: 'absolute', left: 80, top: 70, width: 160, height: 160, borderRadius: 40, background: '#312e81', transform: 'rotate(18deg)' }} />
-        <div style={{ position: 'absolute', right: 120, top: 60, width: 110, height: 110, borderRadius: 999, background: '#065f46' }} />
-        <div style={{ position: 'absolute', right: 70, bottom: 50, width: 150, height: 150, borderRadius: 36, background: '#7c2d12', transform: 'rotate(-14deg)' }} />
-        <div
-          style={{
-            position: 'absolute',
-            left: 80,
-            right: 80,
-            top: 120,
-            bottom: 120,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            padding: '48px 64px',
-            borderRadius: 32,
-            background: 'rgba(255,255,255,0.08)',
-            border: '1px solid rgba(255,255,255,0.22)',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={logo} width={251} height={64} alt="" />
-          </div>
-          <div style={{ fontSize: 76, fontWeight: 700, marginTop: 12, lineHeight: 1.05 }}>{profile.name}</div>
-          <div style={{ fontSize: 32, color: '#c7d2fe', marginTop: 16 }}>Senior Frontend Engineer · Frontend Architect</div>
-          <div style={{ fontSize: 22, color: '#94a3b8', marginTop: 28 }}>{`Micro-frontends · Design systems · React Native · ${profile.siteUrl.replace('https://', '')}`}</div>
+        <div style={{ position: 'absolute', left: 40, top: 40, width: 120, height: 120, borderRadius: 32, background: '#312e81', transform: 'rotate(18deg)', opacity: 0.9 }} />
+        <div style={{ position: 'absolute', right: 70, top: 50, width: 90, height: 90, borderRadius: 999, background: '#065f46', opacity: 0.9 }} />
+        <div style={{ position: 'absolute', right: 150, bottom: 40, width: 110, height: 110, borderRadius: 28, background: '#7c2d12', transform: 'rotate(-14deg)', opacity: 0.9 }} />
+
+        {/* Portrait sits in the centre-left so square crops (Slack, Teams, WhatsApp) still show the face. */}
+        <div style={{ display: 'flex', marginLeft: 150, width: 360, height: 360, borderRadius: 48, overflow: 'hidden', border: '2px solid rgba(255,255,255,0.28)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={avatar} width={360} height={360} alt="" style={{ objectFit: 'cover' }} />
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 56, width: 600 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={lockup} width={196} height={50} alt="" />
+          <div style={{ fontSize: 56, fontWeight: 700, marginTop: 26, lineHeight: 1.05 }}>{profile.name}</div>
+          <div style={{ fontSize: 26, color: '#c7d2fe', marginTop: 14 }}>Senior Frontend Engineer · Frontend Architect</div>
+          <div style={{ fontSize: 20, color: '#94a3b8', marginTop: 22, lineHeight: 1.4 }}>Micro-frontends · Design systems · React Native</div>
+          <div style={{ fontSize: 18, color: '#818cf8', marginTop: 18 }}>{profile.siteUrl.replace('https://', '')}</div>
         </div>
       </div>
     ),
