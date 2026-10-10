@@ -62,7 +62,7 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p:
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={project.media.poster}
-            alt=""
+            alt={`${project.title} screenshot`}
             loading="lazy"
             onError={() => setPosterOk(false)}
             className="absolute inset-0 h-full w-full object-cover"

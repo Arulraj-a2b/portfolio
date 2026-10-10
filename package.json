@@ -8,6 +8,7 @@
     "start": "npx serve out",
     "lint": "eslint .",
     "check:types": "tsc --noEmit",
+    "check:seo": "node scripts/check-seo.mjs",
     "format": "prettier --write \"**/*.{ts,tsx,css,md,json}\""
   },
   "dependencies": {

@@ -64,7 +64,7 @@ export const profile = {
   siteUrl: 'https://arulraj1997.netlify.app',
   siteTitle: 'Arulraj Venkadachalam | Frontend Architect & Engineer',
   siteDescription:
-    'Senior Frontend Engineer and Frontend Architect from Salem, India. I build micro-frontend platforms, multi-brand design systems and React Native apps that ship to both stores. Open to senior frontend roles.',
+    'Senior Frontend Engineer and Frontend Architect in Salem, India. I build micro-frontend platforms, multi-brand design systems and React Native apps. Open to senior roles.',
 };
 
 export type Profile = typeof profile;
