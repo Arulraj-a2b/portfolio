@@ -25,10 +25,14 @@ export function SmoothScroll() {
       const onClick = (e: MouseEvent) => {
         const a = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null;
         if (!a) return;
-        const el = document.querySelector(a.getAttribute('href') || '');
+        const el = document.querySelector(a.getAttribute('href') || '') as HTMLElement | null;
         if (!el) return;
         e.preventDefault();
-        lenis.scrollTo(el as HTMLElement, { offset: -72 });
+        // Land on the card inside the section (not the section's padding), just under the sticky header.
+        const target = (el.querySelector('.container-x') as HTMLElement | null) ?? el;
+        const header = document.querySelector('header');
+        const headerBottom = header ? header.getBoundingClientRect().bottom : 72;
+        lenis.scrollTo(target, { offset: -(headerBottom + 12) });
         history.replaceState(null, '', a.getAttribute('href'));
       };
       document.addEventListener('click', onClick);

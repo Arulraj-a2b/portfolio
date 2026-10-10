@@ -37,7 +37,7 @@ export function Contact() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<Values>({ resolver: zodResolver(schema), mode: 'onBlur' });
+  } = useForm<Values>({ resolver: zodResolver(schema), mode: 'onSubmit', reValidateMode: 'onChange' });
 
   const onSubmit = async (v: Values) => {
     if (v.company) return;

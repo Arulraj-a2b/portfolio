@@ -75,8 +75,9 @@ h1, h2, h3, .display {
 @media (min-width: 64rem) { .section-pad { padding-block: 72px; } }
 @media (min-width: 80rem) { .section-pad { padding-block: 80px; } }
 
+/* Native anchor scroll (touch devices): the section's own top padding already provides the gap under the header. */
 section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 16px;
   overflow-x: clip;
 }
 
