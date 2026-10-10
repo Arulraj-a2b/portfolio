@@ -23,11 +23,19 @@ export function Toast({ toast, onDismiss }: { toast: ToastState; onDismiss: () =
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
-          className={cn('glass fixed bottom-5 left-1/2 z-[70] -translate-x-1/2 flex items-center gap-3 px-4 py-3 text-[14px] max-w-[calc(100vw-32px)]', toast.kind === 'success' ? 'text-success' : 'text-error')}
+          className={cn(
+            'glass fixed bottom-5 left-1/2 z-[70] -translate-x-1/2 flex items-center gap-3 px-4 py-3 text-[14px] max-w-[calc(100vw-32px)]',
+            toast.kind === 'success' ? 'text-success' : 'text-error',
+          )}
         >
           {toast.kind === 'success' ? <CheckIcon /> : <CloseIcon />}
           <span className="text-text">{toast.message}</span>
-          <button type="button" onClick={onDismiss} aria-label="Dismiss" className="ml-1 text-muted hover:text-text">
+          <button
+            type="button"
+            onClick={onDismiss}
+            aria-label="Dismiss"
+            className="ml-1 text-muted hover:text-text"
+          >
             <CloseIcon width={16} height={16} />
           </button>
         </motion.div>

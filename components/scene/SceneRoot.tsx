@@ -30,7 +30,7 @@ const subscribe = () => () => {};
 export function SceneRoot() {
   const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   return (
-    <div aria-hidden="true" className="fixed inset-0 z-0 pointer-events-none">
+    <div aria-hidden="true" className="scene-root fixed inset-0 z-0 pointer-events-none">
       <div className="scene-fallback absolute inset-0" />
       {mode === 'canvas' && <SceneCanvas />}
     </div>

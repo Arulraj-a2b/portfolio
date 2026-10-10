@@ -12,7 +12,7 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
       onClick={toggle}
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
-      className={`inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--glass-border)] text-muted hover:text-text hover:bg-[var(--glass-2)] transition-colors duration-300 ${className}`}
+      className={`inline-flex h-9 w-9 md:h-11 md:w-11 items-center justify-center rounded-full border border-[var(--glass-border)] text-muted hover:text-text hover:bg-[var(--glass-2)] transition-colors duration-300 ${className}`}
     >
       {theme === 'light' ? <MoonIcon /> : <SunIcon />}
     </button>

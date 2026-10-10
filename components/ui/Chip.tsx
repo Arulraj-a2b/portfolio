@@ -7,7 +7,7 @@ export function Chip({ active, tone = 'default', className, ...rest }: Props) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full border px-3 py-1 text-[12px] leading-5 whitespace-nowrap transition-colors duration-300',
+        'inline-flex items-center rounded-full border px-3 py-1 text-[13px] leading-5 whitespace-nowrap transition-colors duration-300',
         active
           ? 'bg-accent text-on-accent border-transparent'
           : tone === 'tech'
@@ -20,14 +20,20 @@ export function Chip({ active, tone = 'default', className, ...rest }: Props) {
   );
 }
 
-export function ChipButton({ active, className, ...rest }: { active?: boolean } & ComponentPropsWithoutRef<'button'>) {
+export function ChipButton({
+  active,
+  className,
+  ...rest
+}: { active?: boolean } & ComponentPropsWithoutRef<'button'>) {
   return (
     <button
       type="button"
       aria-pressed={active}
       className={cn(
         'inline-flex h-9 items-center rounded-full border px-4 text-[13px] whitespace-nowrap transition-colors duration-300',
-        active ? 'bg-accent text-on-accent border-transparent' : 'border-[var(--glass-border)] text-muted hover:text-text',
+        active
+          ? 'bg-accent text-on-accent border-transparent'
+          : 'border-[var(--glass-border)] text-muted hover:text-text',
         className,
       )}
       {...rest}

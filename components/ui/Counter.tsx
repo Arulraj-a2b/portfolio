@@ -15,7 +15,7 @@ export function Counter({ value, suffix, label }: { value: number; suffix: strin
         {n}
         <span className="text-accent-2">{suffix}</span>
       </div>
-      <div className="mt-2 text-[12px] md:text-[13px] text-muted">{label}</div>
+      <div className="mt-2 text-[13px] text-muted">{label}</div>
     </motion.div>
   );
 }

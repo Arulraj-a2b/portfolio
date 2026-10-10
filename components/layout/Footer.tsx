@@ -17,7 +17,7 @@ export function Footer() {
 
   return (
     <footer className="container-x pb-8 pt-4">
-      <div className="glass flex flex-col sm:flex-row items-center justify-between gap-4 px-5 py-4">
+      <div className="glass flex flex-col-reverse sm:flex-row items-center justify-between gap-4 px-5 py-4 text-center sm:text-left">
         <p className="text-[13px] text-muted">
           © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>

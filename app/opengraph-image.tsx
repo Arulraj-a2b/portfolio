@@ -33,12 +33,10 @@ export default function OpenGraphImage() {
 
         {/* Portrait sits in the centre-left so square crops (Slack, Teams, WhatsApp) still show the face. */}
         <div style={{ display: 'flex', marginLeft: 150, width: 360, height: 360, borderRadius: 48, overflow: 'hidden', border: '2px solid rgba(255,255,255,0.28)', boxShadow: '0 30px 80px rgba(0,0,0,0.5)' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={avatar} width={360} height={360} alt="" style={{ objectFit: 'cover' }} />
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 56, width: 600 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={lockup} width={196} height={50} alt="" />
           <div style={{ fontSize: 56, fontWeight: 700, marginTop: 26, lineHeight: 1.05 }}>{profile.name}</div>
           <div style={{ fontSize: 26, color: '#c7d2fe', marginTop: 14 }}>Senior Frontend Engineer · Frontend Architect</div>

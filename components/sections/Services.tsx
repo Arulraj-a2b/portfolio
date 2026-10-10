@@ -11,15 +11,28 @@ import { fadeUp, inView, stagger } from '@/lib/motion';
 export function Services() {
   return (
     <Section id="services">
-      <div className="glass px-6 py-10 sm:px-8 md:px-12 md:py-14">
+      <div className="glass px-4 py-7 sm:px-8 sm:py-10 md:px-12 md:py-14">
         <SectionHeading number="06" eyebrow="Services" title="How I can help" />
-        <motion.div variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView} className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <motion.div
+          variants={stagger(0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={inView}
+          className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+        >
           {serviceList.map((s, i) => (
-            <motion.article key={s.id} variants={fadeUp} className={cn("service-card glass-2 relative p-6 flex flex-col gap-4", i === 2 && "md:col-span-2 xl:col-span-1")}>
-              <span className="mono text-[11px] tracking-[0.18em] uppercase text-accent-2">0{i + 1}</span>
+            <motion.article
+              key={s.id}
+              variants={fadeUp}
+              className={cn(
+                'service-card glass-2 relative p-6 flex flex-col gap-4',
+                i === 2 && 'md:col-span-2 xl:col-span-1',
+              )}
+            >
+              <span className="mono text-[12px] tracking-[0.16em] uppercase text-accent-2">0{i + 1}</span>
               <div>
                 <h3 className="text-[19px] font-semibold text-balance">{s.title}</h3>
-                <p className="text-[13px] text-muted">{s.tagline}</p>
+                <p className="text-[14px] text-muted">{s.tagline}</p>
               </div>
               <p className="text-[14.5px] text-muted">{s.description}</p>
               <ul className="mt-auto flex flex-col gap-2 text-[14px]">

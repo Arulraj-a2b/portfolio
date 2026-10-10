@@ -8,7 +8,15 @@ import { EASE } from '@/lib/motion';
 import { useIsTablet } from '@/lib/useMediaQuery';
 
 /** Centred dialog on tablet+, full-screen bottom sheet (swipe down to close) on phones. */
-export function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
+export function Modal({
+  title,
+  onClose,
+  children,
+}: {
+  title: string;
+  onClose: () => void;
+  children: ReactNode;
+}) {
   const panel = useRef<HTMLDivElement>(null);
   const tablet = useIsTablet();
 
@@ -20,7 +28,11 @@ export function Modal({ title, onClose, children }: { title: string; onClose: ()
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'Tab' && panel.current) {
-        const items = Array.from(panel.current.querySelectorAll<HTMLElement>('a[href], button, video, [tabindex]:not([tabindex="-1"])'));
+        const items = Array.from(
+          panel.current.querySelectorAll<HTMLElement>(
+            'a[href], button, video, [tabindex]:not([tabindex="-1"])',
+          ),
+        );
         if (!items.length) return;
         const first = items[0];
         const last = items[items.length - 1];
@@ -44,8 +56,19 @@ export function Modal({ title, onClose, children }: { title: string; onClose: ()
   const sheet = !tablet;
 
   return createPortal(
-    <motion.div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center p-0 md:p-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-      <button type="button" aria-label="Close" className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+    <motion.div
+      className="fixed inset-0 z-[60] flex items-end md:items-center justify-center p-0 md:p-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <button
+        type="button"
+        aria-label="Close"
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
       <motion.div
         ref={panel}
         role="dialog"
@@ -62,7 +85,12 @@ export function Modal({ title, onClose, children }: { title: string; onClose: ()
         onDragEnd={(_, info) => sheet && info.offset.y > 120 && onClose()}
       >
         {sheet && <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-[var(--glass-border)]" />}
-        <button type="button" onClick={onClose} aria-label="Close" className="absolute right-3 top-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-3 top-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60"
+        >
           <CloseIcon />
         </button>
         {children}

@@ -22,6 +22,8 @@ type ShapeDef = {
   speed: number;
   phase: number;
   depth: number; // parallax factor
+  /** Vertical half-range at this depth; tiles wrap inside it so the gutters stay populated while scrolling. */
+  range?: number;
 };
 
 const SPHERES: ShapeDef[] = [
@@ -71,13 +73,15 @@ type Slot = {
   depth: number;
 };
 const TILE_SLOTS: Slot[] = Array.from({ length: 24 }, (_, i) => {
-  const ring = (i % 3) as 0 | 1 | 2; // 0 near, 1 mid, 2 far
-  const n = Math.floor(i / 3); // 0..7 within the ring
-  const side = n % 2 === 0 ? -1 : 1;
-  const frac = ((n * 37) % 100) / 100;
+  // 12 tiles per side, spaced evenly down the gutter so they never bunch; rings alternate so depths mix.
+  const side = i % 2 === 0 ? -1 : 1;
+  const k = Math.floor(i / 2); // 0..11 down the side
+  const ring = (k % 3) as 0 | 1 | 2; // 0 near, 1 mid, 2 far
+  const n = Math.floor(k / 3); // 0..3 within the ring on this side
+  const frac = (k * 0.618) % 1; // golden-ratio spread across the gutter width
   const nxMin = ring === 0 ? 0.62 : ring === 1 ? 0.45 : 0.05;
   const nx = side * (nxMin + frac * (0.95 - nxMin));
-  const ny = -1.6 + (((n * 53 + ring * 17) % 100) / 100) * 3.2;
+  const ny = -1.05 + ((k + 0.5) / 12) * 2.1;
   const z = ring === 0 ? -1.5 - (n % 3) * 0.5 : ring === 1 ? -4.5 - (n % 3) * 0.6 : -8 - (n % 4) * 0.8;
   const size = ring === 0 ? 1.05 + (n % 2) * 0.1 : ring === 1 ? 0.95 + (n % 2) * 0.08 : 0.85 + (n % 3) * 0.06;
   return {
@@ -105,14 +109,31 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
   const defs = useMemo<ShapeDef[]>(() => {
     const camZ = camera.position.z;
     const halfH = (z: number) => Math.tan(THREE.MathUtils.degToRad(45 / 2)) * (camZ - z);
+    // Fraction of the viewport half-width covered by the content cards, so near and mid tiles are placed in
+    // the empty gutters beside the cards instead of behind them (where the glass blur hides them).
+    const container = document.querySelector('.container-x') as HTMLElement | null;
+    const pad = container ? parseFloat(getComputedStyle(container).paddingInline || '0') : 0;
+    const cardFrac = container
+      ? (container.getBoundingClientRect().width - 2 * pad) / window.innerWidth
+      : 0.9;
     const tiles: ShapeDef[] = TILE_SLOTS.map((slot, i) => {
       const hh = halfH(slot.z);
       const hw = hh * aspect;
+      let nx = slot.nx;
+      if (slot.ring < 2) {
+        const half = slot.size / 2 / hw; // tile half-width as a fraction of the half-viewport
+        const hi = 0.97 - half;
+        const lo = Math.min(hi, cardFrac + half + 0.02);
+        const frac =
+          (Math.abs(slot.nx) - (slot.ring === 0 ? 0.62 : 0.45)) / (0.95 - (slot.ring === 0 ? 0.62 : 0.45));
+        nx = Math.sign(slot.nx) * (lo + frac * (hi - lo));
+      }
       return {
         kind: 'tile' as const,
         label: sceneSkills[i % sceneSkills.length].label,
         slug: sceneSkills[i % sceneSkills.length].slug,
-        pos: [slot.nx * hw, slot.ny * hh, slot.z] as [number, number, number],
+        pos: [nx * hw, slot.ny * hh, slot.z] as [number, number, number],
+        range: hh * 1.15,
         size: slot.size,
         colorVar: slot.colorVar,
         speed: slot.speed,
@@ -192,7 +213,8 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
       pointer.current.y = Math.cos(t * 0.12) * 0.3;
     }
     const maxTilt = THREE.MathUtils.degToRad(6);
-    g.rotation.y = pointer.current.x * maxTilt + scroll.current * THREE.MathUtils.degToRad(25);
+    // Cursor tilt only: rotating with the scroll swung the gutter tiles behind the cards or off-screen.
+    g.rotation.y = pointer.current.x * maxTilt;
     g.rotation.x = -pointer.current.y * maxTilt;
 
     defs.forEach((d, i) => {
@@ -200,7 +222,13 @@ export function Shapes({ count, tilt }: { count: number; tilt: boolean }) {
       if (!m) return;
       const drift = Math.sin(t * d.speed * Math.PI + d.phase) * 0.6;
       const sway = Math.cos(t * d.speed * Math.PI * 0.7 + d.phase) * 0.3;
-      m.position.set(d.pos[0] + sway, d.pos[1] + drift + scroll.current * 6 * d.depth, d.pos[2]);
+      let y = d.pos[1] + drift + scroll.current * 6 * d.depth;
+      if (d.range) {
+        // Wrap vertically so tiles that parallax off the top re-enter from the bottom as the page scrolls.
+        const span = d.range * 2;
+        y = ((((y + d.range) % span) + span) % span) - d.range;
+      }
+      m.position.set(d.pos[0] + sway, y, d.pos[2]);
       if (d.kind === 'sphere') {
         m.rotation.x = t * d.speed * 0.6 + d.phase;
         m.rotation.y = t * d.speed * 0.8 + d.phase;

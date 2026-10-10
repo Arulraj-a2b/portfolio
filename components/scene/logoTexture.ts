@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import * as icons from 'simple-icons';
+import { brandIcons } from './icons';
 
 export const TILE_COLORS = ['--shape-1', '--shape-2', '--shape-4', '--shape-5', '--shape-3'];
 
@@ -26,7 +26,7 @@ export function makeLogoTexture(slug: string, label: string, bg: string, isLight
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 512, 512);
 
-  const icon = (icons as unknown as Record<string, { path: string; hex: string } | undefined>)[slug];
+  const icon = brandIcons[slug];
   const fg = isLight ? '#0f172a' : '#f8fafc';
   if (icon) {
     const r = parseInt(icon.hex.slice(0, 2), 16);

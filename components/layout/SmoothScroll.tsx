@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { scrollTargetFor } from '@/lib/scrollTarget';
 
 /** Lenis smooth scrolling on pointer devices only; respects reduced motion. */
 export function SmoothScroll() {
@@ -22,22 +23,36 @@ export function SmoothScroll() {
       };
       raf = requestAnimationFrame(loop);
 
+      // Freeze scrolling while the off-canvas menu is open (overflow:hidden alone does not stop Lenis).
+      const html = document.documentElement;
+      const syncMenu = () => (html.dataset.menu === 'open' ? lenis.stop() : lenis.start());
+      const mo = new MutationObserver(syncMenu);
+      mo.observe(html, { attributes: true, attributeFilter: ['data-menu'] });
+      syncMenu();
+
+      const scrollToHash = (hash: string) => {
+        const top = scrollTargetFor(hash);
+        if (top === null) return false;
+        lenis.resize(); // the page may have just been unpinned by the menu, so Lenis's scroll limit is stale
+        lenis.scrollTo(top, { force: true });
+        history.replaceState(null, '', hash);
+        return true;
+      };
+
       const onClick = (e: MouseEvent) => {
         const a = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null;
         if (!a) return;
-        const el = document.querySelector(a.getAttribute('href') || '') as HTMLElement | null;
-        if (!el) return;
-        e.preventDefault();
-        // Land on the card inside the section (not the section's padding), just under the sticky header.
-        const target = (el.querySelector('.container-x') as HTMLElement | null) ?? el;
-        const header = document.querySelector('header');
-        const headerBottom = header ? header.getBoundingClientRect().bottom : 72;
-        lenis.scrollTo(target, { offset: -(headerBottom + 12) });
-        history.replaceState(null, '', a.getAttribute('href'));
+        // Links inside the off-canvas menu are handled by the menu once it has released the page.
+        if (a.closest('[role="dialog"]')) return;
+        if (scrollToHash(a.getAttribute('href') || '')) e.preventDefault();
       };
+      const onMenuNavigate = (e: Event) => scrollToHash((e as CustomEvent<string>).detail);
       document.addEventListener('click', onClick);
+      window.addEventListener('menu:navigate', onMenuNavigate);
       destroy = () => {
         document.removeEventListener('click', onClick);
+        window.removeEventListener('menu:navigate', onMenuNavigate);
+        mo.disconnect();
         cancelAnimationFrame(raf);
         lenis.destroy();
       };

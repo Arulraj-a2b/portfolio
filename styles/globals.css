@@ -8,6 +8,11 @@ html {
   -webkit-text-size-adjust: 100%;
   overflow-x: clip;
 }
+/* Lenis drives the scroll on pointer devices; native smoothing on top of it makes every scroll fight and stutter. */
+html.lenis,
+html.lenis body {
+  scroll-behavior: auto !important;
+}
 
 body {
   background: var(--bg);
@@ -16,10 +21,18 @@ body {
   line-height: 1.65;
   min-height: 100dvh;
   overflow-x: clip;
-  transition: background-color var(--dur-ui) var(--ease), color var(--dur-ui) var(--ease);
+  transition:
+    background-color var(--dur-ui) var(--ease),
+    color var(--dur-ui) var(--ease);
 }
 
-button, [role='button'], [role='tab'], a, select, summary, label[for] {
+button,
+[role='button'],
+[role='tab'],
+a,
+select,
+summary,
+label[for] {
   cursor: pointer;
 }
 button:disabled {
@@ -31,7 +44,10 @@ button:disabled {
   color: var(--on-accent);
 }
 
-h1, h2, h3, .display {
+h1,
+h2,
+h3,
+.display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.08;
@@ -47,7 +63,13 @@ h1, h2, h3, .display {
   -webkit-backdrop-filter: var(--glass-filter);
   backdrop-filter: var(--glass-filter);
   border-radius: var(--radius-lg);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 30px 80px -40px rgba(0, 0, 0, 0.6);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 30px 80px -40px rgba(0, 0, 0, 0.6);
+}
+
+.glass > * {
+  min-width: 0;
 }
 
 .glass-2 {
@@ -61,19 +83,56 @@ h1, h2, h3, .display {
   margin-inline: auto;
   padding-inline: 16px;
 }
-@media (min-width: 30rem) { .container-x { padding-inline: 20px; } }
-@media (min-width: 48rem) { .container-x { max-width: 720px; padding-inline: 24px; } }
-@media (min-width: 64rem) { .container-x { max-width: 960px; } }
-@media (min-width: 80rem) { .container-x { max-width: 1040px; } }
-@media (min-width: 96rem) { .container-x { max-width: 1080px; } }
+@media (min-width: 30rem) {
+  .container-x {
+    padding-inline: 20px;
+  }
+}
+@media (min-width: 48rem) {
+  .container-x {
+    max-width: 720px;
+    padding-inline: 24px;
+  }
+}
+@media (min-width: 64rem) {
+  .container-x {
+    max-width: 960px;
+  }
+}
+@media (min-width: 80rem) {
+  .container-x {
+    max-width: 1040px;
+  }
+}
+@media (min-width: 96rem) {
+  .container-x {
+    max-width: 1080px;
+  }
+}
 
 .section-pad {
-  padding-block: 56px;
+  padding-block: 28px;
 }
-@media (min-width: 30rem) { .section-pad { padding-block: 64px; } }
-@media (min-width: 48rem) { .section-pad { padding-block: 80px; } }
-@media (min-width: 64rem) { .section-pad { padding-block: 72px; } }
-@media (min-width: 80rem) { .section-pad { padding-block: 80px; } }
+@media (min-width: 30rem) {
+  .section-pad {
+    padding-block: 32px;
+  }
+}
+@media (min-width: 48rem) {
+  .section-pad {
+    padding-block: 36px;
+  }
+}
+@media (min-width: 64rem) {
+  .section-pad {
+    padding-block: 40px;
+  }
+}
+@media (min-width: 80rem) {
+  .section-pad {
+    padding-block: 44px;
+  }
+}
 
 /* Native anchor scroll (touch devices): the section's own top padding already provides the gap under the header. */
 section[id] {
@@ -116,27 +175,51 @@ section[id] {
 }
 
 @keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 60%, transparent); }
-  70% { box-shadow: 0 0 0 10px transparent; }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 60%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
 }
 @keyframes shimmer {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(200%); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
 }
 @keyframes caret {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
-.float-y { animation: float-y 6s var(--ease) infinite; }
-.pulse-dot { animation: pulse-dot 2s ease-out infinite; }
-.caret { animation: caret 1s steps(1) infinite; }
+.float-y {
+  animation: float-y 6s var(--ease) infinite;
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-out infinite;
+}
+.caret {
+  animation: caret 1s steps(1) infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -147,38 +230,84 @@ section[id] {
 /* Static stand-in for the 3D scene (shown under the canvas, and alone when WebGL/motion is unavailable). */
 .scene-fallback {
   background:
-    radial-gradient(28% 28% at 12% 18%, color-mix(in srgb, var(--shape-1) 70%, transparent) 0%, transparent 70%),
-    radial-gradient(20% 20% at 82% 14%, color-mix(in srgb, var(--shape-3) 60%, transparent) 0%, transparent 70%),
-    radial-gradient(24% 24% at 86% 72%, color-mix(in srgb, var(--shape-2) 60%, transparent) 0%, transparent 70%),
-    radial-gradient(22% 22% at 18% 84%, color-mix(in srgb, var(--shape-4) 55%, transparent) 0%, transparent 70%),
-    radial-gradient(14% 14% at 52% 40%, color-mix(in srgb, var(--shape-5) 50%, transparent) 0%, transparent 70%),
+    radial-gradient(
+      28% 28% at 12% 18%,
+      color-mix(in srgb, var(--shape-1) 70%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      20% 20% at 82% 14%,
+      color-mix(in srgb, var(--shape-3) 60%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      24% 24% at 86% 72%,
+      color-mix(in srgb, var(--shape-2) 60%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      22% 22% at 18% 84%,
+      color-mix(in srgb, var(--shape-4) 55%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      14% 14% at 52% 40%,
+      color-mix(in srgb, var(--shape-5) 50%, transparent) 0%,
+      transparent 70%
+    ),
     var(--bg);
   transition: background var(--dur-ui) var(--ease);
 }
 @keyframes scene-in {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Service tiles: animated gradient border on hover. */
-.service-card { position: relative; }
+.service-card {
+  position: relative;
+}
 .service-card::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: conic-gradient(from var(--angle, 0deg), var(--accent-2), transparent 40%, var(--accent), transparent 80%, var(--accent-2));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    var(--accent-2),
+    transparent 40%,
+    var(--accent),
+    transparent 80%,
+    var(--accent-2)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
   transition: opacity var(--dur-ui) var(--ease);
   pointer-events: none;
 }
-@property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
-@keyframes spin-angle { to { --angle: 360deg; } }
-.service-card:hover::before { opacity: 1; animation: spin-angle 3s linear infinite; }
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+.service-card:hover::before {
+  opacity: 1;
+  animation: spin-angle 3s linear infinite;
+}
 
 /* Sticky header needs more opacity than a content card so text underneath does not bleed through. */
 .glass-bar {
@@ -190,6 +319,58 @@ section[id] {
 }
 
 /* Theme-specific logo lockups (dark wordmark on light theme, pale on dark). */
-.lockup-light { display: none; }
-html[data-theme='light'] .lockup-dark { display: none; }
-html[data-theme='light'] .lockup-light { display: block; }
+.lockup-light {
+  display: none;
+}
+html[data-theme='light'] .lockup-dark {
+  display: none;
+}
+html[data-theme='light'] .lockup-light {
+  display: block;
+}
+
+/* Off-canvas menu: the menu is painted on <body>; the page slides left as a smaller rounded card. */
+.page-shell {
+  transform-origin: left var(--menu-origin-y, 50vh);
+  transition:
+    transform 0.36s var(--ease),
+    border-radius 0.36s var(--ease);
+}
+html[data-menu='open'],
+html[data-menu='open'] body {
+  overflow: hidden;
+}
+html[data-menu='open'] {
+  background: linear-gradient(200deg, #4f46e5 0%, #6366f1 50%, #7c3aed 100%);
+}
+.menu-panel {
+  background: linear-gradient(200deg, #4f46e5 0%, #6366f1 50%, #7c3aed 100%);
+}
+html[data-menu='open'] .page-shell {
+  transform: translateX(-60%) scale(0.84);
+  border-radius: 28px;
+  overflow: hidden;
+  pointer-events: none;
+  box-shadow: 30px 0 80px -20px rgba(0, 0, 0, 0.55);
+}
+html[data-menu='open'] .page-shell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--bg);
+  z-index: -1;
+}
+html[data-menu='open'] .scene-root {
+  visibility: hidden;
+}
+@media (min-width: 48rem) {
+  html[data-menu='open'] .page-shell {
+    transform: translateX(-320px) scale(0.9);
+  }
+}
+.menu-active,
+.menu-active:hover {
+  background: var(--bg);
+  color: var(--text);
+}

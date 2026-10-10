@@ -1,111 +1,63 @@
-/** Skill groups, mirroring the résumé's Technical Skills lines. `bars` show as progress bars; `chips` as tags. */
-export type SkillBar = { title: string; value: number };
-export type SkillGroup = { id: string; title: string; bars: SkillBar[]; chips: string[] };
+/**
+ * Skill groups, mirroring the résumé's Technical Skills lines (plus the tools from the earlier CV that
+ * the shorter résumé dropped). `core` is shown as highlighted cards, `more` as chips. No invented percentages.
+ */
+export type SkillGroup = { id: string; title: string; core: string[]; more: string[] };
 
 export const skillGroups: SkillGroup[] = [
   {
     id: 'frontend',
     title: 'Frontend',
-    bars: [
-      { title: 'React 19', value: 95 },
-      { title: 'TypeScript', value: 92 },
-      { title: 'Tailwind CSS v4', value: 90 },
-      { title: 'Redux Toolkit / RTK Query', value: 88 },
-      { title: 'Next.js', value: 85 },
-      { title: 'React Router 7', value: 85 },
-    ],
-    chips: ['Vite', 'Radix UI', 'Styled Components', 'HTML & CSS', 'Angular.js', 'Bootstrap', 'MUI', 'Ant Design'],
+    core: ['React 19', 'TypeScript', 'JavaScript', 'React Router 7', 'Redux Toolkit / RTK Query', 'Next.js'],
+    more: ['Vite', 'Tailwind CSS v4', 'Radix UI', 'Styled Components', 'React Hooks', 'HTML & CSS', 'Angular.js (working knowledge)', 'Bootstrap', 'MUI', 'Ant Design'],
   },
   {
     id: 'architecture',
     title: 'Architecture',
-    bars: [
-      { title: 'Micro-frontends', value: 95 },
-      { title: 'Module Federation (Rspack, Webpack)', value: 92 },
-      { title: 'Design systems', value: 92 },
-      { title: 'Performance budgets', value: 85 },
-      { title: 'Monorepos (pnpm, Turborepo)', value: 85 },
-      { title: 'npm publishing (tsup, Changesets)', value: 85 },
-    ],
-    chips: ['shadcn/ui', 'cva', 'Caching', 'PWA', 'Scaffolding CLIs'],
+    core: ['Micro-frontends', 'Module Federation (Rspack, Webpack)', 'Design systems (Radix, shadcn/ui, cva)', 'npm publishing (tsup, Changesets)', 'Monorepos (pnpm, Turborepo)', 'Performance budgets'],
+    more: ['Caching strategies', 'Performance optimisation', 'PWA', 'Scalable system design'],
   },
   {
     id: 'quality',
     title: 'Testing & Quality',
-    bars: [
-      { title: 'Playwright', value: 90 },
-      { title: 'Vitest / Jest', value: 85 },
-      { title: 'React Testing Library', value: 85 },
-      { title: 'Storybook', value: 88 },
-      { title: 'ESLint architecture rules', value: 90 },
-      { title: 'size-limit & Husky gates', value: 88 },
-    ],
-    chips: ['Coverage gates', 'Visual tests', 'Docs-drift checks'],
+    core: ['Playwright', 'Vitest', 'Jest', 'React Testing Library', 'Storybook', 'ESLint architecture rules'],
+    more: ['Husky', 'size-limit', 'Coverage gates', 'Docs-drift checks'],
   },
   {
     id: 'mobile',
     title: 'Mobile & SDK',
-    bars: [
-      { title: 'React Native (Expo, CLI, Web)', value: 90 },
-      { title: 'Capacitor', value: 90 },
-      { title: 'App Store & Play Store releases', value: 88 },
-      { title: 'Firebase (push, Crashlytics, Analytics)', value: 82 },
-      { title: 'SDK packaging (iOS / Android / Flutter)', value: 80 },
-      { title: 'Ionic / Cordova', value: 70 },
-    ],
-    chips: ['Swift (basics)', 'Kotlin (basics)', 'Flutter / Dart (basics)', 'Deep links', 'CodePush'],
+    core: ['Capacitor', 'React Native (Expo, CLI, Web)', 'App Store & Play Store releases', 'Firebase (push, Crashlytics, Analytics)', 'SDK packaging (iOS / Android / Flutter)', 'CodePush OTA updates'],
+    more: ['Ionic / Cordova', 'Deep links', 'Swift (basics)', 'Kotlin (basics)', 'Flutter / Dart (basics)'],
   },
   {
     id: 'backend',
     title: 'Backend & API',
-    bars: [
-      { title: 'REST / OpenAPI', value: 88 },
-      { title: 'GraphQL / Apollo', value: 80 },
-      { title: 'SSE & Socket.IO realtime', value: 82 },
-      { title: 'Auth: SSO / OTP / TOTP / OAuth', value: 85 },
-      { title: 'Firebase Auth', value: 80 },
-      { title: 'Go / gRPC (working knowledge)', value: 55 },
-    ],
-    chips: ['Razorpay', 'Google Maps', 'reCAPTCHA', 'WebRTC', 'PostgreSQL (working knowledge)'],
+    core: ['REST', 'OpenAPI', 'GraphQL / Apollo', 'SSE', 'Socket.IO', 'Firebase Auth'],
+    more: ['OAuth', 'SSO / OTP / TOTP', 'Razorpay', 'UPI payments', 'Google Maps', 'Google reCAPTCHA v3', 'WebRTC', 'Webhooks', 'Go / gRPC (AI-assisted, working knowledge)', 'PostgreSQL (working knowledge)'],
   },
   {
     id: 'cloud',
     title: 'Cloud & DevOps',
-    bars: [
-      { title: 'AWS Amplify', value: 88 },
-      { title: 'CI/CD pipelines', value: 88 },
-      { title: 'Release management', value: 85 },
-      { title: 'Netlify / Vercel', value: 85 },
-      { title: 'Git / GitHub', value: 92 },
-      { title: 'Staging & production environments', value: 88 },
-    ],
-    chips: ['Build-time gates', 'Source-map handling', 'Hotfix workflows'],
+    core: ['AWS Amplify', 'CI/CD pipelines', 'Staging & production environments', 'Release management', 'Git / GitHub', 'Netlify'],
+    more: ['Vercel', 'Build-time gates', 'Source-map handling', 'Microsoft Clarity', 'Google Analytics'],
   },
   {
     id: 'ai',
     title: 'AI-assisted',
-    bars: [
-      { title: 'Claude Code', value: 92 },
-      { title: 'Cursor', value: 88 },
-      { title: 'MCP server authoring', value: 85 },
-      { title: 'Agent skills & hooks', value: 85 },
-      { title: 'Automated review gates', value: 85 },
-      { title: 'Codex', value: 75 },
-    ],
-    chips: ['HyperDX / ClickHouse log tracing', 'AI pair-programming'],
+    core: ['Claude Code', 'Cursor', 'Codex', 'MCP server authoring', 'Agent skills & hooks', 'Automated review gates'],
+    more: ['HyperDX / ClickHouse log tracing', 'AI pair-programming'],
   },
   {
     id: 'leadership',
     title: 'Leadership',
-    bars: [
-      { title: 'Architecture decisions', value: 92 },
-      { title: 'Code review', value: 92 },
-      { title: 'Coding standards', value: 90 },
-      { title: 'Mentoring', value: 88 },
-      { title: 'Team coordination', value: 85 },
-      { title: 'Production support', value: 88 },
-    ],
-    chips: ['Cross-team collaboration', 'Incident fixes'],
+    core: ['Architecture decisions', 'Product flow support', 'Code review', 'Coding standards', 'Mentoring', 'Team coordination'],
+    more: ['Production support & incident fixes', 'Cross-functional collaboration', 'Architecture decision records'],
+  },
+  {
+    id: 'learning',
+    title: 'Currently learning',
+    core: ['Go', 'Kafka', 'Databases (SQL)', 'Flutter'],
+    more: [],
   },
 ];
 

@@ -1,6 +1,6 @@
 /**
  * Everything about Arulraj that is not a job, a project or a skill.
- * Metadata, JSON-LD, the OG image and every section read from here.
+ * Metadata, JSON-LD, the OG image and every section read from here. Text mirrors the résumé.
  */
 export const profile = {
   name: 'Arulraj Venkadachalam',
@@ -11,9 +11,27 @@ export const profile = {
   /** Typed in the hero, one after another. */
   roles: ['Senior Frontend Engineer', 'Frontend Architect', 'Micro-frontend & design-system builder', 'React Native shipper'],
   tagline: 'I architect micro-frontend platforms, build the design systems behind them, and ship React Native apps to both stores.',
+  /** Résumé professional summary, verbatim. */
   summary:
-    'Senior Frontend Engineer with 6+ years of experience building scalable web and mobile applications, currently leading frontend engineering across three product lines at The Reward Store.',
-  bio: 'I lead frontend at The Reward Store: a micro-frontend platform of 9 shared remotes consumed by 4 host apps, a 76-component multi-brand design system, native apps on both stores and a six-runtime embed SDK. Before that I built for Ripple Street, Squash Apps, Zita.ai and ShopUp. I care about clean systems, fast interfaces and mentoring the people who build them, and I pair with AI tools (Claude Code, Cursor, MCP servers) to move faster without cutting corners.',
+    "Senior Frontend Engineer with 6+ years building scalable web and mobile applications, leading frontend engineering across three product lines at The Reward Store. Architected a micro-frontend platform shared by four host applications and a 76-component multi-brand design system, shipped native apps and a six-runtime embed SDK, and owns the team's standards, CI/CD, production and AI-assisted engineering workflow.",
+  /** First-person version of the summary for the About section. */
+  bio: "I'm a Senior Frontend Engineer with 6+ years building scalable web and mobile applications, currently leading frontend engineering across three product lines at The Reward Store. I architected a micro-frontend platform shared by four host applications and a 76-component multi-brand design system, shipped native apps and a six-runtime embed SDK, and I own the team's standards, CI/CD, production and AI-assisted engineering workflow. Along the way I've delivered flight booking, real-time payments and enterprise admin dashboards, and I enjoy mentoring the people who build them.",
+  /** Résumé key strengths. */
+  strengths: [
+    'Frontend Architecture & Micro-Frontends',
+    'Design Systems & Multi-brand Theming',
+    'Mobile Development & SDK Publishing',
+    'CI/CD, Deployments & Production Ownership',
+    'Code Quality Automation & Review',
+    'AI-Assisted Engineering Workflows',
+    'Performance & Bundle Budgets',
+    'Team Leadership & Mentoring',
+    'Product Flow Support & Delivery',
+    'Debugging & Quick Production Fixes',
+    'Full-stack Delivery (React + Go with AI)',
+    'Scalable System Design',
+    'Cross-Functional Collaboration',
+  ],
   availability: 'Open to senior frontend roles',
   currently: { org: 'The Reward Store', detail: 'Lead frontend' },
   stack: ['React', 'React Native', 'TypeScript', 'Micro-frontends'],
@@ -22,7 +40,7 @@ export const profile = {
     { label: 'Experience', value: '6+ years' },
     { label: 'Email', value: 'abofficial1997@gmail.com', href: 'mailto:abofficial1997@gmail.com' },
     { label: 'Phone', value: '+91 81898 38485', href: 'tel:+918189838485' },
-    { label: 'Languages', value: 'Tamil (native), English (professional)' },
+    { label: 'Languages', value: 'Tamil (native), English (professional working proficiency)' },
     { label: 'Availability', value: 'Open to senior frontend roles' },
   ],
   stats: [

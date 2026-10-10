@@ -29,7 +29,7 @@ function OrbitTiles({ count }: { count: number }) {
   const { invalidate, viewport } = useThree();
   const skills = useMemo(() => sceneSkills.slice(0, count), [count]);
   const materials = useMemo(() => skills.map((s, i) => makeTileMaterials(s.slug, s.label, TILE_COLORS[i % TILE_COLORS.length])), [skills]);
-  const radius = Math.min(viewport.width, viewport.height) * 0.4;
+  const radius = Math.min(viewport.width, viewport.height) * 0.42;
 
   useEffect(() => {
     const retint = () => {

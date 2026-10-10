@@ -1,7 +1,16 @@
 import type { SVGProps } from 'react';
 
 type P = SVGProps<SVGSVGElement>;
-const base = { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
+const base = {
+  width: 20,
+  height: 20,
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.8,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+} as const;
 
 export const GitHubIcon = (p: P) => (
   <svg {...base} {...p}>
@@ -101,5 +110,40 @@ export const PlayIcon = (p: P) => (
 export const CheckIcon = (p: P) => (
   <svg {...base} {...p}>
     <path d="m5 12 5 5L20 7" />
+  </svg>
+);
+export const HomeIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M3 11 12 4l9 7M5 10v10h5v-6h4v6h5V10" />
+  </svg>
+);
+export const UserIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 21a8 8 0 0 1 16 0" />
+  </svg>
+);
+export const ToolIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M14.5 5.5a4 4 0 0 0 5 5L9 21l-3-3L16.5 7.5a4 4 0 0 1-2-2z" />
+  </svg>
+);
+export const GridIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="3" width="7" height="7" rx="1.5" />
+    <rect x="14" y="3" width="7" height="7" rx="1.5" />
+    <rect x="3" y="14" width="7" height="7" rx="1.5" />
+    <rect x="14" y="14" width="7" height="7" rx="1.5" />
+  </svg>
+);
+export const FileIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6" />
+  </svg>
+);
+export const BriefcaseIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="7" width="18" height="13" rx="2" />
+    <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12h18" />
   </svg>
 );

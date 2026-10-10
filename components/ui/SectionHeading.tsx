@@ -3,9 +3,25 @@
 import { motion } from 'motion/react';
 import { fadeUp, inView, stagger } from '@/lib/motion';
 
-export function SectionHeading({ number, eyebrow, title, lead }: { number: string; eyebrow: string; title: string; lead?: string }) {
+export function SectionHeading({
+  number,
+  eyebrow,
+  title,
+  lead,
+}: {
+  number: string;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+}) {
   return (
-    <motion.header variants={stagger(0.08)} initial="hidden" whileInView="show" viewport={inView} className="mb-8 md:mb-10">
+    <motion.header
+      variants={stagger(0.08)}
+      initial="hidden"
+      whileInView="show"
+      viewport={inView}
+      className="mb-8 md:mb-10"
+    >
       <motion.p variants={fadeUp} className="mono text-xs tracking-[0.2em] uppercase text-accent-2">
         {number} · {eyebrow}
       </motion.p>

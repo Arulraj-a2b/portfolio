@@ -68,7 +68,7 @@ const jsonLd = {
   sameAs: [profile.social.github, profile.social.linkedin],
   worksFor: { '@type': 'Organization', name: profile.currently.org },
   alumniOf: educationList.map((e) => ({ '@type': 'EducationalOrganization', name: e.org })),
-  knowsAbout: skillGroups.flatMap((g) => g.bars.map((b) => b.title)).slice(0, 24),
+  knowsAbout: skillGroups.flatMap((g) => g.core).slice(0, 24),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <SceneRoot />
         <SmoothScroll />
-        <div className="relative z-[1]">{children}</div>
+        <div className="page-shell relative z-[1]">{children}</div>
       </body>
     </html>
   );

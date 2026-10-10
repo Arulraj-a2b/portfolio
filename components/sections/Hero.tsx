@@ -28,12 +28,12 @@ export function Hero() {
     <section id="home" className="relative pt-6 md:pt-10 pb-8 md:pb-12">
       <div className="container-x">
         <motion.div
-          className="glass relative overflow-hidden px-6 py-10 sm:px-8 md:px-12 md:py-14 lg:px-16 lg:py-20 min-h-[calc(100svh-140px)] md:min-h-0 flex items-center"
+          className="glass relative overflow-hidden px-4 py-8 sm:px-8 md:px-12 md:py-14 lg:px-16 lg:py-20 flex items-center"
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <div className="relative grid w-full gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="relative grid w-full gap-5 md:gap-10 lg:grid-cols-12 lg:items-center">
             <motion.div
               variants={stagger(0.06, 0.2)}
               initial="hidden"
@@ -99,7 +99,7 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
             >
-              <div className="relative flex shrink-0 items-center justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[min(460px,34vw)] lg:h-[min(460px,34vw)]">
+              <div className="relative flex shrink-0 items-center justify-center w-[260px] h-[260px] md:w-[400px] md:h-[400px] lg:w-[min(460px,34vw)] lg:h-[min(460px,34vw)]">
                 <div className="absolute inset-0" aria-hidden="true">
                   <HeroOrbit count={8} />
                 </div>
