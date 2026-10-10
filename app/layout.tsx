@@ -7,9 +7,9 @@ import { themeInitScript } from '@/lib/useTheme';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { SceneRoot } from '@/components/scene/SceneRoot';
 
-const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-display', display: 'swap' });
-const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
+const display = Space_Grotesk({ subsets: ['latin', 'latin-ext'], weight: ['500', '600', '700'], variable: '--font-display', display: 'swap' });
+const body = Inter({ subsets: ['latin', 'latin-ext'], variable: '--font-body', display: 'swap' });
+const mono = JetBrains_Mono({ subsets: ['latin', 'latin-ext'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
