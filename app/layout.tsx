@@ -24,7 +24,15 @@ export const metadata: Metadata = {
     siteName: profile.name,
   },
   twitter: { card: 'summary_large_image', title: profile.siteTitle, description: profile.siteDescription },
-  icons: { icon: '/favicon.svg', apple: '/apple-touch-icon.png' },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.webmanifest',
 };
 
 export const viewport: Viewport = {

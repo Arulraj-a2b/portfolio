@@ -39,7 +39,13 @@ export default function OpenGraphImage() {
             border: '1px solid rgba(255,255,255,0.22)',
           }}
         >
-          <div style={{ fontSize: 22, letterSpacing: 6, color: '#a5b4fc', textTransform: 'uppercase' }}>{'Hello, I\'m'}</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+            <svg width="64" height="64" viewBox="0 0 512 512">
+              <rect x="24" y="24" width="464" height="464" rx="112" fill="#1e1b4b" stroke="#818cf8" strokeWidth="16" />
+              <path d="M100 356 L180 172 L260 356 M232 172 L312 356 L392 172" fill="none" stroke="#c7d2fe" strokeWidth="56" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div style={{ fontSize: 22, letterSpacing: 6, color: '#a5b4fc', textTransform: 'uppercase' }}>{'Hello, I\'m'}</div>
+          </div>
           <div style={{ fontSize: 76, fontWeight: 700, marginTop: 12, lineHeight: 1.05 }}>{profile.name}</div>
           <div style={{ fontSize: 32, color: '#c7d2fe', marginTop: 16 }}>Senior Frontend Engineer · Frontend Architect</div>
           <div style={{ fontSize: 22, color: '#94a3b8', marginTop: 28 }}>{`Micro-frontends · Design systems · React Native · ${profile.siteUrl.replace('https://', '')}`}</div>
