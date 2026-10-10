@@ -34,7 +34,7 @@ export function TopBar() {
         <div className="container-x">
           <div className={cn('glass-bar flex h-14 md:h-16 items-center justify-between gap-3 px-4 md:px-5', scrolled && 'shadow-lg')}>
             <a href="#home" className="display flex items-center gap-2.5 text-[17px] font-semibold tracking-tight">
-              <Image src="/logo.svg" alt="" width={30} height={30} priority className="h-[30px] w-[30px]" />
+              <Image src="/logo.png" alt="" width={30} height={30} priority className="h-[30px] w-[30px]" />
               <span>
                 {profile.shortName}
                 <span className="text-accent-2">.</span>

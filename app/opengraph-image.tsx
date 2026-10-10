@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import fs from 'node:fs';
+import path from 'node:path';
 import { profile } from '@/content/profile';
 
 export const dynamic = 'force-static';
@@ -7,6 +9,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default function OpenGraphImage() {
+  const logo = `data:image/png;base64,${fs.readFileSync(path.join(process.cwd(), 'public', 'logo.png')).toString('base64')}`;
   return new ImageResponse(
     (
       <div
@@ -40,10 +43,8 @@ export default function OpenGraphImage() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-            <svg width="64" height="64" viewBox="0 0 512 512">
-              <rect x="24" y="24" width="464" height="464" rx="112" fill="#1e1b4b" stroke="#818cf8" strokeWidth="16" />
-              <path d="M100 356 L180 172 L260 356 M232 172 L312 356 L392 172" fill="none" stroke="#c7d2fe" strokeWidth="56" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo} width={64} height={64} alt="" />
             <div style={{ fontSize: 22, letterSpacing: 6, color: '#a5b4fc', textTransform: 'uppercase' }}>{'Hello, I\'m'}</div>
           </div>
           <div style={{ fontSize: 76, fontWeight: 700, marginTop: 12, lineHeight: 1.05 }}>{profile.name}</div>
