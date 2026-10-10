@@ -64,10 +64,7 @@ export function MobileMenu({ active, onClose }: { active: string; onClose: () =>
         <div className="flex items-center justify-between mb-2">
           <span className="display flex items-center gap-2 text-[16px] font-semibold">
             <Image src="/logo.png" alt="" width={26} height={26} className="h-[26px] w-[26px]" />
-            <span>
-              {profile.shortName}
-              <span className="text-accent-2">.</span>
-            </span>
+            <span>{profile.shortName}</span>
           </span>
           <button type="button" onClick={onClose} aria-label="Close menu" className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--glass-border)]">
             <CloseIcon />
