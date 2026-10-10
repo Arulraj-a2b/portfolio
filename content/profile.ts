@@ -5,7 +5,7 @@
 export const profile = {
   name: 'Arulraj Venkadachalam',
   firstName: 'Arulraj',
-  shortName: 'Arulraj V.',
+  shortName: 'Arulraj V',
   role: 'Senior Software Engineer, Frontend',
   roleShort: 'Senior Frontend Engineer',
   /** Typed in the hero, one after another. */
