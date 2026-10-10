@@ -31,19 +31,19 @@ export function TopBar() {
     <>
       <header className={cn('sticky top-0 z-40 transition-[padding] duration-300', scrolled ? 'pt-2' : 'pt-3 md:pt-4')}>
         <div className="container-x">
-          <div className={cn('glass-bar flex h-14 md:h-16 items-center justify-between px-4 md:px-5', scrolled && 'shadow-lg')}>
+          <div className={cn('glass-bar flex h-14 md:h-16 items-center justify-between gap-3 px-4 md:px-5', scrolled && 'shadow-lg')}>
             <a href="#home" className="display text-[17px] font-semibold tracking-tight">
               {profile.firstName}
               <span className="text-accent-2">.</span>
             </a>
 
-            <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
+            <nav aria-label="Primary" className="hidden md:flex items-center gap-0 lg:gap-1">
               {navItems.map((n) => (
                 <a
                   key={n.id}
                   href={`#${n.id}`}
                   aria-current={active === n.id ? 'page' : undefined}
-                  className={cn('relative px-3 py-2 text-[13.5px] transition-colors duration-300', active === n.id ? 'text-text' : 'text-muted hover:text-text')}
+                  className={cn('relative px-2 lg:px-3 py-2 text-[13px] lg:text-[13.5px] transition-colors duration-300', active === n.id ? 'text-text' : 'text-muted hover:text-text')}
                 >
                   {n.label}
                   {active === n.id && (
@@ -58,7 +58,7 @@ export function TopBar() {
                 {current}
               </span>
               <ThemeToggle />
-              <ButtonLink href="#contact" className="hidden lg:inline-flex">
+              <ButtonLink href="#contact" className="hidden xl:inline-flex">
                 Hire me
               </ButtonLink>
               <button

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import cn from 'classnames';
 import { serviceList } from '@/content/services';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -12,12 +13,12 @@ export function Services() {
     <Section id="services">
       <div className="glass px-6 py-10 sm:px-8 md:px-12 md:py-14">
         <SectionHeading number="06" eyebrow="Services" title="How I can help" />
-        <motion.div variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView} className="grid gap-4 md:grid-cols-3">
+        <motion.div variants={stagger(0.1)} initial="hidden" whileInView="show" viewport={inView} className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {serviceList.map((s, i) => (
-            <motion.article key={s.id} variants={fadeUp} className="service-card glass-2 relative p-6 flex flex-col gap-4">
+            <motion.article key={s.id} variants={fadeUp} className={cn("service-card glass-2 relative p-6 flex flex-col gap-4", i === 2 && "md:col-span-2 xl:col-span-1")}>
               <span className="mono text-[11px] tracking-[0.18em] uppercase text-accent-2">0{i + 1}</span>
               <div>
-                <h3 className="text-[19px] font-semibold">{s.title}</h3>
+                <h3 className="text-[19px] font-semibold text-balance">{s.title}</h3>
                 <p className="text-[13px] text-muted">{s.tagline}</p>
               </div>
               <p className="text-[14.5px] text-muted">{s.description}</p>
