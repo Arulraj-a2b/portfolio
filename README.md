@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Arulraj Venkadachalam — portfolio (v5 "Glass over 3D scene")
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+One-page portfolio: a slow 3D scene of drifting shapes behind frosted-glass cards, dark and light themes, typed roles, animated counters, skill tabs, a filterable work grid with a video lightbox, a scroll-filled résumé timeline and a contact form. Live at https://arulraj1997.netlify.app.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+Next.js 16 (App Router, static export) · React 19 · TypeScript · Tailwind CSS v4 · motion · Lenis · React Three Fiber + drei · react-hook-form + zod · EmailJS · Netlify.
 
-### `yarn start`
+## Commands
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+yarn install
+yarn dev            # http://localhost:3000
+yarn build          # static export to out/
+yarn check:types && yarn lint
+node scripts/make-posters.mjs   # regenerate project posters from the videos (uses Chrome)
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Editing content
 
-### `yarn test`
+Everything visible comes from `content/*.ts`:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `profile.ts` — name, roles typed in the hero, bio, facts, counters, socials, SEO text.
+- `experience.ts` — roles (`workList[0]` is the current one) and education; keep in sync with the CV in `public/`.
+- `projects.ts` — the work grid. `categories` drive the filter chips; media points at `public/*.mp4|.mov` and `public/posters/*.jpg`.
+- `skills.ts` — groups shown as tabs; `bars` get progress bars, `chips` get tags.
+- `services.ts`, `nav.ts`.
 
-### `yarn build`
+Design tokens (both themes) live in `design/tokens.css`. The avatar is `public/avatar-3d.jpg` (and the `-circle` crop); replace both to change it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Environment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Copy `.env.example` to `.env.local` and set the EmailJS ids. Without them the form opens a `mailto:` link instead.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
+```
 
-### `yarn eject`
+## Performance notes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The 3D scene is a lazy chunk that only mounts when WebGL is available and reduced motion is off; otherwise a CSS fallback with the same colours is shown. Phones get 4 shapes at DPR 1, tablets 5, desktops 7. The canvas pauses when the tab is hidden.

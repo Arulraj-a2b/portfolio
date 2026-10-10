@@ -2,29 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
-export function useCountUp(
-  end: number,
-  duration = 2000,
-  startCounting = false
-): number {
-  const [count, setCount] = useState(0);
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
+export function useCountUp(end: number, start: boolean, duration = 1800): number {
+  const [value, setValue] = useState(0);
   useEffect(() => {
-    if (!startCounting) return;
-    let raf: number;
-    const start = performance.now();
-
+    if (!start) return;
+    let raf = 0;
+    const t0 = performance.now();
     const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-      setCount(Math.floor(eased * end));
-      if (progress < 1) raf = requestAnimationFrame(tick);
-      else setCount(end);
+      const p = Math.min(1, (now - t0) / duration);
+      setValue(Math.round(end * easeOutCubic(p)));
+      if (p < 1) raf = requestAnimationFrame(tick);
     };
-
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [end, duration, startCounting]);
-
-  return count;
+  }, [end, start, duration]);
+  return value;
 }
