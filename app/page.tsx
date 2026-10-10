@@ -1,23 +1,23 @@
-import { Navbar } from '@/components/chrome/Navbar';
+import { TopBar } from '@/components/layout/TopBar';
+import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Skills } from '@/components/sections/Skills';
+import { Work } from '@/components/sections/Work';
 import { Experience } from '@/components/sections/Experience';
-import { Projects } from '@/components/sections/Projects';
 import { Services } from '@/components/sections/Services';
 import { Contact } from '@/components/sections/Contact';
-import { Footer } from '@/components/sections/Footer';
 
-export default function HomePage() {
+export default function Page() {
   return (
     <>
-      <Navbar />
-      <main>
+      <TopBar />
+      <main id="main">
         <Hero />
         <About />
         <Skills />
+        <Work />
         <Experience />
-        <Projects />
         <Services />
         <Contact />
       </main>

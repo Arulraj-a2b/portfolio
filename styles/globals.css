@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+@import '../design/tokens.css';
+
+@custom-variant dark (&:where(:root:not([data-theme='light']) *));
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.65;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  transition: background-color var(--dur-ui) var(--ease), color var(--dur-ui) var(--ease);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(140%);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 30px 80px -40px rgba(0, 0, 0, 0.6);
+}
+
+.glass-2 {
+  background: var(--glass-2);
+  border: 1px solid var(--glass-2-border);
+  border-radius: var(--radius);
+}
+
+.container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+@media (min-width: 30rem) { .container-x { padding-inline: 20px; } }
+@media (min-width: 48rem) { .container-x { max-width: 720px; padding-inline: 24px; } }
+@media (min-width: 64rem) { .container-x { max-width: 1008px; } }
+@media (min-width: 80rem) { .container-x { max-width: 1168px; } }
+@media (min-width: 96rem) { .container-x { max-width: 1248px; } }
+
+.section-pad {
+  padding-block: 56px;
+}
+@media (min-width: 30rem) { .section-pad { padding-block: 64px; } }
+@media (min-width: 48rem) { .section-pad { padding-block: 80px; } }
+@media (min-width: 64rem) { .section-pad { padding-block: 96px; } }
+@media (min-width: 80rem) { .section-pad { padding-block: 112px; } }
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.skip-link:focus {
+  transform: none;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 60%, transparent); }
+  70% { box-shadow: 0 0 0 10px transparent; }
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(200%); }
+}
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+.float-y { animation: float-y 6s var(--ease) infinite; }
+.pulse-dot { animation: pulse-dot 2s ease-out infinite; }
+.caret { animation: caret 1s steps(1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Static stand-in for the 3D scene (shown under the canvas, and alone when WebGL/motion is unavailable). */
+.scene-fallback {
+  background:
+    radial-gradient(28% 28% at 12% 18%, color-mix(in srgb, var(--shape-1) 70%, transparent) 0%, transparent 70%),
+    radial-gradient(20% 20% at 82% 14%, color-mix(in srgb, var(--shape-3) 60%, transparent) 0%, transparent 70%),
+    radial-gradient(24% 24% at 86% 72%, color-mix(in srgb, var(--shape-2) 60%, transparent) 0%, transparent 70%),
+    radial-gradient(22% 22% at 18% 84%, color-mix(in srgb, var(--shape-4) 55%, transparent) 0%, transparent 70%),
+    radial-gradient(14% 14% at 52% 40%, color-mix(in srgb, var(--shape-5) 50%, transparent) 0%, transparent 70%),
+    var(--bg);
+  transition: background var(--dur-ui) var(--ease);
+}
+@keyframes scene-in {
+  to { opacity: 1; }
+}
+
+/* Service tiles: animated gradient border on hover. */
+.service-card { position: relative; }
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle, 0deg), var(--accent-2), transparent 40%, var(--accent), transparent 80%, var(--accent-2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--dur-ui) var(--ease);
+  pointer-events: none;
+}
+@property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spin-angle { to { --angle: 360deg; } }
+.service-card:hover::before { opacity: 1; animation: spin-angle 3s linear infinite; }
+
+/* Sticky header needs more opacity than a content card so text underneath does not bleed through. */
+.glass-bar {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-radius: var(--radius-lg);
+}

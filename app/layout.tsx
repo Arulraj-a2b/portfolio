@@ -1,211 +1,67 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
-import { Providers } from './providers';
-import './globals.css';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import '@/styles/globals.css';
+import { profile } from '@/content/profile';
+import { themeInitScript } from '@/lib/useTheme';
+import { SmoothScroll } from '@/components/layout/SmoothScroll';
+import { SceneRoot } from '@/components/scene/SceneRoot';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const SITE_URL = 'https://arulraj1997.netlify.app';
-const SITE_TITLE = 'Arulraj Venkadachalam — Senior Software Engineer, Frontend';
-const SITE_DESCRIPTION =
-  'Portfolio of Arulraj Venkadachalam — Senior Software Engineer (Frontend) crafting scalable web apps and cross-platform mobile apps with React, React Native, TypeScript, and Micro-Frontends.';
-
-// TODO: Replace with real X/Twitter handle when available
-const TWITTER_HANDLE = '@arulraj_a2b';
+const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-display', display: 'swap' });
+const body = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
+const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  applicationName: 'Arulraj Venkadachalam Portfolio',
-  keywords: [
-    'Arulraj Venkadachalam',
-    'Senior Frontend Engineer',
-    'Senior Software Engineer Frontend',
-    'React',
-    'React Native',
-    'Next.js',
-    'TypeScript',
-    'Micro-Frontends',
-    'Module Federation',
-    'Rspack',
-    'Redux Toolkit',
-    'GraphQL',
-    'Tailwind CSS',
-    'Portfolio',
-    'Frontend Architect',
-  ],
-  authors: [{ name: 'Arulraj Venkadachalam', url: SITE_URL }],
-  creator: 'Arulraj Venkadachalam',
-  publisher: 'Arulraj Venkadachalam',
-  category: 'Technology',
-  alternates: {
-    canonical: SITE_URL,
-  },
-  manifest: '/manifest.webmanifest',
+  metadataBase: new URL(profile.siteUrl),
+  title: profile.siteTitle,
+  description: profile.siteDescription,
+  alternates: { canonical: '/' },
   openGraph: {
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    url: SITE_URL,
-    siteName: 'Arulraj Venkadachalam',
-    locale: 'en_US',
     type: 'website',
+    url: profile.siteUrl,
+    title: profile.siteTitle,
+    description: profile.siteDescription,
+    siteName: profile.name,
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    creator: TWITTER_HANDLE,
-    site: TWITTER_HANDLE,
-  },
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
-  verification: {
-    // TODO: Add Google Search Console token when verifying
-    // google: 'REPLACE_WITH_SEARCH_CONSOLE_TOKEN',
-  },
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  twitter: { card: 'summary_large_image', title: profile.siteTitle, description: profile.siteDescription },
+  icons: { icon: '/favicon.svg', apple: '/apple-touch-icon.png' },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0a0b10' },
-    { media: '(prefers-color-scheme: light)', color: '#3b82f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a12' },
+    { media: '(prefers-color-scheme: light)', color: '#eef0fa' },
   ],
-  colorScheme: 'dark light',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
 };
 
-// TODO: Replace/Add social URLs when available
-const SOCIAL_URLS = {
-  github: 'https://github.com/Arulraj-a2b',
-  linkedin: 'https://www.linkedin.com/in/abofficial1997',
-  // twitter: 'https://twitter.com/arulraj_a2b',
-  // instagram: 'https://www.instagram.com/arulraj_v/',
-};
-
-const personJsonLd = {
+const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Arulraj Venkadachalam',
-  givenName: 'Arulraj',
-  familyName: 'Venkadachalam',
-  url: SITE_URL,
-  image: `${SITE_URL}/profile.png`,
-  jobTitle: 'Senior Software Engineer, Frontend',
-  description: SITE_DESCRIPTION,
-  worksFor: {
-    '@type': 'Organization',
-    name: 'The Reward Store',
-    url: 'https://www.therewardstore.com',
-  },
-  alumniOf: [
-    {
-      '@type': 'CollegeOrUniversity',
-      name: 'Thiagarajar College of Engineering',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Madurai',
-        addressCountry: 'India',
-      },
-    },
-    {
-      '@type': 'EducationalOrganization',
-      name: 'Thiagarajar Polytechnic College',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Salem',
-        addressCountry: 'India',
-      },
-    },
-  ],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Salem',
-    addressRegion: 'Tamil Nadu',
-    addressCountry: 'India',
-  },
-  email: 'mailto:abofficial1997@gmail.com',
-  telephone: '+91-81898-38485',
-  sameAs: Object.values(SOCIAL_URLS),
-  knowsAbout: [
-    'React',
-    'React Native',
-    'Next.js',
-    'TypeScript',
-    'JavaScript',
-    'Micro-Frontends',
-    'Module Federation',
-    'Rspack',
-    'Redux Toolkit',
-    'GraphQL',
-    'Tailwind CSS',
-    'Storybook',
-    'Node.js',
-  ],
-};
-
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Arulraj Venkadachalam — Portfolio',
-  alternateName: 'Arulraj V Portfolio',
-  url: SITE_URL,
-  inLanguage: 'en-US',
-  description: SITE_DESCRIPTION,
-  author: {
-    '@type': 'Person',
-    name: 'Arulraj Venkadachalam',
-    url: SITE_URL,
-  },
-  publisher: {
-    '@type': 'Person',
-    name: 'Arulraj Venkadachalam',
-  },
+  name: profile.name,
+  jobTitle: profile.role,
+  url: profile.siteUrl,
+  email: profile.social.email,
+  telephone: profile.phoneRaw,
+  address: { '@type': 'PostalAddress', addressLocality: profile.address.city, addressRegion: profile.address.state, addressCountry: profile.address.countryShort },
+  sameAs: [profile.social.github, profile.social.linkedin],
+  worksFor: { '@type': 'Organization', name: profile.currently.org },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
-        <Providers>{children}</Providers>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <SceneRoot />
+        <SmoothScroll />
+        <div className="relative z-[1]">{children}</div>
       </body>
     </html>
   );

@@ -1,134 +1,89 @@
 'use client';
 
-import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import styles from './Hero.module.css';
-import { SplitText } from '@/components/motion/SplitText';
-import { MagneticButton } from '@/components/motion/MagneticButton';
+import { motion } from 'motion/react';
 import { profile } from '@/content/profile';
+import { ButtonLink } from '@/components/ui/Button';
+import { IconLink } from '@/components/ui/IconLink';
+import { TypedText } from '@/components/ui/TypedText';
+import { AvatarOrb } from '@/components/avatar/AvatarOrb';
+import { ChevronDownIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from '@/components/ui/Icons';
+import { EASE, fadeUp, stagger } from '@/lib/motion';
+
+const words = profile.name.split(' ');
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
   return (
-    <section id="hero" ref={ref} className={styles.hero}>
-      <div className={styles.grid} aria-hidden />
-      <div className={styles.glow} aria-hidden />
-
-      <motion.div className={styles.inner} style={{ y, opacity }}>
+    <section id="home" className="relative pt-6 md:pt-10 pb-8 md:pb-12">
+      <div className="container-x">
         <motion.div
-          className={styles.kicker}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          className="glass relative overflow-hidden px-6 py-10 sm:px-8 md:px-12 md:py-14 lg:px-16 lg:py-20 min-h-[calc(100svh-140px)] md:min-h-0 flex items-center"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: EASE }}
         >
-          <span className={styles.kickerDot} />
-          <span>Open to senior frontend roles — {new Date().getFullYear()}</span>
-        </motion.div>
+          <span aria-hidden="true" className="mono absolute right-6 top-4 text-[72px] md:text-[120px] lg:text-[160px] leading-none font-medium text-text/[0.06] select-none">
+            01
+          </span>
 
-        <h1 className={styles.headline}>
-          <SplitText animateOnMount className={styles.line}>
-            I build interfaces
-          </SplitText>
-          <SplitText animateOnMount delay={0.3} className={styles.lineAccent}>
-            that feel alive.
-          </SplitText>
-        </h1>
+          <div className="relative grid w-full gap-10 lg:grid-cols-12 lg:items-center">
+            <motion.div variants={stagger(0.06, 0.2)} initial="hidden" animate="show" className="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left">
+              <motion.p variants={fadeUp} className="mono text-[12px] md:text-[13px] tracking-[0.2em] uppercase text-accent-2">
+                Hello, I&apos;m
+              </motion.p>
+              <h1 className="mt-3 text-[clamp(40px,10vw,56px)] md:text-[64px] lg:text-[clamp(64px,6vw,84px)] font-bold">
+                {words.map((w, i) => (
+                  <motion.span key={i} variants={fadeUp} className="inline-block mr-[0.25em] last:mr-0">
+                    {w}
+                  </motion.span>
+                ))}
+              </h1>
+              <motion.p variants={fadeUp} className="mt-4 text-[18px] md:text-[22px] lg:text-[26px] text-muted min-h-[1.6em]">
+                <TypedText phrases={profile.roles} />
+              </motion.p>
+              <motion.p variants={fadeUp} className="mt-5 max-w-[56ch] mx-auto lg:mx-0 text-[15px] md:text-[17px] text-muted">
+                {profile.tagline}
+              </motion.p>
+              <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <ButtonLink href="#contact" size="lg">
+                  Hire me
+                </ButtonLink>
+                <ButtonLink href={profile.resumeUrl} variant="outline" size="lg" download>
+                  <DownloadIcon /> Download CV
+                </ButtonLink>
+              </motion.div>
+              <motion.div variants={fadeUp} className="mt-8 flex gap-2 justify-center lg:justify-start">
+                <IconLink href={profile.social.github} label="GitHub">
+                  <GitHubIcon />
+                </IconLink>
+                <IconLink href={profile.social.linkedin} label="LinkedIn">
+                  <LinkedInIcon />
+                </IconLink>
+                <IconLink href={profile.social.whatsapp} label="WhatsApp">
+                  <WhatsAppIcon />
+                </IconLink>
+                <IconLink href={`mailto:${profile.social.email}`} label="Email">
+                  <MailIcon />
+                </IconLink>
+              </motion.div>
+            </motion.div>
 
-        <motion.p
-          className={styles.tagline}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-        >
-          <span className={styles.taglineName}>{profile.firstName}</span> · {profile.role} —
-          building production micro-frontend platforms with Module Federation, React Native apps,
-          and reusable design systems.
-        </motion.p>
-
-        <motion.div
-          className={styles.ctas}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.15 }}
-        >
-          <MagneticButton href="#contact" label="Hire me">
-            Hire me
-          </MagneticButton>
-          <MagneticButton
-            href={profile.resumeUrl}
-            label="Download CV"
-            variant="ghost"
-            download
-          >
-            Download CV
-          </MagneticButton>
-        </motion.div>
-
-        <motion.div
-          className={styles.meta}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
-        >
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Based in</span>
-            <span className={styles.metaValue}>{profile.address.city}, {profile.address.country}</span>
+            <motion.div
+              className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
+            >
+              <AvatarOrb size={140} className="md:hidden" />
+              <AvatarOrb size={200} className="hidden md:block lg:hidden" />
+              <AvatarOrb size={280} className="hidden lg:block" />
+            </motion.div>
           </div>
-          <div className={styles.metaDivider} />
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Currently</span>
-            <span className={styles.metaValue}>The Reward Store</span>
-          </div>
-          <div className={styles.metaDivider} />
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Stack</span>
-            <span className={styles.metaValue}>React · React Native · TypeScript · Micro-Frontends</span>
-          </div>
-        </motion.div>
-      </motion.div>
 
-      <motion.div
-        className={styles.portrait}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, delay: 0.4, ease: 'easeOut' }}
-      >
-        <motion.div
-          className={styles.portraitInner}
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <Image
-            src={profile.avatarUrl}
-            alt={profile.name}
-            width={520}
-            height={620}
-            priority
-            className={styles.portraitImg}
-          />
-          <div className={styles.ring} aria-hidden />
-          <div className={styles.ringOuter} aria-hidden />
+          <a href="#about" aria-label="Scroll to about" className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:inline-flex text-muted hover:text-text animate-bounce">
+            <ChevronDownIcon />
+          </a>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className={styles.scroll}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.6 }}
-      >
-        <span className={styles.scrollText}>Scroll</span>
-        <motion.span
-          className={styles.scrollLine}
-          animate={{ scaleY: [0.3, 1, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      </motion.div>
+      </div>
     </section>
   );
 }

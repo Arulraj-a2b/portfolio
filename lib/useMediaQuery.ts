@@ -2,21 +2,19 @@
 
 import { useEffect, useState } from 'react';
 
-export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false);
-
+export function useMediaQuery(query: string, initial = false): boolean {
+  const [matches, setMatches] = useState(initial);
   useEffect(() => {
-    const mql = window.matchMedia(query);
-    const onChange = () => setMatches(mql.matches);
-    onChange();
-    mql.addEventListener('change', onChange);
-    return () => mql.removeEventListener('change', onChange);
+    const mq = window.matchMedia(query);
+    const update = () => setMatches(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
   }, [query]);
-
   return matches;
 }
 
-export const useIsDesktop = () => useMediaQuery('(min-width: 768px)');
-export const useIsMobile = () => useMediaQuery('(max-width: 767px)');
-export const usePrefersReducedMotion = () =>
-  useMediaQuery('(prefers-reduced-motion: reduce)');
+export const useReducedMotion = () => useMediaQuery('(prefers-reduced-motion: reduce)');
+export const usePointerFine = () => useMediaQuery('(pointer: fine)');
+export const useIsDesktop = () => useMediaQuery('(min-width: 64rem)');
+export const useIsTablet = () => useMediaQuery('(min-width: 48rem)');
