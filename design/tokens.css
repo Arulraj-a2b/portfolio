@@ -25,6 +25,8 @@
   --radius: 16px;
   --radius-lg: 24px;
   --blur: 26px;
+  --glass-filter: blur(26px) saturate(140%);
+  --bar-filter: blur(20px) saturate(140%);
   color-scheme: dark;
 }
 

@@ -27,10 +27,14 @@ export function Skills() {
     };
     update();
     el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
     const ro = new ResizeObserver(update);
     ro.observe(el);
+    Array.from(el.children).forEach((c) => ro.observe(c));
+    document.fonts?.ready.then(update);
     return () => {
       el.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
       ro.disconnect();
     };
   }, []);
@@ -58,17 +62,17 @@ export function Skills() {
           </select>
         </label>
 
-        <div className="relative hidden sm:block">
-          {canLeft && (
-            <button type="button" onClick={() => nudge(-1)} aria-label="Scroll tabs left" className="glass-bar absolute left-0 top-1/2 z-10 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full text-text">
-              <ChevronDownIcon className="rotate-90" />
-            </button>
-          )}
+        <div className="hidden sm:flex items-center gap-3">
           <div
             ref={list}
             role="tablist"
             aria-label="Skill groups"
-            className={cn('flex gap-1 overflow-x-auto pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden transition-[padding]', canLeft && 'pl-11', canRight && 'pr-11')}
+            className={cn(
+              'flex min-w-0 flex-1 gap-1 overflow-x-auto pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+              canLeft && canRight && '[mask-image:linear-gradient(90deg,transparent,#000_28px,#000_calc(100%-28px),transparent)]',
+              canLeft && !canRight && '[mask-image:linear-gradient(90deg,transparent,#000_28px)]',
+              !canLeft && canRight && '[mask-image:linear-gradient(90deg,#000_calc(100%-28px),transparent)]',
+            )}
           >
             {skillGroups.map((g) => (
               <button
@@ -88,10 +92,27 @@ export function Skills() {
               </button>
             ))}
           </div>
-          {canRight && (
-            <button type="button" onClick={() => nudge(1)} aria-label="Scroll tabs right" className="glass-bar absolute right-0 top-1/2 z-10 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full text-text">
-              <ChevronDownIcon className="-rotate-90" />
-            </button>
+          {(canLeft || canRight) && (
+            <div className="flex shrink-0 gap-1.5 pb-2" aria-hidden={!canLeft && !canRight}>
+              <button
+                type="button"
+                onClick={() => nudge(-1)}
+                disabled={!canLeft}
+                aria-label="Previous skill groups"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--glass-border)] text-muted transition-colors hover:text-text hover:bg-[var(--glass-2)] disabled:opacity-30 disabled:hover:bg-transparent"
+              >
+                <ChevronDownIcon className="rotate-90" width={18} height={18} />
+              </button>
+              <button
+                type="button"
+                onClick={() => nudge(1)}
+                disabled={!canRight}
+                aria-label="Next skill groups"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--glass-border)] text-muted transition-colors hover:text-text hover:bg-[var(--glass-2)] disabled:opacity-30 disabled:hover:bg-transparent"
+              >
+                <ChevronDownIcon className="-rotate-90" width={18} height={18} />
+              </button>
+            </div>
           )}
         </div>
 
