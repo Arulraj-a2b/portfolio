@@ -13,7 +13,7 @@ export function Experience() {
   return (
     <Section id="experience">
       <div className="glass px-6 py-10 sm:px-8 md:px-12 md:py-14">
-        <SectionHeading number="05" eyebrow="Résumé" title="Where I've worked" />
+        <SectionHeading number="05" eyebrow="Resume" title="Where I've worked" />
         <div className="grid gap-5 lg:grid-cols-12 lg:gap-6 items-start">
           <Timeline title="Work" className="lg:col-span-7">
             {workList.map((r) => (
